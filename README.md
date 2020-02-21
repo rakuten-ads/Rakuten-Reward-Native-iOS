@@ -20,7 +20,7 @@
 
 | Version        | Minimum OS           | Compile OS
 --- | --- | ---
-|0.1.0|9|13|
+|1.0.0|9|13|
 
 <div id="import_sdk"></div>
 
