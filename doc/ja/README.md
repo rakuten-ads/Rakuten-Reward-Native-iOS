@@ -5,14 +5,14 @@
 ![iOS](http://img.shields.io/badge/support-iOS_9+-blue.svg?style=flat)
 ![Xcode](http://img.shields.io/badge/IDE-Xcode_11+-blue.svg?style=flat)
 
-# Rakuten Reward SDK Native
+# Rakuten Reward SDK ネイティブ
 
 ---
-# Get Started
+# はじめに
 
 <div id="prerequisites"></div>
 
-## Prerequisites
+## 前提
 
 * Use Xcode X or higher
 * Target iOS SDK level 9 or higher
@@ -24,13 +24,13 @@
 
 <div id="import_sdk"></div>
 
-## Import the Reward SDK
-### Import Framework
-Import  Framework (RakutenRewardNativeSDK-{version}.framework) into your project  
+## Reward SDKをインポートする
+### Framework をインポートする
+Framework (RakutenRewardNativeSDK-{version}.framework)　をプロジェクトにインポートする  
 
-Please choose "Embed and sign" and disable bitcode
+"Embed and sign" を選択し、bitcodeを無効にする
 
-For using traditional universal framework .framework , please include the following script at the end of Build phase 
+ユニバーサルフレームワークを仕様する場合 .framework , は以下のコードを"Build phase" に加えます(実機用のipaを作成する際にユニバーサルフレームワークからはシミュレーター用のアーキテクトビルドを取り除くため) 
 
 ```
 # This script loops through the SDK embedded in the application and removes simulator's architectures.
@@ -77,8 +77,8 @@ break
 done
 ```
 
-### Import XCFramework
-Import  Framework (RakutenRewardNativeSDK-{version}.xcframework) into your project 
+### XCFrameworkをインポートする場合
+Framework (RakutenRewardNativeSDK-{version}.xcframework) をプロジェクトにインポートします
 
 ### Use Cocoapods
 ```
@@ -93,13 +93,13 @@ end
 
 
 ## Usage
-[Basic Guide](./doc/basic/README.md)  
-[Advanced Guide](./doc/advanced/README.md)
+[基本ガイド](./basic/README.md)  
+[応用ガイド](./advanced/README.md)
 
 
 ---
 LANGUAGE :
-> [![jp](./doc/lang/ja.png)](./doc/ja/README.md)
+> [![en](../lang/en.png)](../../README.md)
 
 
 
