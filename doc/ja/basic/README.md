@@ -24,6 +24,9 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
 
 このSDKを利用するにはID SDKの利用が必須です(2020/01)
 
+このSDKではUser SDKでのログインもサポートしております(2020/06)。  
+詳細に関しましては、SDKの担当にお問い合わせください。
+
 ---
 # ミッションの達成 
 ミッションを達成するには、開発者はアクションAPIをコールします
@@ -60,15 +63,15 @@ actionCode は開発者ポータルより取得します
 
 こちらがSDKポータルのイメージになります
 
-![Portal1](Portal1.PNG)
+![Portal1](Portal1.png)
 
-![Portal2](Portal2.PNG)
+![Portal2](Portal2.png)
 
-![Portal3](Portal3.PNG)
+![Portal3](Portal3.png)
 
-![Portal4](Portal4.PNG)
+![Portal4](Portal4.png)
 
-![Portal5](Portal5.PNG)
+![Portal5](Portal5.png)
 
 ---
 言語 :

@@ -25,6 +25,9 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
 3. Set access token to Reward SDK
 4. Initialize Reward SDK
 
+We have options to use User SDK in Rakuten(2020/06), more details  
+Please ask SDK team.
+
 ---
 # Mission Achievement 
 To achieve mission, developers need to call post action API.  
@@ -59,15 +62,15 @@ We provide User Portal UI for developers. To call Open SDK Portal API, developer
 
 This is UI Image
 
-![Portal1](Portal1.PNG)
+![Portal1](Portal1.png)
 
-![Portal2](Portal2.PNG)
+![Portal2](Portal2.png)
 
-![Portal3](Portal3.PNG)
+![Portal3](Portal3.png)
 
-![Portal4](Portal4.PNG)
+![Portal4](Portal4.png)
 
-![Portal5](Portal5.PNG)
+![Portal5](Portal5.png)
 
 ---
 LANGUAGE :

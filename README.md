@@ -1,7 +1,7 @@
 <div id="top"></div>
 
 [![Platform](http://img.shields.io/badge/platform-iOS-blue.svg?style=flat)](https://developer.apple.com/ios/)
-[![language](https://camo.githubusercontent.com/c26adc3630b1c213a4b3372979a3b805f7342746/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d4f626a6563746976652d2d432d626c75652e737667)](https://developer.apple.com/documentation)
+[![language](https://camo.githubusercontent.com/0cd4410f8f72568f15d2b810d615624dfed74928/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d7377696674253230352d6634383034312e7376673f7374796c653d666c6174)](https://developer.apple.com/swift/)
 ![iOS](http://img.shields.io/badge/support-iOS_9+-blue.svg?style=flat)
 ![Xcode](http://img.shields.io/badge/IDE-Xcode_11+-blue.svg?style=flat)
 
@@ -20,7 +20,9 @@
 
 | Version        | Minimum OS           | Compile OS
 --- | --- | ---
+|0.1.0|9|13|
 |1.0.0|9|13|
+|1.1.0|9|13|
 
 <div id="import_sdk"></div>
 
@@ -86,7 +88,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-RewardSDK-Native-iOS.git'
 
 target '' do
-pod 'RakutenRewardNativeSDK', '~> 1.0.0'
+pod 'RakutenRewardNativeSDK', '~> 1.1.0'
 end
 
 ```
