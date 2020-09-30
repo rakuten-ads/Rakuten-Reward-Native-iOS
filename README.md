@@ -14,15 +14,16 @@
 
 ## Prerequisites
 
-* Use Xcode X or higher
+* Use Xcode 11 or higher
 * Target iOS SDK level 9 or higher
-* This SDK works with Rakuten ID SDK
+* Use Rakuten IDSDK or Use built-in Login
 
 | Version        | Minimum OS           | Compile OS
 --- | --- | ---
 |0.1.0|9|13|
 |1.0.0|9|13|
 |1.1.0|9|13|
+|2.0.0|9|14|
 
 <div id="import_sdk"></div>
 
@@ -103,5 +104,6 @@ end
 LANGUAGE :
 > [![jp](./doc/lang/ja.png)](./doc/ja/README.md)
 
-
+OPEN SOURCE:
+[KeychainSwiftWrapper](https://github.com/jrendel/SwiftKeychainWrapper)
 

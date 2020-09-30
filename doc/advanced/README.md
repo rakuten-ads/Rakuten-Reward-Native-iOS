@@ -7,16 +7,20 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 
 | API Name | Description | Example
 | --- | --- | ---
-| Get version |  Get Rakuten Reward SDK Version | RakutenReward.shared.getVersion()
-| Open SDK Portal | For detail, please check sample application implementation | RakutenReward.shared.openSDKPortal(completionHandler: {r in})
-| Open Help Page | Open Reward SDK Help page with mini browser | RakutenReward.shared.openSupportPage(.Help)
-| Open Terms and Condition Page | Open Reward SDK Terms and Conditions Page with mini browser | RakutenReward.shared.openSupportPage(.TermsCondition)
-| Open Privacy Policy Page | Open Reward SDK Privacy Policy Page with mini browser | RakutenReward.shared.openSupportPage(.PrivacyPoilicy)
-| Get Missions | Get missions | RakutenReward.shared.getMissionListWithProgress(completion: { r in })
-| Get Point history | Get 3 month user's point history | RakutenReward.shared.getPointHistory(completion: { r in })
-| Log Action | Post user action | RakutenReward.shared.logAction(actionCode: "xxxxxx", completionHandler: { r in})
-| Get Unclaimed Items | Get Unclaim item list | RakutenReward.shared.getUnclaimedItems({ completion: { r in })
-| Get Dynamic API last failed info | Get last failed API info(paremeter) | RakutenReward.shared.retryLastFailedFunctionByNewToken
+| Get version |  Get Rakuten Reward SDK Version | `RakutenReward.shared.getVersion()`
+| Open SDK Portal | For detail, please check sample application implementation | `RakutenReward.shared.openSDKPortal(completionHandler: {r in})`
+| Open Help Page | Open Reward SDK Help page with mini browser | `RakutenReward.shared.openSupportPage(.Help)`
+| Open Terms and Condition Page | Open Reward SDK Terms and Conditions Page with mini browser | `RakutenReward.shared.openSupportPage(.TermsCondition)`
+| Open Privacy Policy Page | Open Reward SDK Privacy Policy Page with mini browser | `RakutenReward.shared.openSupportPage(.PrivacyPoilicy)`
+| Get Missions | Get missions | `RakutenReward.shared.getMissionListWithProgress(completion: { r in })`
+| Get Point history | Get 3 month user's point history | `RakutenReward.shared.getPointHistory(completion: { r in })`
+| Log Action | Post user action | `RakutenReward.shared.logAction(actionCode: "xxxxxx", completionHandler: { r in})`
+| Get Unclaimed Items | Get Unclaim item list | `RakutenReward.shared.getUnclaimedItems({ completion: { r in })`
+| Get Dynamic API last failed info | Get last failed API info(paremeter) | `RakutenReward.shared.retryLastFailedFunctionByNewToken`
+| Get Point & Rank | Load latest point & rank from server | `RakutenReward.shared.loadMemberInfoRank({_ in })` |
+| Log In | Open Log In page | `RakutenReward.shared.openLoginPage({_ in })` |
+| Check Log In | Check if user is logged in with internal system (token not expired) | `RakutenReward.shared.isLogin()` |
+| Log Out | Log out from Rakuten Auth, you might force removing session even if server sync up failed | `RakutenReward.shared.logout({_ in }, forceRemoveToken: true)` |
 
 ## RakutenRewardConfiguration
 RakutenRewardConfiguration is user setting class.
@@ -52,15 +56,17 @@ SDKUser : User class
 | signIn | Whether the user is singin or not
 | unclaimedMissionCount | Number of unclaim mission
 | point | Reward SDK Point
+| pointRank | `MemberPointRank`; member points and rank, persistent & loaded separately
 
 ### RakutenRewardStatus
-RakutenRewardStatus is Reward SDK staus.
+RakutenRewardStatus is Reward SDK staus  
+
 | Parameter | Description
 | --- | ---
 | .Online | Finished SDK initialization(Update User info correctly)
 | .Offline | Not finished SDK initialization or initialization failed
 | .AppcodeInvalid | Wrong Application Code
-| .TokenExpired | Expired Token
+| .TokenExpired | Expired Token. If `tokenType` is `RakutenAuth`, `.TokenExpired` means user should log in again
 
 #### Checking the status
 ```swift
@@ -123,14 +129,18 @@ RewardSDKSessionError
 | userNotFound | Failed startSession
 | appcodeInvalid | SDK status is APPCODEINVALID
 | bundleError | Parameters are wrong
+| loginRequired | (internal log-in only) start session or use API before log in 
+| cannotRetrieveSessionToken | (internal log-in only) failed to get token to use APIs, please start session again
 
-RPGRequestError
+RPGRequestError  
+
 | Name | Description
 | --- | ---
 | tokenExpire | Access token is expired
 | serverError | Cannot connect
+  
+SDKError  
 
-SDKError
 | Name | Description
 | --- | ---
 | SessionNotInitialized | SDK is not initialized

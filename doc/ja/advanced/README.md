@@ -5,7 +5,7 @@
 ## RakutenReward
 RakutenReward クラスはリワードSDKのメインの設定や機能を提供しています　  
 
-| API Name | Description | Example
+| API 名 |  説明 | 例
 | --- | --- | ---
 | バージョンの取得 |  リワードSDKのバージョンを取得する | RakutenReward.shared.getVersion()
 | SDK ポータルを開く | SDK ポータルを開く | RakutenReward.shared.openPortal(completionHandler : nil)
@@ -17,11 +17,16 @@ RakutenReward クラスはリワードSDKのメインの設定や機能を提供
 | アクションを送信する | ミッションを達成するためにアクションを送信する | RakutenReward.shared.logAction(actionCode: "xxxxxx", completionHandler: { r in}))
 | 未獲得ミッションを取得する | 未獲得ミッションリストを取得する | RakutenReward.shared.getUnclaimedItems({ completion: { r in })
 | 最後にエラーの発生したダイナミックAPIの情報 | 最後にエラーの発生したダイナミックAPIの情報を取得する | RakutenReward.shared.retryLastFailedFunctionByNewToken
+| 楽天ポイントと会員ランクを取得 | 楽天ポイントと会員ランクを取得する | `RakutenReward.shared.loadMemberInfoRank({_ in })` |
+| ログイン | ログインページを表示する | `RakutenReward.shared.openLoginPage({_ in })` |
+| 楽天ログインを確認する | 楽天ログインの状態を確認する | `RakutenReward.shared.isLogin()` |
+| ログアウト | 楽天よりログアウトする | `RakutenReward.shared.logout({_ in }, forceRemoveToken: true)` |
+
 
 ## RakutenRewardConfiguration
 RakutenRewardConfiguration はユーザー設定を管理するクラスです
 
-| API Name | Description | Example 
+| API 名 |  説明 | 例 
 | --- | --- | ---
 | オプトアウトの取得 | オプトアウトの状態を取得する <br>true : オプトアウト (リワードSDKは動作しません) | RakutenRewardConfiguration.isUserOptingOut
 | オプトアウトの設定 | オプトアウトの状態を設定する | RakutenRewardConfiguration.isUserOptingOut = false
@@ -55,7 +60,8 @@ SDKUser ユーザデータのクラスです
 | point | リワードサービスで取得したポイント
 
 ### RakutenRewardStatus
-RakutenRewardStatus は Reward SDKの 状態を表します
+RakutenRewardStatus は Reward SDKの 状態を表します  
+
 | パラメータ名 | 説明
 | --- | ---
 | .Online | SDKの初期化が完了 SDKのメンバー情報が正しく更新された(ポイントおよび未獲得ミッション数)
@@ -120,19 +126,21 @@ RakutenConfiguration.isDebug = true
 ## API エラー　
 RewardSDKSessionError
 
-|  名前 | 説明
+| 名前 | 説明
 | --- | --- 
 | userNotFound | startSession に失敗
 | appcodeInvalid | SDK の状態が APPCODEINVALID
 | bundleError | パラメータが間違っている
 
-RPGRequestError
+RPGRequestError  
+
 | 名前 | 説明
 | --- | ---
 | tokenExpire | Access token is expired
 | serverError | Cannot connect
 
-SDKError
+SDKError  
+
 | 名前 | 説明
 | --- | ---
 | SessionNotInitialized | SDK is not initialized

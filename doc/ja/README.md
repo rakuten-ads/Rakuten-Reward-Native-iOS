@@ -14,15 +14,17 @@
 
 ## 前提
 
-* Use Xcode X or higher
-* Target iOS SDK level 9 or higher
-* This SDK works with Rakuten ID SDK
+* Use Xcode 11 以上
+* iOS SDK 9　以上
+* 楽天 IDSDK もしくは SDKが用意するログインを使用する
+
 
 | Version        | Minimum OS           | Compile OS
 --- | --- | ---
 |0.1.0|9|13|
 |1.0.0|9|13|
 |1.1.0|9|13|
+|2.0.0|9|14|
 
 <div id="import_sdk"></div>
 

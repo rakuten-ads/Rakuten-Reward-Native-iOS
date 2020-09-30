@@ -19,14 +19,63 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
 | appCode | Application Key (This is from Rakuten Reward Developer Portal) 
 | token | Access token to access Reward SDK API-C API |
 
-## Initialization Flow with IDSDK
-1. Login with ID SDK
-2. Get Access token from CAT API 
-3. Set access token to Reward SDK
-4. Initialize Reward SDK
+## Initialization flow with Built-in Login service
+1. Check if user has logged in to Reward SDK, 
+2. if not open log in page
+3. Start session after log in 
 
-We have options to use User SDK in Rakuten(2020/06), more details  
-Please ask SDK team.
+```swift
+if RakutenReward.shared.isLogin() {
+  RakutenReward.shared.startSession(appCode: <#appcode#>, completion:<#callback#>) 
+} else {
+  RakutenReward.shared.openLoginPage({_ in 
+    // starting session ...
+  }) 
+}
+```
+---
+
+# Log In
+
+```swift
+RakutenReward.shared.openLoginPage({result in 
+    switch result:
+    case .dismissByUser: // resume in another time
+    case .LogInCompleted: // starting session
+    case .failToShowLoginPage: // presenting problem
+  }) 
+```
+
+![Login](Login.PNG)
+
+# Log out
+
+Logging user out: 
+
+```swift
+RakutenReward.shared.logout({ _ in
+            }, forceRemoveToken: true)
+RakutenReward.shared.logout({ result in
+  switch result {
+    case .success: // ending session
+    case .failure: // ask user to log out again, display errors
+  }
+            })
+```
+
+# Getting user information
+
+### Get user's full name
+
+```swift
+RakutenReward.shared.user?.getName()
+```
+
+### Get user Current point and rank: 
+
+```swift
+RakutenReward.shared.user?.currentPointRank()
+```
 
 ---
 # Mission Achievement 

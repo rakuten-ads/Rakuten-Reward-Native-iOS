@@ -1,7 +1,7 @@
 [TOP](../README.md#top)　>基本ガイド
 
 ---
-# Initialize SDK
+# SDKを初期化する
 楽天リワードSDKを利用するにははじめに初期化が必要です(SDKユーザーの基本データを取得します) SDKの機能を利用するのにはRakutenRewardクラスのメソッドを利用します
 
 ```swift
@@ -16,16 +16,63 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
 | appCode | アプリケーションキー (楽天リワードSDKの開発者ポータルより取得)
 | token | Access token to access Reward SDK API-C API |
 
-## IDSDKを使う
-1. ID SDKを使ってログインをする
-2. CATよりアクセストークンを取得する 
-3. リワードSDKに上記のアクセストークンをセットする
-4. SDK初期化する
+# ログインページを表示し、SDKを初期化する
+1. ログインの状態をチェックする, 
+2. ログインページを表示する
+3. SDKを初期化する
 
-このSDKを利用するにはID SDKの利用が必須です(2020/01)
+```swift
+if RakutenReward.shared.isLogin() {
+  RakutenReward.shared.startSession(appCode: <#appcode#>, completion:<#callback#>) 
+} else {
+  RakutenReward.shared.openLoginPage({_ in 
+    // SDKセッションを開始
+  }) 
+}
+```
+---
 
-このSDKではUser SDKでのログインもサポートしております(2020/06)。  
-詳細に関しましては、SDKの担当にお問い合わせください。
+# ログイン
+
+```swift
+RakutenReward.shared.openLoginPage({result in 
+    switch result:
+    case .dismissByUser: // ユーザーが閉じた
+    case .LogInCompleted: // ログイン完了
+    case .failToShowLoginPage: // ログイン失敗
+  }) 
+```
+
+![Login](Login.PNG)
+
+# ログアウト
+
+Logging user out: 
+
+```swift
+RakutenReward.shared.logout({ _ in
+            }, forceRemoveToken: true)
+RakutenReward.shared.logout({ result in
+  switch result {
+    case .success: // ログアウト完了　　
+    case .failure: // ログアウト失敗
+  }
+            })
+```
+
+## 楽天メンバー情報を取得する　
+
+### ユーザーの名前を取得する
+
+```swift
+RakutenReward.shared.user?.getName()
+```
+
+### ユーザーの会員ランク楽天ポイントを取得する
+
+```swift
+RakutenReward.shared.user?.currentPointRank()
+```
 
 ---
 # ミッションの達成 
@@ -63,15 +110,15 @@ actionCode は開発者ポータルより取得します
 
 こちらがSDKポータルのイメージになります
 
-![Portal1](Portal1.png)
+![Portal1](Portal1.PNG)
 
-![Portal2](Portal2.png)
+![Portal2](Portal2.PNG)
 
-![Portal3](Portal3.png)
+![Portal3](Portal3.PNG)
 
-![Portal4](Portal4.png)
+![Portal4](Portal4.PNG)
 
-![Portal5](Portal5.png)
+![Portal5](Portal5.PNG)
 
 ---
 言語 :
