@@ -9,5 +9,7 @@ Pod::Spec.new do |s|
     s.platform          = :ios
     s.source            = { :http => 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS/releases/download/2.0.1-beta5/RakutenRewardNativeSDK-2.0.1-beta5.xcframework.zip' }
     s.ios.deployment_target = '9.0'
+    s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+    s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
     s.ios.vendored_frameworks = 'RakutenRewardNativeSDK.xcframework'
 end
