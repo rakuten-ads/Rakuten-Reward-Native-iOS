@@ -88,7 +88,7 @@ Import  Framework (RakutenRewardNativeSDK-{version}.xcframework) into your proje
 ### Use Cocoapods
 ```
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/rakuten-ads/Rakuten-RewardSDK-Native-iOS.git'
+source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target '' do
 pod 'RakutenRewardNativeSDK', '~> 1.1.0'
