@@ -1,5 +1,125 @@
 [TOP](../README.md#top)　>基本ガイド
 
+コンテンツ
+* [リージョンの設定](#リージョンの設定)<br>
+* [認証](#認証)<br>
+  * [ログインオプション](#ログインオプション)<br>
+  * [ログイン](#ログイン)<br>
+  * [ログアウト](#ログアウト)<br>
+* [SDKを初期化する](#SDKを初期化する)<br>
+* [楽天メンバー情報を取得する](#楽天メンバー情報を取得する)<br>
+* [ミッションの達成](#mission-achievement)<br>
+* [SDK ポータル](#SDK-ポータル)<br><br>
+
+
+# リージョンの設定
+SDK 2.1のバージョンより, 複数のリージョンでのサポートをしております。  
+現在(2021/02)、日本と台湾をサポートしております。
+
+日本の場合
+```Swift
+RakutenReward.shared.region = RakutenRewardRegion.JP
+```
+
+台湾の場合
+```Swift
+RakutenReward.shared.region = RakutenRewardRegion.TW
+```
+
+1つのアプリで1つのリージョンを選択してください
+
+# 認証
+## ログインオプション
+
+リワードSDKでは3種類のログインを用意しております、環境に合わせてご利用ください
+<br>
+
+| ログインオプション | 説明 | サポート |
+| --- | --- | --- |
+| RakutenAuth | 初期設定、ログインに関する処理はSDKから提供されます | 日本、台湾 |
+| RID | 楽天のログインSDKを使って、RIDでログインする場合はこのオプションを使用します、 SDKにAPIトークンを設定する必要があります | 日本 |  
+| RAE | 楽天のログインSDKを使って、RAEでログインする場合はこのオプションを使用します、 SDKにトークンを設定する必要があります | 日本 |
+<br>
+
+### ログインオプションの切り替え
+初期設定では、ログインオプションは RakutenAuth　になっております
+<br>
+
+### RakutenAuth
+```swift
+RakutenReward.shared.tokenType = TokenType.RakutenAuth
+```
+<br>
+
+### RID
+
+SDKのAPIを使用するのに、トークンタイプをセットする必要があります  
+
+```swift
+RakutenReward.shared.tokenType = TokenType.RID
+```
+
+startSession を呼び出します
+
+```swift
+RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, completion: { r in
+    if case .success(let user) =r {  // use portal or use additional setup
+  }
+}
+```
+<br>
+
+### RAE
+
+SDKのAPIを使用するのに、トークンタイプをセットする必要があります
+
+```swift
+RakutenReward.shared.tokenType = TokenType.RAE
+```
+
+startSession を呼び出します
+
+```swift
+RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, completion: { r in
+    if case .success(let user) =r {  // use portal or use additional setup
+  }
+}
+```
+<br>
+
+## ログイン
+
+ログインページを開きます。楽天のログインSDKを使用する場合は必要ありません。
+<br>
+
+```swift
+RakutenReward.shared.openLoginPage({result in 
+    switch result:
+    case .dismissByUser: // resume in another time
+    case .LogInCompleted: // starting session
+    case .failToShowLoginPage: // presenting problem
+  }) 
+```
+
+![Login](Login.PNG)
+<br>
+
+## ログアウト
+
+ユーザーログアウト: 
+
+```swift
+RakutenReward.shared.logout({ _ in
+            }, forceRemoveToken: true)
+RakutenReward.shared.logout({ result in
+  switch result {
+    case .success: // ending session
+    case .failure: // ask user to log out again, display errors
+  }
+            })
+```
+<br>
+
 ---
 # SDKを初期化する
 楽天リワードSDKを利用するにははじめに初期化が必要です(SDKユーザーの基本データを取得します) SDKの機能を利用するのにはRakutenRewardクラスのメソッドを利用します
@@ -14,7 +134,7 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
 | パラメータ名        | 説明           
 | --- | --- 
 | appCode | アプリケーションキー (楽天リワードSDKの開発者ポータルより取得)
-| token | Access token to access Reward SDK API-C API |
+| token | APIトークン |
 
 # ログインページを表示し、SDKを初期化する
 1. ログインの状態をチェックする, 
@@ -30,35 +150,7 @@ if RakutenReward.shared.isLogin() {
   }) 
 }
 ```
----
-
-# ログイン
-
-```swift
-RakutenReward.shared.openLoginPage({result in 
-    switch result:
-    case .dismissByUser: // ユーザーが閉じた
-    case .LogInCompleted: // ログイン完了
-    case .failToShowLoginPage: // ログイン失敗
-  }) 
-```
-
-![Login](Login.PNG)
-
-# ログアウト
-
-Logging user out: 
-
-```swift
-RakutenReward.shared.logout({ _ in
-            }, forceRemoveToken: true)
-RakutenReward.shared.logout({ result in
-  switch result {
-    case .success: // ログアウト完了　　
-    case .failure: // ログアウト失敗
-  }
-            })
-```
+<br>
 
 ## 楽天メンバー情報を取得する　
 
@@ -103,7 +195,7 @@ actionCode は開発者ポータルより取得します
 | カスタム | 開発者が自由にUIを作成できます
 | UIなし | UIを表示しません
 
-## SDK Portal
+## SDK ポータル
 ユーザーにリワードサービスの情報(ミッションや進捗、ポイントなど)を伝えるために
 楽天リワードSDKではポータルというのを提供しております
 このポータルを表示するにはポータル表示のAPIを呼ぶ必要があります
