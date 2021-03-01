@@ -21,12 +21,12 @@
 
 | Version        | Minimum OS           | Compile OS
 --- | --- | ---
-|0.1.0|9|13|
 |1.0.0|9|13|
 |1.1.0|9|13|
 |1.0.2|9|13|
 |1.0.3|9|13|
 |2.0.0|9|14|
+|2.1.0|9|14|
 
 <div id="import_sdk"></div>
 
@@ -92,7 +92,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-RewardSDK-Native-iOS.git'
 
 target '' do
-pod 'RakutenRewardNativeSDK', '~> 1.1.0'
+pod 'RakutenRewardNativeSDK', '~> 2.1.0'
 end
 
 ```
@@ -100,8 +100,10 @@ end
 
 ## Usage
 [基本ガイド](./basic/README.md)  
-[応用ガイド](./advanced/README.md)
+[APIガイド](./doc/APIReference/README.md)
 
+## 更新履歴
+[更新履歴](./history/README.md)
 
 ---
 LANGUAGE :
