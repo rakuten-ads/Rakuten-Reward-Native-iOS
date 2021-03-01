@@ -253,4 +253,4 @@ RakutenReward.shared.claim(unclaimedItem: m, completion: nil)
 
 ---
 LANGUAGE :
-> [![ja](../lang/ja.png)](../ja/advanced/README.md)
+> [![ja](../lang/ja.png)](../ja/APIReference/README.md)
