@@ -1,6 +1,126 @@
 [TOP](../../README.md#top)　>　Basic Guide
 
----
+Table of Contents
+* [Region Setting](#region-setting)<br>
+* [Authentication](#authentication)<br>
+  * [Login Options](#login-options)<br>
+  * [Log in](#log-in)<br>
+  * [Log out](#log-out)<br>
+* [Initialize SDK](#initialize-sdk)<br>
+* [Getting User Information](#getting-user-information)<br>
+* [Mission Achievement](#mission-achievement)<br>
+* [SDK Portal](#sdk-portal)<br><br>
+
+# Region Setting
+From Version 2.1, SDK support multiple regions.
+We support Japan, Taiwan(2021/02).
+
+For Japan
+```Swift
+RakutenReward.shared.region = RakutenRewardRegion.JP
+```
+
+For Taiwan
+```Swift
+RakutenReward.shared.region = RakutenRewardRegion.TW
+```
+
+Do not use multiple setting in same app.  
+We expect one application use one region.  
+Each Region has differrent functions, and we cannot support each country mixed.
+<br><br>
+
+# Authentication
+
+## Login Options
+There are 3 types of login. According to your environment, please select proper one. 
+<br>
+
+| Login Option        | Description | Support |
+| --- | --- | --- |
+| RakutenAuth | This is default option, provide login by SDK, SDK handled all login and user identifier | Japan, Taiwan |
+| RID | Rakuten ID SDK with RID, Login covers by ID SDK, and use API token for SDK| Japan |  
+| RAE | Rakuten ID SDK with RAE, Login covers by ID SDK, and use token for SDK | Japan |
+<br>
+
+### Switch Login Option
+By default, login option is RakutenAuth
+<br>
+
+### RakutenAuth
+```swift
+RakutenReward.shared.tokenType = TokenType.RakutenAuth
+```
+<br>
+
+### RID
+
+To use SDK API, developers need to set token type after login
+
+```swift
+RakutenReward.shared.tokenType = TokenType.RID
+```
+
+and pass (API-C) token value in startSession API. Access token value will be set automatically when startSessionAPI returns success
+
+```swift
+RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, completion: { r in
+    if case .success(let user) =r {  // use portal or use additional setup
+  }
+}
+```
+<br>
+
+### RAE
+To use SDK API, developers need to set token type after login
+
+```swift
+RakutenReward.shared.tokenType = TokenType.RAE
+```
+
+and pass access API token value in startSession API. Access token value will be set automatically when startSessionAPI returns success
+
+```swift
+RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, completion: { r in
+    if case .success(let user) =r {  // use portal or use additional setup
+  }
+}
+```
+<br>
+
+## Log In
+
+This is for external login options, If you use Rakuten Login SDK, you don't need to use this option.
+<br>
+
+```swift
+RakutenReward.shared.openLoginPage({result in 
+    switch result:
+    case .dismissByUser: // resume in another time
+    case .LogInCompleted: // starting session
+    case .failToShowLoginPage: // presenting problem
+  }) 
+```
+
+![Login](Login.PNG)
+<br>
+
+## Log out
+
+Logging user out: 
+
+```swift
+RakutenReward.shared.logout({ _ in
+            }, forceRemoveToken: true)
+RakutenReward.shared.logout({ result in
+  switch result {
+    case .success: // ending session
+    case .failure: // ask user to log out again, display errors
+  }
+            })
+```
+<br>
+
 # Initialize SDK
 To use Reward SDK, need to establish SDK session first (to collect SDK user's basic information)
 
@@ -18,6 +138,7 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
 | --- | --- 
 | appCode | Application Key (This is from Rakuten Reward Developer Portal) 
 | token | Access token to access Reward SDK API-C API |
+<br>
 
 ## Initialization flow with Built-in Login service
 1. Check if user has logged in to Reward SDK, 
@@ -33,35 +154,7 @@ if RakutenReward.shared.isLogin() {
   }) 
 }
 ```
----
-
-# Log In
-
-```swift
-RakutenReward.shared.openLoginPage({result in 
-    switch result:
-    case .dismissByUser: // resume in another time
-    case .LogInCompleted: // starting session
-    case .failToShowLoginPage: // presenting problem
-  }) 
-```
-
-![Login](Login.PNG)
-
-# Log out
-
-Logging user out: 
-
-```swift
-RakutenReward.shared.logout({ _ in
-            }, forceRemoveToken: true)
-RakutenReward.shared.logout({ result in
-  switch result {
-    case .success: // ending session
-    case .failure: // ask user to log out again, display errors
-  }
-            })
-```
+<br>
 
 # Getting user information
 
@@ -76,23 +169,26 @@ RakutenReward.shared.user?.getName()
 ```swift
 RakutenReward.shared.user?.currentPointRank()
 ```
+<br>
 
----
 # Mission Achievement 
 To achieve mission, developers need to call post action API.  
-After avhieving the mission, notification will be shown.  
+After achieving the mission, notification will be shown.  
+<br>
 
 ## Post Action
 ```swift
 RakutenReward.shared.logAction(actionCode: "<actionCode>", completionHandler: { actionResult in })
 ```
 actionCode is provided by Reward SDK Developer Portal.  
+<br>
 
 ## Notification UI
 The user achieved the mission, notification UI is shown.  
 Reward SDK provides Modal and Banner UI
 
 ![Modal](Modal.PNG)     ![Banner](Banner.PNG)
+<br>
 
 ### Notification Type
 There  are 4 types of Mission Achievement UI. Modal, Banner, and No UI, and Custom which developed by developers.
@@ -105,11 +201,20 @@ You can decide type by Developer Portal
 | Banner | Show Banner UI provided by SDK
 | Custom | Developer can create UI by themselves
 | No UI | Not show any UI
+<br>
 
-## SDK Portal
-We provide User Portal UI for developers. To call Open SDK Portal API, developers can see user status (mission, unclaim list, current point, point history etc...)
+# SDK Portal
+We provide User Portal UI for developers. In SDK Portal, developers can see user status (mission, unclaim list, current point, point history etc...)
+<br>
 
-This is UI Image
+Call Open SDK Portal API:
+```swift
+RakutenReward.shared.openPortal(completionHandler: { result in
+    // Handle success or fail to open portal
+})
+```
+
+Below are the portal UIs:
 
 ![Portal1](Portal1.png)
 
@@ -120,7 +225,7 @@ This is UI Image
 ![Portal4](Portal4.png)
 
 ![Portal5](Portal5.png)
+<br>
 
----
 LANGUAGE :
 > [![ja](../lang/ja.png)](../ja/basic/README.md)
