@@ -248,6 +248,7 @@ Claim
 ```swift
 RakutenReward.shared.claim(unclaimedItem: m, completion: nil)
 ```
+
 <br>
 
 ---
