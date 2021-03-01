@@ -100,7 +100,7 @@ end
 
 ## Usage
 [基本ガイド](./basic/README.md)  
-[APIガイド](./doc/APIReference/README.md)
+[APIガイド](./APIReference/README.md)
 
 ## 更新履歴
 [更新履歴](./history/README.md)
