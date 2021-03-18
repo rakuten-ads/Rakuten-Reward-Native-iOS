@@ -1,5 +1,11 @@
 # Update History
 
+### Version 2.1.1
+<hr/>
+Release Date: 2021/03/18<br>
+XCode version: 12.x, Swift version: 5.3<br>
+Support OS: 9<br><br>
+
 ### Version 2.1.0
 <hr/>
 Release Date: 2021/03/01<br>
