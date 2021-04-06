@@ -32,7 +32,7 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | Get Missions | Get missions | `RakutenReward.shared.getMissionListWithProgress(completion: { r in })`
 | Get Point history | Get 3 month user's point history | `RakutenReward.shared.getPointHistory(completion: { r in })`
 | Log Action | Post user action | `RakutenReward.shared.logAction(actionCode: "xxxxxx", completionHandler: { r in})`
-| Get Unclaimed Items | Get Unclaim item list | `RakutenReward.shared.getUnclaimedList({ completion: { r in })`
+| Get Unclaimed Items | Get Unclaim item list | `RakutenReward.shared.getUnclaimedMission({ completion: { r in })`
 | Get Dynamic API last failed info | Get last failed API info(paremeter) | `RakutenReward.shared.retryLastFailedFunctionByNewToken`
 | Get Point & Rank | Load latest point & rank from server | `RakutenReward.shared.loadMemberInfoRank({_ in })` |
 | Log In | Open Log In page | `RakutenReward.shared.openLoginPage({_ in })` |
