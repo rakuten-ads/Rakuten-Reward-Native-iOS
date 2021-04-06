@@ -32,7 +32,7 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | ミッションリストを取得する | ミッションリストを取得する | `RakutenReward.shared.getMissionListWithProgress(completion: { r in })`
 | ポイント履歴を取得する | 3ヶ月前までのポイント履歴を取得する | `RakutenReward.shared.getPointHistory(completion: { r in })`
 | アクションを送信する | ミッションを達成するためにアクションを送信する | `RakutenReward.shared.logAction(actionCode: "xxxxxx", completionHandler: { r in})`
-| 未獲得ミッションを取得する | 未獲得ミッションリストを取得する | `RakutenReward.shared.getUnclaimedList({ completion: { r in })`
+| 未獲得ミッションを取得する | 未獲得ミッションリストを取得する | `RakutenReward.shared.getUnclaimedMission({ completion: { r in })`
 | 最後にエラーの発生したダイナミックAPIの情報 | 最後にエラーの発生したダイナミックAPIの情報を取得する | `RakutenReward.shared.retryLastFailedFunctionByNewToken`
 | 楽天ランクとポイントを取得する | 楽天ランクとポイントを取得する | `RakutenReward.shared.loadMemberInfoRank({_ in })` |
 | ログイン | ログインページを開く | `RakutenReward.shared.openLoginPage({_ in })` |
