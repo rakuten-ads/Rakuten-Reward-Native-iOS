@@ -269,4 +269,4 @@ UnclaimedItemObject *unclaimedItemObject = [UnclaimedItemObject alloc]; // Test 
 
 ---
 LANGUAGE :
-> [![ja](../lang/ja.png)](../ja/APIReference/README.md)
+> [![ja](../../lang/ja.png)](../ja/APIReference/README.md)
