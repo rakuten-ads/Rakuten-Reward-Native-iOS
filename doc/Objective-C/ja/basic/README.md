@@ -250,4 +250,4 @@ actionCode は開発者ポータルより取得します
 
 ---
 言語 :
-> [![en](../../lang/en.png)](../../../basic/README.md)
+> [![en](../../../lang/en.png)](../../basic/README.md)
