@@ -28,6 +28,7 @@
 |2.0.0|9|14|
 |2.1.0|9|14|
 |2.1.1|9|14|
+|2.2.0|9|14|
 
 <div id="import_sdk"></div>
 
@@ -93,7 +94,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target '' do
-pod 'RakutenRewardNativeSDK', '~> 2.1.1'
+pod 'RakutenRewardNativeSDK', '~> 2.2.0'
 end
 
 ```
@@ -102,6 +103,10 @@ end
 ## Usage
 [基本ガイド](./basic/README.md)  
 [APIガイド](./APIReference/README.md)
+<br>
+
+[基本ガイド (Objective-c)](../Objective-C/ja/basic/README.md)  
+[APIガイド (Objective-c)](../Objective-C/ja/APIReference/README.md)
 
 ## 更新履歴
 [更新履歴](./history/README.md)
