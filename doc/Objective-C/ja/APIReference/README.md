@@ -271,4 +271,4 @@ UnclaimedItemObject *unclaimedItemObject = [UnclaimedItemObject alloc]; // テ�
 
 ---
 言語 :
-> [![en](../../lang/en.png)](../../APIReference/README.md)
+> [![en](../../../lang/en.png)](../../APIReference/README.md)
