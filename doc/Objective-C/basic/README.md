@@ -257,4 +257,4 @@ Below are the portal UIs:
 <br>
 
 LANGUAGE :
-> [![ja](../lang/ja.png)](../ja/basic/README.md)
+> [![ja](../../lang/ja.png)](../ja/basic/README.md)
