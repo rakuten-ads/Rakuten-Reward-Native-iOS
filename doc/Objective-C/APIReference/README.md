@@ -87,7 +87,7 @@ SDKUserObject *user = RakutenReward.shared.getUserObjc;
 
 ## RakutenRewardStatus
 ---
-RakutenRewardStatus is Reward SDK staus  
+RakutenRewardStatus is Reward SDK status  
 
 | Parameter | Description
 | --- | ---
