@@ -1,0 +1,253 @@
+[TOP](../README.md#top)　>基本ガイド
+
+コンテンツ
+* [リージョンの設定](#リージョンの設定)<br>
+* [認証](#認証)<br>
+  * [ログインオプション](#ログインオプション)<br>
+  * [ログイン](#ログイン)<br>
+  * [ログアウト](#ログアウト)<br>
+* [SDKを初期化する](#SDKを初期化する)<br>
+* [楽天メンバー情報を取得する](#楽天メンバー情報を取得する)<br>
+* [ミッションの達成](#mission-achievement)<br>
+* [SDK ポータル](#SDK-ポータル)<br><br>
+
+
+# リージョンの設定
+SDK 2.1のバージョンより, 複数のリージョンでのサポートをしております。  
+現在(2021/02)、日本と台湾をサポートしております。
+
+日本の場合
+```objective-c
+RakutenReward.shared.region = RakutenRewardRegionJP;
+```
+
+台湾の場合
+```objective-c
+RakutenReward.shared.region = RakutenRewardRegionTW;
+```
+
+1つのアプリで1つのリージョンを選択してください
+
+# 認証
+## ログインオプション
+
+リワードSDKでは3種類のログインを用意しております、環境に合わせてご利用ください
+<br>
+
+| ログインオプション | 説明 | サポート |
+| --- | --- | --- |
+| RakutenAuth | 初期設定、ログインに関する処理はSDKから提供されます | 日本、台湾 |
+| RID | 楽天のログインSDKを使って、RIDでログインする場合はこのオプションを使用します、 SDKにAPIトークンを設定する必要があります | 日本 |  
+| RAE | 楽天のログインSDKを使って、RAEでログインする場合はこのオプションを使用します、 SDKにトークンを設定する必要があります | 日本 |
+<br>
+
+### ログインオプションの切り替え
+初期設定では、ログインオプションは RakutenAuth　になっております
+<br>
+
+### RakutenAuth
+```objective-c
+RakutenReward.shared.tokenType = TokenTypeRakutenAuth;
+```
+<br>
+
+### RID
+
+SDKのAPIを使用するのに、トークンタイプをセットする必要があります  
+
+```objective-c
+RakutenReward.shared.tokenType = TokenTypeRID;
+```
+
+startSession を呼び出します
+
+```objective-c
+[RakutenReward.shared startSessionObjcWithAppCode:@"AppcodeExample" accessToken:@"AccessTokenExample" completion:^(SDKUserObject * _Nullable user, RewardSDKSessionErrorObjc * _Nullable error) {
+    if (error != nil) {
+        // エラー
+    }
+    
+    // 成功
+}];
+```
+<br>
+
+### RAE
+
+SDKのAPIを使用するのに、トークンタイプをセットする必要があります
+
+```objective-c
+RakutenReward.shared.tokenType = TokenTypeRAE;
+```
+
+startSession を呼び出します
+
+```objective-c
+[RakutenReward.shared startSessionObjcWithAppCode:@"AppcodeExample" accessToken:@"AccessTokenExample" completion:^(SDKUserObject * _Nullable user, RewardSDKSessionErrorObjc * _Nullable error) {
+    if (error != nil) {
+        // エラー
+    }
+    
+    // 成功
+}];
+```
+<br>
+
+## ログイン
+
+ログインページを開きます。楽天のログインSDKを使用する場合は必要ありません。
+<br>
+
+```objective-c
+[RakutenReward.shared openLoginPage:^(enum LoginPageCompletion completion) {
+    switch (completion) {
+        case LoginPageCompletionDismissByUser: // resume in another time
+            break;
+        case LoginPageCompletionLogInCompleted: // starting session
+            break;
+        case LoginPageCompletionFailToShowLoginPage: // presenting problem
+            break;
+    }
+}];
+```
+
+![Login](Login.PNG)
+<br>
+
+## ログアウト
+
+ユーザーログアウト: 
+
+```objective-c
+[RakutenReward.shared logoutObjcWithForceRemoveToken:true completion:^(NSError * _Nullable completion) {
+    if (completion != nil) {
+        // エラー
+    }
+}];
+```
+<br>
+
+---
+# SDKを初期化する
+楽天リワードSDKを利用するにははじめに初期化が必要です(SDKユーザーの基本データを取得します) SDKの機能を利用するのにはRakutenRewardクラスのメソッドを利用します
+
+```objective-c
+[RakutenReward.shared startSessionObjcWithAppCode:@"AppcodeExample" accessToken:@"AccessTokenExample" completion:^(SDKUserObject * _Nullable user, RewardSDKSessionErrorObjc * _Nullable error) {
+    if (error != nil) {
+        // エラー
+    }
+    
+    // 成功
+}];
+```
+
+| パラメータ名        | 説明           
+| --- | --- 
+| appCode | アプリケーションキー (楽天リワードSDKの開発者ポータルより取得)
+| token | APIトークン |
+
+# ログインページを表示し、SDKを初期化する
+1. ログインの状態をチェックする, 
+2. ログインページを表示する
+3. SDKを初期化する
+
+```objective-c
+if (RakutenReward.shared.isLogin) {
+    [RakutenReward.shared startSessionObjcWithAppCode:@"AppcodeExample" completion:^(SDKUserObject * _Nullable user, RewardSDKSessionErrorObjc * _Nullable error) {
+                
+    }];
+} else {
+    [RakutenReward.shared openLoginPage:^(enum LoginPageCompletion completion) {
+                
+    }];
+}
+```
+<br>
+
+## 楽天メンバー情報を取得する　
+
+### ユーザーの名前を取得する
+
+```objective-c
+[RakutenReward.shared.getUserObjc getName];
+```
+
+### ユーザーの会員ランク楽天ポイントを取得する
+
+```objective-c
+[RakutenReward.shared.getUserObjc currentPointRank];
+```
+
+---
+# ミッションの達成 
+ミッションを達成するには、開発者はアクションAPIをコールします
+ミッション達成後、ミッション達成UIが表示されます 
+
+## アクションを送信する
+```objective-c
+[RakutenReward.shared logActionObjcWithActionCode:@"ActionCodeExample" completion:^(NSError * _Nullable error) {
+        if (error != nil) {
+            // エラー
+        }
+        
+        // 成功
+}];
+```
+actionCode は開発者ポータルより取得します 
+
+## ミッション達成UI
+ユーザーがミッションを達成すると、下記のようなミッション達成UIが表示されます
+楽天リワードではモーダルとバナーを用意しております
+
+![Modal](Modal.PNG)     ![Banner](Banner.PNG)
+
+### ミッション達成UIの種類
+楽天リワードSDKは4つの種類のミッション達成の種類があります
+モーダル、バナー、UIなし、カスタム
+これらの設定は開発者ポータルから設定できます
+
+| ミッション達成UIの種類        | 説明
+| --- | ---
+| モーダル | モーダルUIを表示する
+| バナー | バナーUIを表示する
+| カスタム | 開発者が自由にUIを作成できます
+| UIなし | UIを表示しません
+
+## SDK ポータル
+
+ユーザーにリワードサービスの情報(ミッションや進捗、ポイントなど)を伝えるために
+楽天リワードSDKではポータルというのを提供しております
+このポータルを表示するにはポータル表示のAPIを呼ぶ必要があります
+
+```objective-c
+[RakutenReward.shared openPortalObjc:^(SDKErrorObjc * _Nullable error) {
+    if (error != nil) {
+        // エラー
+        
+        // エラー type
+        if ([error isKindOfClass:[SDKErrorObjcNoMissionFound class]]) {}
+        else if ([error isKindOfClass:[SDKErrorObjcNoUnclaimedItemFound class]]) {}
+        else if ([error isKindOfClass:[SDKErrorObjcSessionNotInitialized class]]) {}
+        else if ([error isKindOfClass:[SDKErrorObjcFeatureDisabledByUser class]]) {}
+        else if ([error isKindOfClass:[SDKErrorObjcSDKStatusNotOnline class]]) {}
+    }
+    
+    // 成功
+}];
+```
+
+こちらがSDKポータルのイメージになります
+
+![Portal1](Portal1.PNG)
+
+![Portal2](Portal2.PNG)
+
+![Portal3](Portal3.PNG)
+
+![Portal4](Portal4.PNG)
+
+![Portal5](Portal5.PNG)
+
+---
+言語 :
+> [![en](../../lang/en.png)](../../basic/README.md)
