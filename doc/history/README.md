@@ -6,7 +6,7 @@
 Release Date: 2021/06/24<br>
 XCode version: 12.x, Swift version: 5.3<br>
 Support OS: 9<br><br>
-* Fix save action code logic
+* Fix save action code logic<br><br>
 
 ### Version 2.2.0
 <hr/>
@@ -14,15 +14,14 @@ Release Date: 2021/05/28<br>
 XCode version: 12.x, Swift version: 5.3<br>
 Support OS: 9<br><br>
 * Support Rp, Rz cookie set function<br>
-* Support public API for Objective-C
-
+* Support public API for Objective-C<br><br>
 
 ### Version 2.1.1
 <hr/>
-Release Date: 2021/03/18<br>
+Release Date: 2021/03/17<br>
 XCode version: 12.x, Swift version: 5.3<br>
 Support OS: 9<br><br>
-* Fix point history API
+* Fix point history API<br><br>
 
 ### Version 2.1.0
 <hr/>
@@ -31,7 +30,7 @@ XCode version: 12.x, Swift version: 5.3<br>
 Support OS: 9<br><br>
 
 New feature:
-* Taiwan first version
+* Taiwan first version<br><br>
 
 ### Version 1.0.3
 <hr/>
