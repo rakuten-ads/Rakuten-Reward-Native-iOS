@@ -1,22 +1,28 @@
 # Update History
 
+
 ### Version 1.0.4
 <hr/>
 Release Date: 2021/06/24<br>
 XCode version: 12.x, Swift version: 5.3<br>
 Support OS: 9<br><br>
+* Fix save action code logic
 
 ### Version 2.2.0
 <hr/>
 Release Date: 2021/05/28<br>
 XCode version: 12.x, Swift version: 5.3<br>
 Support OS: 9<br><br>
+* Support Rp, Rz cookie set function<br>
+* Support public API for Objective-C
+
 
 ### Version 2.1.1
 <hr/>
 Release Date: 2021/03/18<br>
 XCode version: 12.x, Swift version: 5.3<br>
 Support OS: 9<br><br>
+* Fix point history API
 
 ### Version 2.1.0
 <hr/>
