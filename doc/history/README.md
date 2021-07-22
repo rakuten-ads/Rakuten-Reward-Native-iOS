@@ -1,26 +1,44 @@
 # Update History
 
+### Version 2.2.1
+<hr/>
+Release Date: 2021/07/22<br>
+XCode version: 12.x, Swift version: 5.3<br>
+Support OS: 9<br><br>
+
+New feature: 
+* Fix ads handling<br>
+* Fix save action code logic<br>
+* Fix UIUX bugs<br><br>
 
 ### Version 1.0.4
 <hr/>
 Release Date: 2021/06/24<br>
 XCode version: 12.x, Swift version: 5.3<br>
 Support OS: 9<br><br>
+
+New feature:  
 * Fix save action code logic<br><br>
+
 
 ### Version 2.2.0
 <hr/>
 Release Date: 2021/05/28<br>
 XCode version: 12.x, Swift version: 5.3<br>
 Support OS: 9<br><br>
+
+New feature:
 * Support Rp, Rz cookie set function<br>
 * Support public API for Objective-C<br><br>
+
 
 ### Version 2.1.1
 <hr/>
 Release Date: 2021/03/17<br>
 XCode version: 12.x, Swift version: 5.3<br>
 Support OS: 9<br><br>
+
+New feature:  
 * Fix point history API<br><br>
 
 ### Version 2.1.0
@@ -29,7 +47,7 @@ Release Date: 2021/03/01<br>
 XCode version: 12.x, Swift version: 5.3<br>
 Support OS: 9<br><br>
 
-New feature:
+New feature:  
 * Taiwan first version<br><br>
 
 ### Version 1.0.3
