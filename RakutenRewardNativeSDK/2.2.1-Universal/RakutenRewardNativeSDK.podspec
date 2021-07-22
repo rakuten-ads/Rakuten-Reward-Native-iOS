@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|  
     s.name              = 'RakutenRewardNativeSDK'
-    s.version           = '2.2.1-Universal'
+    s.version           = '2.2.1-universal'
     s.summary           = 'Integrate RakutenRewardNativeSDK and getting monetization with Reward Mission, Reward Ads'
     s.homepage          = 'https://developer.reward.gl.rakuten.co.jp/main/'
     s.author            = 'SDK team, Core Platform Section, Rakuten Asia Pte. Ltd.'
