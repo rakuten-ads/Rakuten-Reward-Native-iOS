@@ -38,6 +38,11 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | Log In | Open Log In page | `RakutenReward.shared.openLoginPage({_ in })` |
 | Check Log In | Check if user is logged in with internal system (token not expired) | `RakutenReward.shared.isLogin()` |
 | Log Out | Log out from Rakuten Auth, you might force removing session even if server sync up failed | `RakutenReward.shared.logout({_ in }, forceRemoveToken: true)` |
+| Blacklisted URLs | Add blacklist URL to block access specific URL, (This is for Apple Reject, if the ad URL has problem, use this API) | `RakutenReward.shared.blacklistURLs` |
+| Custom URL Session | To use custom URL session instead of default URL session | `RakutenReward.shared.customURLSession` |
+| IDFA | To set IDFA | `RakutenReward.shared.advertisingID` |
+| User updated delegate | Callback when user is updated | `RakutenReward.shared.didUpdateUser = { user in }` |
+| Status updated delegate | Callback when Reward Status is updated | `RakutenReward.shared.didUpdateStatus = { status in }` |
 <br>
 
 ## RakutenRewardConfiguration
