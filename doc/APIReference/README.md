@@ -14,6 +14,7 @@ Table of Contents
 * [API Errors](#api-errors)<br>
 * [Get current user action status](#get-current-user-action-status)<br>
 * [Rakuten Reward Ad Configuration (TW only)](#rakutenrewardadconfiguration)<br>
+* [Set Rakuten Cookie](#set-rakuten-cookie)<br>
 * [How to create custom mission UI](#how-to-create-custom-mission-ui)<br><br>
 
 # API Reference
@@ -56,6 +57,8 @@ RakutenRewardConfiguration is user setting class.
 | UI Enabled |  Get whether Notification UI is enabled or not | RewardConfiguration.isUserSettingUIEnabled
 | Set UI Enabled | Set whether Notification UI is enabled or not | RewardConfiguration.isUserSettingUIEnabled = true
 | Enable Logging | Set value to true to receive additional Debug log info | RewardConfiguration.isDebug = true
+| Rz Cookie | Set value for the Rz cookie | RewardConfiguration.rzCookie = "example"
+| Rp Cookie | Set value for the Rp cookie | RewardConfiguration.rpCookie = "example"
 <br>
 
 ## Open Reward Web page
@@ -232,6 +235,24 @@ RakutenRewardAdConfiguration.shared
 | addBlockCategory | Append block category string to bcat array<br>Format: IAB(Number)-(Number).| addBlockCategory(str: "IAB7-17")
 | addBlockDomain | Append domain string to badv array. | addBlockCategory(str: "www.example.com")
 | addKeywords | Append keyword string to keywords array. | addKeywords(str: "productivity")
+<br>
+
+## Set Rakuten Cookie
+---
+This function can be used from SDK v2.2.0 This function is mainly for Rakuten App and use cookies which app keeps in App
+If you use default login option(TokenType.RakutenAuth), cookie is set by SDK.
+If you use other options, can override cookie using this API
+
+Set Rp cookie
+```swift
+RewardConfiguration.rpCookie = "example"
+```
+
+Set Rz cookie
+```swift
+RewardConfiguration.rzCookie = "example"
+```
+
 <br>
 
 ## How to create custom mission UI
