@@ -14,6 +14,7 @@
 * [API エラー](#API-エラー)<br>
 * [ミッションの一覧を取得](#ミッションの一覧を取得)<br>
 * [Rakuten Reward Ad Configuration](#rakutenrewardadconfiguration)<br>
+* [クッキーをセットする](#クッキーをセットする)<br>
 * [ミッション達成後のカスタムUIの作り方](#ミッション達成後のカスタムUIの作り方)<br><br>
 
 # API ガイド
@@ -55,6 +56,8 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | UI設定の取得 |  ミッションのUIのオン・オフ設定設定を取得する | RewardConfiguration.isUserSettingUIEnabled;
 | UI設定 | ミッションのUIのオン・オフ設定 | RewardConfiguration.isUserSettingUIEnabled = true;
 | ログをオンにする | デバッグログのオン・オフ設定 | RewardConfiguration.isDebug = true;
+| Rzクッキー | Rzクッキーをセットする | RewardConfiguration.rzCookie = @"example";
+| Rpクッキー | Rpクッキーをセットする | RewardConfiguration.rpCookie = @"example";
 <br>
 
 ## 楽天リワードのページを開く
@@ -238,6 +241,24 @@ RakutenRewardAdConfiguration.shared;
 | addBlockCategory | 広告のコンテンツブロックの対象を追加する<br>フォーマット: IAB(Number)-(Number) | [RakutenRewardAdConfiguration.shared addBlockCategoryWithStr:@"IAB7-17"];
 | addBlockDomain | 広告のドメインレベルでのブロックの対象を追加する | [RakutenRewardAdConfiguration.shared addBlockDomainWithStr:@"www.example.com"];
 | addKeywords | 広告キーワードを追加する | [RakutenRewardAdConfiguration.shared addKeywordsWithStr:@"productivity"];
+<br>
+
+## クッキーをセットする
+---
+この機能はSDK v2.2.0　からサポートしています。
+この機能は楽天のアプリケーションですでに広告のためのクッキーを取得している場合に推奨される機能となります。
+もし、デフォルトのログインオプション(TokenTypeRakutenAuth)をご使用の場合にはこちらの処理はSDKで行いますので、実装する必要はありません。 もし他のオプションをご利用の場合、このAPIをご利用されるとクッキーを上書きいたします。
+
+Rpクッキーをセットする
+```swift
+RewardConfiguration.rpCookie = @"example";
+```
+
+Rzクッキーをセットする
+```swift
+RewardConfiguration.rzCookie = @"example";
+```
+
 <br>
 
 ## ミッション達成後のカスタムUIの作り方
