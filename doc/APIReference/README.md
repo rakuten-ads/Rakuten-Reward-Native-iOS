@@ -59,6 +59,8 @@ RakutenRewardConfiguration is user setting class.
 | Enable Logging | Set value to true to receive additional Debug log info | RewardConfiguration.isDebug = true
 | Rz Cookie | Set value for the Rz cookie | RewardConfiguration.rzCookie = "example"
 | Rp Cookie | Set value for the Rp cookie | RewardConfiguration.rpCookie = "example"
+| Action History Enabled | Set whether want to save action code in case LogAction failed | RewardConfiguration.actionHistoryEnabled = true
+| Is Portal Present |  Get whether Portal is currently showing or not | RewardConfiguration.isPortalPresent
 <br>
 
 ## Open Reward Web page
@@ -257,22 +259,38 @@ RewardConfiguration.rzCookie = "example"
 
 ## How to create custom mission UI
 ---
-When the user achieved the mission, following callback is invoked
+When the user achieves a mission, this callback is invoked
 
 ```swift
-public var didUpdateUnclaimedAchievement: ((RakutenRewardNativeSDK.Mission) -> Void)?
+// From RakutenReward class
+public var didUpdateUnclaimedAchievement: ((UnclaimedItem) -> Void)?
+  
+// Example
+RakutenReward.shared.didUpdateUnclaimedAchievement = { unclaimedItem in }
 ```
-Override this method and create UI under this
+
+Example of showing custom UI
+
+Note: Currently SDK doesn't support showing notifications inside Portal. Therefore, developers need to check RewardConfiguration.isPortalPresent API and only show Notification UI if Portal is not showing. This API is available from version 2.3.0
 
 ```swift
-RakutenReward.shared.didUpdateUnclaimedAchievement = { m in
-	guard m.notificationtype == .CUSTOM else { return }
-	// show custom notification from here
-	}
+RakutenReward.shared.didUpdateUnclaimedAchievement = { unclaimedItem in
+    guard unclaimedItem.notificationType == .CUSTOM, // Check notification type
+          RewardConfiguration.isUserSettingUIEnabled, // Check if user enable the UI setting or not
+          !RewardConfiguration.isPortalPresent else { // Check if Portal is currently showing, not support for showing notification inside Portal.
+            
+        return
+    }
+  
+    // Show Custom UI in Main thread
+}
 ```
-Claim 
+
+Example for claim points
 ```swift
-RakutenReward.shared.claim(unclaimedItem: m, completion: nil)
+RakutenReward.shared.didUpdateUnclaimedAchievement = { unclaimedItem in
+    RakutenReward.shared.claim(unclaimedItem: unclaimedItem, completion: { pointClaimScreenEvent in }
+}
 ```
 
 <br>
