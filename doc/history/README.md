@@ -6,6 +6,9 @@ Release Date: 2021/09/30<br>
 XCode version: 12.x, Swift version: 5.3<br>
 Support OS: 9<br><br>
 
+New feature: 
+* Fix bugs<br><br>
+
 ### Version 2.2.1
 <hr/>
 Release Date: 2021/07/22<br>
