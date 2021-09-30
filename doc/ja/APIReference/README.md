@@ -293,6 +293,7 @@ RakutenReward.shared.didUpdateUnclaimedAchievement = { unclaimedItem in
 RakutenReward.shared.didUpdateUnclaimedAchievement = { unclaimedItem in
     RakutenReward.shared.claim(unclaimedItem: unclaimedItem, completion: { pointClaimScreenEvent in }
 }
+```
 <br>
 
 ---
