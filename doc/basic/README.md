@@ -110,14 +110,7 @@ RakutenReward.shared.openLoginPage({result in
 Logging user out: 
 
 ```swift
-RakutenReward.shared.logout({ _ in
-            }, forceRemoveToken: true)
-RakutenReward.shared.logout({ result in
-  switch result {
-    case .success: // ending session
-    case .failure: // ask user to log out again, display errors
-  }
-            })
+RakutenReward.shared.logout { }
 ```
 <br>
 
