@@ -120,11 +120,7 @@ This is for external login options, If you use Rakuten Login SDK, you don't need
 Logging user out: 
 
 ```objective-c
-[RakutenReward.shared logoutObjcWithForceRemoveToken:true completion:^(NSError * _Nullable completion) {
-    if (completion != nil) {
-        // Has error
-    }
-}];
+[RakutenReward.shared logoutWithCompletion:^{ }];
 ```
 <br>
 
