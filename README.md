@@ -104,12 +104,12 @@ end
 
 ## Usage
 [Basic Guide](./doc/basic/README.md)  
-[API Reference](./doc/APIReference/README.md)
+[API Reference](./doc/APIReference/README.md)<br>
 [FAQ](./doc/FAQ/FAQ.md)
 <br>
 
 [Basic Guide (Objective-c)](./doc/Objective-C/basic/README.md)  
-[API Reference (Objective-c)](./doc/Objective-C/APIReference/README.md)
+[API Reference (Objective-c)](./doc/Objective-C/APIReference/README.md)<br>
 [FAQ (Objective-c)](./doc/Objective-C/FAQ/FAQ.md)
 
 ## Version History
