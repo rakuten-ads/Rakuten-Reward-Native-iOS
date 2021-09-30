@@ -58,6 +58,8 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | ログをオンにする | デバッグログのオン・オフ設定 | RewardConfiguration.isDebug = true;
 | Rzクッキー | Rzクッキーをセットする | RewardConfiguration.rzCookie = @"example";
 | Rpクッキー | Rpクッキーをセットする | RewardConfiguration.rpCookie = @"example";
+| アクション失敗時の履歴保存設定 | LogActionが失敗した場合にアクションを保存する | RewardConfiguration.actionHistoryEnabled = true;
+| SDKポータルが表示されているか? | SDKポータルが表示されているかどうかを取得する | RewardConfiguration.isPortalPresent;
 <br>
 
 ## 楽天リワードのページを開く
@@ -268,12 +270,17 @@ RewardConfiguration.rzCookie = @"example";
 ```objective-c
 @property (nonatomic, copy) void (^ _Nullable didUpdateUnclaimedAchievementObjc)(UnclaimedItemObject * _Nonnull);
 ```
-こちらのコールバックをOverrideしてイベントを受け取りカスタムUIを表示します
+こちらのコールバックをOverrideしてイベントを受け取りカスタムUIを表示します<br>
+Note : SDKポータル上でミッション達成のノーティフィケーションを表示することは推奨されていません。(デフォルトのバナーとモーダルはSDKで対応済み) カスタムでUIを作るときは、RewardConfiguration.isPortalPresent APIで状態を確認し、ポータルが表示(true)の場合は表示しないようにお願いいたします。
+この機能はSDK 2.3.0から使用可能です。
 
 ```objective-c
 RakutenReward.shared.didUpdateUnclaimedAchievementObjc = ^(UnclaimedItemObject * _Nonnull unclaimedItem) {
-    if ([unclaimedItem.notificationType isKindOfClass:[NotificationTypeObjcCUSTOM class]]) {
-        // 達成通知を表示する
+    if ([unclaimedItem.notificationType isKindOfClass:[NotificationTypeObjcCUSTOM class]] && // Check notification type
+        RewardConfiguration.isUserSettingUIEnabled && // Check if user enable the UI setting or not
+        !RewardConfiguration.isPortalPresent) { // Check if Portal is currently showing, not support for showing notification inside Portal.
+
+        // Show Custom UI in Main thread
     }
 };
 ```
