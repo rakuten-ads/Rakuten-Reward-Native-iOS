@@ -59,6 +59,8 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | ログをオンにする | デバッグログのオン・オフ設定 | RewardConfiguration.isDebug = true
 | Rzクッキー | Rzクッキーをセットする | RewardConfiguration.rzCookie = "example"
 | Rpクッキー | Rpクッキーをセットする | RewardConfiguration.rpCookie = "example"
+| アクション失敗時の履歴保存設定 | LogActionが失敗した場合にアクションを保存する | RewardConfiguration.actionHistoryEnabled = true
+| SDKポータルが表示されているか? | SDKポータルが表示されているかどうかを取得する | RewardConfiguration.isPortalPresent
 <br>
 
 ## 楽天リワードのページを開く
@@ -261,23 +263,36 @@ RewardConfiguration.rzCookie = "example"
 ユーザーがミッションを達成すると、コールバックを受け取れます
 
 ```swift
-public var didUpdateUnclaimedAchievement: ((RakutenRewardNativeSDK.Mission) -> Void)?
+// From RakutenReward class
+public var didUpdateUnclaimedAchievement: ((UnclaimedItem) -> Void)?
+  
+// Example
+RakutenReward.shared.didUpdateUnclaimedAchievement = { unclaimedItem in }
 ```
-こちらのコールバックをOverrideしてイベントを受け取りカスタムUIを表示します
+こちらのコールバックをOverrideしてイベントを受け取りカスタムUIを表示します<br>
+Note : SDKポータル上でミッション達成のノーティフィケーションを表示することは推奨されていません。(デフォルトのバナーとモーダルはSDKで対応済み) カスタムでUIを作るときは、RewardConfiguration.isPortalPresent APIで状態を確認し、ポータルが表示(true)の場合は表示しないようにお願いいたします。
+この機能はSDK 2.3.0から使用可能です。
 
 ```swift
-RakutenReward.shared.didUpdateUnclaimedAchievement = { m in
-	guard m.notificationtype == .CUSTOM else { return }
-	// 達成通知を表示する
-	}
+RakutenReward.shared.didUpdateUnclaimedAchievement = { unclaimedItem in
+    guard unclaimedItem.notificationType == .CUSTOM, // Check notification type
+          RewardConfiguration.isUserSettingUIEnabled, // Check if user enable the UI setting or not
+          !RewardConfiguration.isPortalPresent else { // Check if Portal is currently showing, not support for showing notification inside Portal.
+            
+        return
+    }
+  
+    // Show Custom UI in Main thread
+}
 ```
 
 ポイントを獲得するには、MissionAchievementDataクラスの claim API を使います。
 ユーザーに対して達成のノーティフィケーションを見せた後、クレームの処理を上記のAPIを呼び出して行います。
 
 ```swift
-RakutenReward.shared.claim(unclaimedItem: m, completion: nil)
-```
+RakutenReward.shared.didUpdateUnclaimedAchievement = { unclaimedItem in
+    RakutenReward.shared.claim(unclaimedItem: unclaimedItem, completion: { pointClaimScreenEvent in }
+}
 <br>
 
 ---
