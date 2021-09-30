@@ -38,7 +38,7 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | 楽天ランクとポイントを取得する | 楽天ランクとポイントを取得する | `RakutenReward.shared.loadMemberInfoRank({_ in })` |
 | ログイン | ログインページを開く | `RakutenReward.shared.openLoginPage({_ in })` |
 | ログイン状態を取得する | ログインしているかどうか状態を取得する | `RakutenReward.shared.isLogin()` |
-| ログアウト | ログアウトする | `RakutenReward.shared.logout({_ in }, forceRemoveToken: true)` |
+| ログアウト | ログアウトする | `RakutenReward.shared.logout { }` |
 | 開くURLを制限 | 表示を抑制するURLを追加する(Apple審査で特定の広告等でのリジェクトを抑制するため) | `RakutenReward.shared.blacklistURLs` |
 | カスタムURLセッション |  カスタムURLセッション | `RakutenReward.shared.customURLSession` |
 | IDFA | IDFAをセットする | `RakutenReward.shared.advertisingID` |
