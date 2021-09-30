@@ -119,11 +119,7 @@ startSession を呼び出します
 ユーザーログアウト: 
 
 ```objective-c
-[RakutenReward.shared logoutObjcWithForceRemoveToken:true completion:^(NSError * _Nullable completion) {
-    if (completion != nil) {
-        // エラー
-    }
-}];
+[RakutenReward.shared logoutWithCompletion:^{ }];
 ```
 <br>
 
