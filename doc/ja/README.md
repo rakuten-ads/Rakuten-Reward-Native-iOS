@@ -31,6 +31,7 @@
 |2.1.1|9|14|
 |2.2.0|9|14|
 |2.2.1|9|14|
+|2.3.0|9|14|
 
 <div id="import_sdk"></div>
 
@@ -104,11 +105,13 @@ end
 
 ## Usage
 [基本ガイド](./basic/README.md)  
-[APIガイド](./APIReference/README.md)
+[APIガイド](./APIReference/README.md)<br>
+[FAQ](./FAQ/FAQ.md)
 <br>
 
 [基本ガイド (Objective-c)](../Objective-C/ja/basic/README.md)  
-[APIガイド (Objective-c)](../Objective-C/ja/APIReference/README.md)
+[APIガイド (Objective-c)](../Objective-C/ja/APIReference/README.md)<br>
+[FAQ (Objective-c)](../Objective-C/ja/FAQ/FAQ.md)
 
 ## 更新履歴
 [更新履歴](./history/README.md)
