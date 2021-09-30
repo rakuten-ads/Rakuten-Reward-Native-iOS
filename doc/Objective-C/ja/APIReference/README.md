@@ -37,7 +37,7 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | 最後にエラーの発生したダイナミックAPIの情報 | 最後にエラーの発生したダイナミックAPIの情報を取得する | `[RakutenReward.shared retryLastFailedFunctionByNewTokenWithNewAccessToken:@"NewTokenExample"];`
 | 楽天ランクとポイントを取得する | 楽天ランクとポイントを取得する | `[RakutenReward.shared loadMemberInfoRankObjc:^(MemberPointRankObject * _Nullable memberPointRank, NSError * _Nullable error) { }];` |
 | ログイン状態を取得する | ログインしているかどうか状態を取得する | `[RakutenReward.shared isLogin];` |
-| ログアウト | ログアウトする | `[RakutenReward.shared logoutObjcWithForceRemoveToken:true completion:^(NSError * _Nullable completion) {}];` |
+| ログアウト | ログアウトする | `[RakutenReward.shared logoutWithCompletion:^{ }];` |
 | 開くURLを制限 | 表示を抑制するURLを追加する(Apple審査で特定の広告等でのリジェクトを抑制するため) | `RakutenReward.shared.blacklistURLs;` |
 | カスタムURLセッション |  カスタムURLセッション | `RakutenReward.shared.customURLSession;` |
 | IDFA | IDFAをセットする | `RakutenReward.shared.advertisingID;` |
