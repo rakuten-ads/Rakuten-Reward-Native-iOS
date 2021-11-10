@@ -7,9 +7,9 @@ Pod::Spec.new do |s|
     s.license           = { :type => 'Commercial', :text => 'Copyright © Rakuten Asia Pte. Ltd. All Rights Reserved.' }
     s.user_target_xcconfig = { 'ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES' => 'YES' }
     s.platform          = :ios
-    s.source            = { :http => 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS/releases/download/2.3.1/RakutenRewardNativeSDK-2.3.1-6.framework.zip' }
+    s.source            = { :http => 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS/releases/download/2.3.1/RakutenRewardNativeSDK-2.3.1-6.xcframework.zip' }
     s.ios.deployment_target = '9.0'
     s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
     s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-    s.ios.vendored_frameworks = 'RakutenRewardNativeSDK.framework'
+    s.ios.vendored_frameworks = 'RakutenRewardNativeSDK.xcframework'
 end
