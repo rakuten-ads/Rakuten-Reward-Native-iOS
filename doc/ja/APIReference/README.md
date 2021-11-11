@@ -44,6 +44,7 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | IDFA | IDFAをセットする | `RakutenReward.shared.advertisingID` |
 | ミッションユーザー情報の更新のデリゲートメソッド | ユーザー情報が更新された時のコールバック | `RakutenReward.shared.didUpdateUser = { user in }` |
 | SDKの状態の更新のデリケートメソッド | SDKの状態が更新された場合のコールバック | `RakutenReward.shared.didUpdateStatus = { status in }` |
+| ポータルの表示状態が更新された場合のデリゲート | ポータルを表示状態変更のコールバック | `RakutenReward.shared.didUpdateIsPortalPresentedStatus = { isPortalPresent in }` |
 <br>
 
 ## RakutenRewardConfiguration
