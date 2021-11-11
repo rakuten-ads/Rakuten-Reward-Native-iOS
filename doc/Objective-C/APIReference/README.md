@@ -44,6 +44,7 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | IDFA | To set IDFA | `RakutenReward.shared.advertisingID;` |
 | User updated delegate | Callback when user is updated | `RakutenReward.shared.didUpdateUserObjc = ^(SDKUserObject * _Nullable user) { };` |
 | Status updated delegate | Callback when Reward Status is updated | `RakutenReward.shared.didUpdateStatus = ^(enum RakutenRewardStatus status) { };` |
+| Is Portal Present status updated delegate | Callback when portal is present or hidden | RakutenReward.shared.didUpdateIsPortalPresentedStatus = ^(BOOL isPortalPresent) { }; |
 <br>
 
 ## RakutenRewardConfiguration
