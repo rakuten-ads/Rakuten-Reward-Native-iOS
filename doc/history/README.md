@@ -1,5 +1,14 @@
 # Update History
 
+### Version 3.0.2
+<hr/>
+Release Date: 2021/12/08<br>
+XCode version: 13.x, Swift version: 5.5<br>
+Support OS: 9<br><br>
+
+New feature: 
+* Fix UIUX bugs<br><br>
+
 ### Version 3.0.1
 <hr/>
 Release Date: 2021/12/06<br>
