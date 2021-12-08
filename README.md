@@ -34,6 +34,7 @@
 |2.3.1|9|14|
 |3.0.0|9|15|
 |3.0.1|9|15|
+|3.0.2|9|15|
 
 <div id="import_sdk"></div>
 
@@ -99,7 +100,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target '' do
-pod 'RakutenRewardNativeSDK', '3.0.1'
+pod 'RakutenRewardNativeSDK', '3.0.2'
 end
 
 ```
