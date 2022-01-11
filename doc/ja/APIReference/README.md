@@ -27,6 +27,7 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | --- | --- | ---
 | バージョンを取得する | Get Rakuten Reward SDK Version | `RakutenReward.shared.getVersion()`
 | SDKポータルを開く | SDKポータルを開く | `RakutenReward.shared.openPortal(completionHandler: {r in})`
+| 広告ポータルを開く(Jp のみ) | 広告ポータルを開 | `RakutenReward.shared.openAdPortal { openAdPortalCompletion in }` |
 | ヘルプページを開く | ヘルプページをSDKのミニブラウザーで開く | `RakutenReward.shared.openSupportPage(.Help)`
 | 利用規約を開く | 利用規約をSDKのミニブラウザーで開く | `RakutenReward.shared.openSupportPage(.TermsCondition)`
 | プライバシーポリシーを開く | プライバシーポリシーをDKのミニブラウザーで開く | `RakutenReward.shared.openSupportPage(.PrivacyPoilicy)`
@@ -45,6 +46,7 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | ミッションユーザー情報の更新のデリゲートメソッド | ユーザー情報が更新された時のコールバック | `RakutenReward.shared.didUpdateUser = { user in }` |
 | SDKの状態の更新のデリケートメソッド | SDKの状態が更新された場合のコールバック | `RakutenReward.shared.didUpdateStatus = { status in }` |
 | ポータルの表示状態が更新された場合のデリゲート | ポータルを表示状態変更のコールバック | `RakutenReward.shared.didUpdateIsPortalPresentedStatus = { isPortalPresent in }` |
+| 広告ポータルの表示ステータスの更新情報を取得する | 広告ポータルが表示されているかどうかのコールバック | `RakutenReward.shared.didUpdateIsAdPortalPresentedStatus = { isAdPortalPresent in }` |
 <br>
 
 ## RakutenRewardConfiguration
@@ -62,6 +64,7 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | Rpクッキー | Rpクッキーをセットする | RewardConfiguration.rpCookie = "example"
 | アクション失敗時の履歴保存設定 | LogActionが失敗した場合にアクションを保存する | RewardConfiguration.actionHistoryEnabled = true
 | SDKポータルが表示されているか? | SDKポータルが表示されているかどうかを取得する | RewardConfiguration.isPortalPresent
+| 広告ポータルが表示されているか? | 広告ポータルが表示されているかどうかを取得 | RewardConfiguration.isAdPortalPresent
 <br>
 
 ## 楽天リワードのページを開く
