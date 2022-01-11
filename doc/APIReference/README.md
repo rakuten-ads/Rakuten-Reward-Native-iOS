@@ -27,6 +27,7 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | --- | --- | ---
 | Get version |  Get Rakuten Reward SDK Version | `RakutenReward.shared.getVersion()`
 | Open SDK Portal | For detail, please check sample application implementation | `RakutenReward.shared.openPortal(completionHandler: {r in})`
+| Open Ad Portal (JP region) | Open Ad Portal | `RakutenReward.shared.openAdPortal { openAdPortalCompletion in }` |
 | Open Help Page | Open Reward SDK Help page with mini browser | `RakutenReward.shared.openSupportPage(.Help)`
 | Open Terms and Condition Page | Open Reward SDK Terms and Conditions Page with mini browser | `RakutenReward.shared.openSupportPage(.TermsCondition)`
 | Open Privacy Policy Page | Open Reward SDK Privacy Policy Page with mini browser | `RakutenReward.shared.openSupportPage(.PrivacyPoilicy)`
@@ -44,7 +45,8 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | IDFA | To set IDFA | `RakutenReward.shared.advertisingID` |
 | User updated delegate | Callback when user is updated | `RakutenReward.shared.didUpdateUser = { user in }` |
 | Status updated delegate | Callback when Reward Status is updated | `RakutenReward.shared.didUpdateStatus = { status in }` |
-| Is Portal Present status updated delegate | Callback when portal is present or hidden | `RakutenReward.shared.didUpdateIsPortalPresentedStatus = { isPortalPresent in }` |
+| Is Portal present status updated delegate | Callback when portal is present or hidden | `RakutenReward.shared.didUpdateIsPortalPresentedStatus = { isPortalPresent in }` |
+| Is AdPortal present status updated delegate | Callback when ad portal is present or hidden | `RakutenReward.shared.didUpdateIsAdPortalPresentedStatus = { isAdPortalPresent in }` |
 <br>
 
 ## RakutenRewardConfiguration
@@ -62,6 +64,7 @@ RakutenRewardConfiguration is user setting class.
 | Rp Cookie | Set value for the Rp cookie | RewardConfiguration.rpCookie = "example"
 | Action History Enabled | Set whether want to save action code in case LogAction failed | RewardConfiguration.actionHistoryEnabled = true
 | Is Portal Present |  Get whether Portal is currently showing or not | RewardConfiguration.isPortalPresent
+| Is AdPortal Present | Get whether AdPortal is currently showing or not | RewardConfiguration.isAdPortalPresent
 <br>
 
 ## Open Reward Web page
