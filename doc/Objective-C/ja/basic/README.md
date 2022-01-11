@@ -9,7 +9,8 @@
 * [SDKを初期化する](#SDKを初期化する)<br>
 * [楽天メンバー情報を取得する](#楽天メンバー情報を取得する)<br>
 * [ミッションの達成](#mission-achievement)<br>
-* [SDK ポータル](#SDK-ポータル)<br><br>
+* [SDK ポータル](#SDK-ポータル)<br>
+* [広告ポータル](#広告ポータル)<br><br>
 
 
 # リージョンの設定
@@ -243,6 +244,23 @@ actionCode は開発者ポータルより取得します
 ![Portal4](Portal4.PNG)
 
 ![Portal5](Portal5.PNG)
+
+## 広告ポータル
+Ad Portal API は SDKバージョン3.1.0 からご利用可能です(JP のみ)
+<br>
+
+Open Ad Portal API を呼んでください
+```objective-c
+[RakutenReward.shared openAdPortalWithCompletionHandler:^(OpenAdPortalCompletion * _Nonnull error) { 
+    // Handle success or fail to open ad portal
+}];
+```
+
+こちらが 広告ポータルのユーザーインターフェースになります:
+
+![AdPortal1](AdPortal1.png)
+
+<br>
 
 ---
 言語 :
