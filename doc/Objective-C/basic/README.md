@@ -9,7 +9,7 @@ Table of Contents
 * [Initialize SDK](#initialize-sdk)<br>
 * [Getting User Information](#getting-user-information)<br>
 * [Mission Achievement](#mission-achievement)<br>
-* [SDK Portal](#sdk-portal)<br><br>
+* [SDK Portal](#sdk-portal)<br>
 * [Ad Portal](#sdk-portal)<br><br>
 
 # Region Setting
