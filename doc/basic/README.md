@@ -222,7 +222,7 @@ Below are the portal UIs:
 <br>
 
 # Ad Portal
-*Ad Portal APIs are available from version 9.1.0 (JP region only)
+*Ad Portal APIs are available from version 3.1.0 (JP region only)
 <br>
 
 Call Open Ad Portal API:
@@ -232,7 +232,7 @@ RakutenReward.shared.openAdPortal { completion in
 }
 ```
 
-Below are the portal UIs:
+Below are the ad portal UIs:
 
 ![AdPortal1](AdPortal1.png)
 
