@@ -9,7 +9,8 @@ Table of Contents
 * [Initialize SDK](#initialize-sdk)<br>
 * [Getting User Information](#getting-user-information)<br>
 * [Mission Achievement](#mission-achievement)<br>
-* [SDK Portal](#sdk-portal)<br><br>
+* [SDK Portal](#sdk-portal)<br>
+* [Ad Portal](#ad-portal)<br><br>
 
 # Region Setting
 From Version 2.1, SDK support multiple regions.
@@ -218,6 +219,23 @@ Below are the portal UIs:
 ![Portal4](Portal4.png)
 
 ![Portal5](Portal5.png)
+<br>
+
+# Ad Portal
+*Ad Portal APIs are available from version 9.1.0 (JP region only)
+<br>
+
+Call Open Ad Portal API:
+```swift
+RakutenReward.shared.openAdPortal { completion in 
+    // Handle success or fail to open ad portal
+}
+```
+
+Below are the portal UIs:
+
+![AdPortal1](AdPortal1.png)
+
 <br>
 
 LANGUAGE :
