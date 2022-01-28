@@ -1,5 +1,14 @@
 # Update History
 
+### Version 3.2.0
+<hr/>
+Release Date: 2022/01/28<br>
+XCode version: 13.x, Swift version: 5.5<br>
+Support OS: 9<br><br>
+
+New feature: 
+* UI Improvement in portal and claim views<br><br>
+
 ### Version 3.1.0
 <hr/>
 Release Date: 2022/01/11<br>
