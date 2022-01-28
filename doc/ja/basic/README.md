@@ -196,15 +196,15 @@ actionCode は開発者ポータルより取得します
 
 こちらがSDKポータルのイメージになります
 
-![Portal1](Portal1.PNG)
+![Portal1](Portal1.PNG?)
 
-![Portal2](Portal2.PNG)
+![Portal2](Portal2.PNG?)
 
-![Portal3](Portal3.PNG)
+![Portal3](Portal3.PNG?)
 
-![Portal4](Portal4.PNG)
+![Portal4](Portal4.PNG?)
 
-![Portal5](Portal5.PNG)
+![Portal5](Portal5.PNG?)
 
 ## 広告ポータル
 Ad Portal API は SDKバージョン3.1.0 からご利用可能です(JP のみ)
