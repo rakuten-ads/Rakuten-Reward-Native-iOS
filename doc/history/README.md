@@ -1,5 +1,17 @@
 # Update History
 
+### Version 3.3.0
+<hr/>
+Release Date: 2022/03/07<br>
+XCode version: 13.x, Swift version: 5.5<br>
+Support OS: 11<br><br>
+
+New feature: 
+* Add Ichiba Deeplink feature<br>
+* Add Analytics SDK feature<br>
+* Add ads jump to safari feature<br>
+* Bug fixes<br><br>
+
 ### Version 3.2.0
 <hr/>
 Release Date: 2022/01/28<br>
