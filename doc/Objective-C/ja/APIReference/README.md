@@ -15,6 +15,7 @@
 * [ミッションの一覧を取得](#ミッションの一覧を取得)<br>
 * [Rakuten Reward Ad Configuration](#rakutenrewardadconfiguration)<br>
 * [クッキーをセットする](#クッキーをセットする)<br>
+* [イベントアナリティクス](#イベントアナリティクス)<br>
 * [ミッション達成後のカスタムUIの作り方](#ミッション達成後のカスタムUIの作り方)<br><br>
 
 # API ガイド
@@ -64,6 +65,7 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | アクション失敗時の履歴保存設定 | LogActionが失敗した場合にアクションを保存する | RewardConfiguration.actionHistoryEnabled = true;
 | SDKポータルが表示されているか? | SDKポータルが表示されているかどうかを取得する | RewardConfiguration.isPortalPresent;
 | 広告ポータルが表示されているか? | 広告ポータルが表示されているかどうかを取得 | RewardConfiguration.isAdPortalPresent;
+| ミッションイベント機能をサポートしているかどうかを取得する | ミッションイベント機能をサポートしているかどうかを取得する | RewardConfiguration.isMissionEventFeatureEnabled = true;
 <br>
 
 ## 楽天リワードのページを開く
@@ -266,6 +268,35 @@ RewardConfiguration.rzCookie = @"example";
 ```
 
 <br>
+
+## イベントアナリティクス
+---
+この機能はSDK v3.3.0　からサポートしています。<br>
+```objc
+[RakutenMissionEvent.shared logActionWithEventCode:@"exampleEventCode" eventTrackingType: RakutenMissionEventTrackingTypeGenericEvent parameters:NULL completionHandler:^(NSError * _Nullable error) {
+    if (error != nil) {
+        // Error
+        return;
+    }
+
+    // Success
+}];
+```
+
+### パラメーター
+| ステータス | 説明 |
+| --- | --- |
+| eventCode | Analytics SDK のイベントコード |
+| eventTrackingType | RakutenMissionEvent トラッキングタイプ / Analytics SDK トラッキングタイプ |
+| parameters (optional) | Analytics SDK パラメーター |
+
+### Enum RakutenMissionEventTrackingType
+| トラッキングタイプ | 説明 |
+| --- | --- |
+| RakutenMissionEventTrackingTypeGenericEvent | 通常イベントのトラッキング |
+| RakutenMissionEventTrackingTypeRatSpecificEvent | カスタムイベントのトラッキング |
+
+<br>Analytics SDK  リファレンス: https://documents.developers.rakuten.com/ios-sdk/analytics-9.1/
 
 ## ミッション達成後のカスタムUIの作り方
 ---
