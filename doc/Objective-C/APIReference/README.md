@@ -15,6 +15,7 @@ Table of Contents
 * [Get current user action status](#get-current-user-action-status)<br>
 * [Rakuten Reward Ad Configuration (TW only)](#rakutenrewardadconfiguration)<br>
 * [Set Rakuten Cookie](#set-rakuten-cookie)<br>
+* [Event Analytics](#event-analytics)<br>
 * [How to create custom mission UI](#how-to-create-custom-mission-ui)<br><br>
 
 # API Reference
@@ -65,6 +66,7 @@ RakutenRewardConfiguration is user setting class.
 | Action History Enabled | Set whether want to save action code in case LogAction failed | RewardConfiguration.actionHistoryEnabled = true;
 | Is Portal Present |  Get whether Portal is currently showing or not | RewardConfiguration.isPortalPresent;
 | Is AdPortal Present | Get wether AdPortal is currently showing or not | RewardConfiguration.isAdPortalPresent;
+| Is MissionEventFeatureEnabled | Get and set MissionEvent feature status | RewardConfiguration.isMissionEventFeatureEnabled = true;
 <br>
 
 ## Open Reward Web page
@@ -267,6 +269,36 @@ RewardConfiguration.rzCookie = @"example";
 ```
 
 <br>
+
+## Event Analytics
+---
+This function can be used from SDK v3.3.0<br>
+```objc
+[RakutenMissionEvent.shared logActionWithEventCode:@"exampleEventCode" eventTrackingType: RakutenMissionEventTrackingTypeGenericEvent parameters:NULL completionHandler:^(NSError * _Nullable error) {
+    if (error != nil) {
+        // Error
+        return;
+    }
+
+    // Success
+}];
+```
+
+### Parameters
+| Status | Summary |
+| --- | --- |
+| eventCode | Analytics SDK event code |
+| eventTrackingType | RakutenMissionEventTrackingType / Analytics SDK tracking type |
+| parameters (optional) | Analytics SDK parameters |
+
+### Enum RakutenMissionEventTrackingType
+| Type | Summary |
+| --- | --- |
+| RakutenMissionEventTrackingTypeGenericEvent | tracking generic event |
+| RakutenMissionEventTrackingTypeRatSpecificEvent | tracking Analytics SDK specific event |
+
+<br>
+
 
 ## How to create custom mission UI
 ---
