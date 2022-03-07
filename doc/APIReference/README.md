@@ -67,7 +67,6 @@ RakutenRewardConfiguration is user setting class.
 | Is Portal Present |  Get whether Portal is currently showing or not | RewardConfiguration.isPortalPresent
 | Is AdPortal Present | Get whether AdPortal is currently showing or not | RewardConfiguration.isAdPortalPresent
 | Is MissionEventFeatureEnabled | Get and set MissionEvent feature status | RewardConfiguration.isMissionEventFeatureEnabled = true
-| Is Ichiba App| Set true for Ichiba app only | RewardConfiguration.isIchibaApp = true
 <br>
 
 ## Open Reward Web page
