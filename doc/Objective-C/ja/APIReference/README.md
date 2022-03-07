@@ -66,6 +66,7 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | SDKポータルが表示されているか? | SDKポータルが表示されているかどうかを取得する | RewardConfiguration.isPortalPresent;
 | 広告ポータルが表示されているか? | 広告ポータルが表示されているかどうかを取得 | RewardConfiguration.isAdPortalPresent;
 | ミッションイベント機能をサポートしているかどうかを取得する | ミッションイベント機能をサポートしているかどうかを取得する | RewardConfiguration.isMissionEventFeatureEnabled = true;
+| 楽天市場アプリケーション設定| 楽天市場アプリケーションの場合 true にセット | RewardConfiguration.isIchibaApp = true;
 <br>
 
 ## 楽天リワードのページを開く
