@@ -109,6 +109,15 @@ end
 
 ```
 
+### Swift Package Manager (SPM) を利用する場合
+
+以下の依存関係を追加する
+
+```
+dependencies: [
+    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("3.3.0")),
+]
+```
 
 ## Usage
 [基本ガイド](./basic/README.md)  
