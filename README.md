@@ -108,6 +108,15 @@ end
 
 ```
 
+### Via Swift Package Manager (SPM)
+
+Add the dependency value below
+
+```
+dependencies: [
+    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("3.3.0")),
+]
+```
 
 ## Usage
 [Basic Guide](./doc/basic/README.md)  
