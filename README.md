@@ -118,6 +118,25 @@ dependencies: [
 ]
 ```
 
+### Via Carthage
+
+Open your project's Cartfile and add Reward Native SDK dependency
+
+```
+binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json"
+```
+
+Then run carthage update with XCFramework to download Reward Native SDK
+
+```bash
+carthage update --platform ios --use-xcframeworks
+```
+
+Open your app's project or workspace
+
+Drag the binaries from Carthage/Build into the Frameworks, Libraries, and Embedded Content section of your target
+<br>
+
 ## Usage
 [Basic Guide](./doc/basic/README.md)  
 [API Reference](./doc/APIReference/README.md)<br>
