@@ -119,6 +119,25 @@ dependencies: [
 ]
 ```
 
+### Carthage の場合
+
+プロジェクトの Cartfile を開き、 Reward Native SDK の依存関係を追加する
+
+```
+binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json"
+```
+
+carthage を実行して Reward Native SDK をダウンロードする(XCFramework)
+
+```bash
+carthage update --platform ios --use-xcframeworks
+```
+
+アプリケーションのプロジェクトワークスペースを開く
+
+Carthage でのビルドバイナリをドラッグ＆ドロップし Embedded に加える
+<br>
+
 ## Usage
 [基本ガイド](./basic/README.md)  
 [APIガイド](./APIReference/README.md)<br>
