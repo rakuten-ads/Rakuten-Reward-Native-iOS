@@ -70,7 +70,10 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
   }
 }
 ```
-<br>
+**From version 3.3.1, developers require to call logout API whenever user log out to properly clear token and data**
+
+Refer to [Log Out](#log-out)
+<br><br>
 
 ### RAE
 To use SDK API, developers need to set token type after login
@@ -87,7 +90,10 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
   }
 }
 ```
-<br>
+**From version 3.3.1, developers require to call logout API whenever user log out to properly clear token and data**
+
+Refer to [Log Out](#log-out)
+<br><br>
 
 ## Log In
 
