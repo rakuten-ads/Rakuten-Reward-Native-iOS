@@ -68,7 +68,10 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
   }
 }
 ```
-<br>
+**バージョン3.3.１から、ユーザーがログアウト時にトークンやデータをちゃんと消すためにログアウトAPIを呼ぶのが必要です。** <br>
+[ログアウト](#ログアウト) に参照
+<br><br>
+
 
 ### RAE
 
@@ -86,7 +89,10 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
   }
 }
 ```
-<br>
+**バージョン3.3.１から、ユーザーがログアウト時にトークンやデータをちゃんと消すためにログアウトAPIを呼ぶのが必要です。** <br>
+[ログアウト](#ログアウト) に参照
+<br><br>
+
 
 ## ログイン
 
