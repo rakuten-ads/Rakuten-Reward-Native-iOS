@@ -1,5 +1,17 @@
 # Update History
 
+### Version 3.3.1
+<hr/>
+Release Date: 2022/04/12<br>
+XCode version: 13.x, Swift version: 5.5<br>
+Support OS: 11<br><br>
+
+New feature: 
+* Fix compiler error with Xcode 13.3<br>
+* Update Log Out API. Clients who are using ID SDK or User SDK login options are required to call Log Out API when users log out.<br>
+* Add DocC
+* Bug fixes<br><br>
+
 ### Version 3.3.0
 <hr/>
 Release Date: 2022/03/07<br>
