@@ -1,5 +1,15 @@
 # Update History
 
+### Version 3.3.2
+<hr/>
+Release Date: 2022/05/05<br>
+XCode version: 13.x, Swift version: 5.5<br>
+Support OS: 11<br><br>
+
+New feature: 
+* Rakuten Ichiba App support<br>
+* Bug fixes<br><br>
+
 ### Version 3.3.1
 <hr/>
 Release Date: 2022/04/12<br>
