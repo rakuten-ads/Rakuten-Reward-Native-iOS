@@ -175,6 +175,7 @@ UnclaimedItemObject *unclaimedItem = [UnclaimedItemObject alloc]; // 例
 | point | ポイント |
 | unclaimedTimes | 未獲得ミッション件数 |
 | achieveddatestr | ミッション達成日 |
+| getAchievedDate() | “yyyy/MM/dd” フォーマットで達成日を取得できるように変更 |
 <br>
 
 ## API エラー
