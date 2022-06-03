@@ -1,5 +1,16 @@
 # 更新履歴
 
+### Version 3.4.0
+<hr/>
+Release Date: 2022/06/03<br>
+XCode version: 13.x, Swift version: 5.5<br>
+Support OS: 11<br><br>
+
+New feature: 
+* 台湾リージョンでの新しい広告をサポート<br>
+* 未獲得アイテムの日付をstring で取れるAPIを追加<br>
+* その他軽微な問題の修正<br><br>
+
 ### バージョン 3.3.2
 <hr/>
 リリース日: 2022/05/05<br>
