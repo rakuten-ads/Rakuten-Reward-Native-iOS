@@ -176,6 +176,7 @@ UnclaimedItemObject *unclaimedItem = [UnclaimedItemObject alloc]; // Example
 | point | Point |
 | unclaimedTimes | Number of Unclaim Item |
 | achieveddatestr | Mission Achievement Date |
+| getAchievedDate() | Get achievement date in "yyyy/MM/dd" format |
 <br>
 
 ## API Errors
