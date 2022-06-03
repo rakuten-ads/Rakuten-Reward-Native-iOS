@@ -1,5 +1,16 @@
 # Update History
 
+### Version 3.4.0
+<hr/>
+Release Date: 2022/06/03<br>
+XCode version: 13.x, Swift version: 5.5<br>
+Support OS: 11<br><br>
+
+New feature: 
+* Added new TW ads support<br>
+* Added unclaimed item get date in String format API<br>
+* Bug fixes<br><br>
+
 ### Version 3.3.2
 <hr/>
 Release Date: 2022/05/05<br>
