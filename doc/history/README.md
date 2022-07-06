@@ -1,5 +1,15 @@
 # Update History
 
+### Version 3.4.3
+<hr/>
+Release Date: 2022/07/06<br>
+XCode version: 13.x, Swift version: 5.5<br>
+Support OS: 11<br><br>
+
+New feature: 
+* M1 support<br>
+* Readd Event Analytic feature<br>
+
 ### Version 3.4.2
 <hr/>
 Release Date: 2022/06/12<br>
