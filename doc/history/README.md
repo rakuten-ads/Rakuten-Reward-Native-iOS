@@ -1,5 +1,14 @@
 # Update History
 
+### Version 3.4.4
+<hr/>
+Release Date: 2022/07/28<br>
+XCode version: 13.x, Swift version: 5.5<br>
+Support OS: 11<br><br>
+
+New feature: 
+* SDK consistency improvement<br>
+
 ### Version 3.4.3
 <hr/>
 Release Date: 2022/07/06<br>
