@@ -67,6 +67,8 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | SDKポータルが表示されているか? | SDKポータルが表示されているかどうかを取得する | RewardConfiguration.isPortalPresent
 | 広告ポータルが表示されているか? | 広告ポータルが表示されているかどうかを取得 | RewardConfiguration.isAdPortalPresent
 | ミッションイベント機能をサポートしているかどうかを取得する | ミッションイベント機能をサポートしているかどうかを取得する | RewardConfiguration.isMissionEventFeatureEnabled = true
+| カスタムドメインを指定する | この設定はステージング用にカスタムドメインを指定するものです | RewardConfiguration.setCustomDomain("stg.test.com")
+| カスタムパスを指定する | この設定はステージング用にカスタムパスを指定するものです | RewardConfiguration.setCustomPath("/testPath/test/")
 <br>
 
 ## 楽天リワードのページを開く
