@@ -67,6 +67,8 @@ RakutenRewardConfiguration is user setting class.
 | Is Portal Present |  Get whether Portal is currently showing or not | RewardConfiguration.isPortalPresent;
 | Is AdPortal Present | Get wether AdPortal is currently showing or not | RewardConfiguration.isAdPortalPresent;
 | Is MissionEventFeatureEnabled | Get and set MissionEvent feature status | RewardConfiguration.isMissionEventFeatureEnabled = true;
+| setCustomDomain | This setting is for setting custom domain for Staging | [RewardConfiguration setCustomDomain:@"stg.test.com"];
+| setCustomPath | This setting is for setting custom path for Staging | [RewardConfiguration setCustomPath:@"/testpath/test/"];
 <br>
 
 ## Open Reward Web page
