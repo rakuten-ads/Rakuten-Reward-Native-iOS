@@ -1,5 +1,15 @@
 # Update History
 
+### Version 3.4.5
+<hr/>
+Release Date: 2022/08/19<br>
+XCode version: 13.x, Swift version: 5.5<br>
+Support OS: 11<br><br>
+
+New feature: 
+* Add fraud detection<br>
+* Add new API for custom STG domain and path<br>
+
 ### Version 3.4.4
 <hr/>
 Release Date: 2022/07/28<br>
