@@ -164,6 +164,6 @@ LANGUAGE :
 > [![jp](./doc/lang/ja.png)](./doc/ja/README.md)
 
 OPEN SOURCE:
-[KeychainSwiftWrapper](https://github.com/jrendel/SwiftKeychainWrapper)
+[KeychainSwiftWrapper](https://github.com/jrendel/SwiftKeychainWrapper)<br>
 This product includes software developed by the "Marcin Krzyzanowski" (http://krzyzanowskim.com/).
 
