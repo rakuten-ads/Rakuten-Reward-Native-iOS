@@ -165,4 +165,5 @@ LANGUAGE :
 
 OPEN SOURCE:
 [KeychainSwiftWrapper](https://github.com/jrendel/SwiftKeychainWrapper)
+This product includes software developed by the "Marcin Krzyzanowski" (http://krzyzanowskim.com/).
 
