@@ -1,5 +1,14 @@
 # Update History
 
+### Version 3.5.0
+<hr/>
+Release Date: 2022/10/10<br>
+Xcode version: 13.x, Swift version 5.5<br>
+Support OS: 11<br><br>
+
+New feature:
+* Support new mission achieved notification<br>
+
 ### Version 3.4.5
 <hr/>
 Release Date: 2022/08/19<br>
