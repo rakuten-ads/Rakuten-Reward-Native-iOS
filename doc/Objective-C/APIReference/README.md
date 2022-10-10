@@ -137,7 +137,7 @@ MissionObject *mission = [MissionObject alloc]; // Example
 | iconurl | Mission icon URL | https://mprewardsdk.blob.core.windows.net/sdk-portal/appCode/actionCode.png
 | instruction | Mission instruction | One day one play
 | condition | Descritpion about mission max achievable | 10 times achievable
-| notificationtype | Mission UI Type | NONE, BANNER, MODAL, CUSTOM
+| notificationtype | Mission UI Type | NONE, BANNER, MODAL, CUSTOM, BANNER_50, BANNER_250
 | point | Mission Point | 10
 | enddatestr | Mission End Date <br> Daily : Today<br> Weekly : End of week<br> Monthly : Endof Month<br> Custom : Custom End Date<br> | 20190403
 | till | Mission End date | 3 days
