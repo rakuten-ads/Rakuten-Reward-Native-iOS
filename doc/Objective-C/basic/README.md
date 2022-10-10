@@ -215,6 +215,8 @@ You can decide type by Developer Portal
 | Modal | Show Modal UI provided by SDK
 | Banner | Show Banner UI provided by SDK
 | Custom | Developer can create UI by themselves
+| Banner_50 | Show Banner_50 UI provided by SDK
+| Banner_250 | Show Banner_250 UI provided by SDK
 | No UI | Not show any UI
 <br>
 
