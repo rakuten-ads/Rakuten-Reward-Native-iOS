@@ -13,7 +13,6 @@
   * [UnclaimedItem](#unclaimeditem)<br>
 * [API エラー](#API-エラー)<br>
 * [ミッションの一覧を取得](#ミッションの一覧を取得)<br>
-* [Rakuten Reward Ad Configuration](#rakutenrewardadconfiguration)<br>
 * [クッキーをセットする](#クッキーをセットする)<br>
 * [イベントアナリティクス](#イベントアナリティクス)<br>
 * [ミッション達成後のカスタムUIの作り方](#ミッション達成後のカスタムUIの作り方)<br><br>
@@ -222,31 +221,6 @@ RakutenReward.shared.getMissionListWithProgress(completion: {r in
 		    }
 }
 ```
-<br>
-
-## RakutenRewardAdConfiguration
----
-こちらの機能は台湾でのみご利用になれます
-```swift
-RakutenRewardAdConfiguration.shared
-```
-| パラメータ名 | 説明 | 例 
-| --- | --- | ---
-| bcat | 広告のコンテンツをIABのコンテンツに基づきブロックする  | RakutenRewardAdConfiguration.shared.bcat
-| badv | 広告のドメインレベルでのブロック | RakutenRewardAdConfiguration.shared.badv
-| appDomain |  アプリのドメイン(アプリの紹介ページのトップなど) | RakutenRewardAdConfiguration.shared.appDomain
-| storeUrl | アプリストアのURL | RakutenRewardAdConfiguration.shared.storeUrl
-| privacyPolicy | プライバシーポリシーの有無　 0　= 用意していない、 1 = 用意している | RakutenRewardAdConfiguration.shared.privacyPolicy
-| paid | アプリが無料か有料かどうか 0 = 無料、 1 = 有料 | RakutenRewardAdConfiguration.shared.paid
-| keywords | アプリのキーワード | RakutenRewardAdConfiguration.shared.keywords
-| test | テストモードの切り替え(デバッグ用) | RakutenRewardAdConfiguration.shared.test
-<br>
-
-| メソッド | 説明 | 例 
-| --- | --- | ---
-| addBlockCategory | 広告のコンテンツブロックの対象を追加する<br>フォーマット: IAB(Number)-(Number) | addBlockCategory(str: "IAB7-17")
-| addBlockDomain | 広告のドメインレベルでのブロックの対象を追加する | addBlockCategory(str: "www.example.com")
-| addKeywords | 広告キーワードを追加する | addKeywords(str: "製品")
 <br>
 
 ## クッキーをセットする
