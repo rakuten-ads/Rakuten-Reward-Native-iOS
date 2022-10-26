@@ -13,7 +13,6 @@ Table of Contents
   * [UnclaimedItem](#unclaimeditem)<br>
 * [API Errors](#api-errors)<br>
 * [Get current user action status](#get-current-user-action-status)<br>
-* [Rakuten Reward Ad Configuration (TW only)](#rakutenrewardadconfiguration)<br>
 * [Set Rakuten Cookie](#set-rakuten-cookie)<br>
 * [Event Analytics](#event-analytics)<br>
 * [How to create custom mission UI](#how-to-create-custom-mission-ui)<br><br>
@@ -228,31 +227,6 @@ UnclaimedItemObject *unclaimedItem = [UnclaimedItemObject alloc]; // Example
 }];
 }
 ```
-<br>
-
-## RakutenRewardAdConfiguration
----
-This configuration is only for TW region.
-```objective-c
-RakutenRewardAdConfiguration.shared;
-```
-| Property Name | Description | Example 
-| --- | --- | ---
-| bcat | Blocked advertiser categories using the IAB content | RakutenRewardAdConfiguration.shared.bcat;
-| badv | Block list of advertisers by their domains | RakutenRewardAdConfiguration.shared.badv;
-| appDomain |  Domain of the app | RakutenRewardAdConfiguration.shared.appDomain;
-| storeUrl | App store URL | RakutenRewardAdConfiguration.shared.storeUrl;
-| privacyPolicy | Indicates if the app has a privacy policy, where 0 = no, 1 = yes | RakutenRewardAdConfiguration.shared.privacyPolicy;
-| paid | Indicates if the app is free or paid, where 0 = free, 1 = paid | RakutenRewardAdConfiguration.shared.paid;
-| keywords | Keywords about the app | RakutenRewardAdConfiguration.shared.keywords;
-| test | To enable Ads testing. Set to true if debug only. | RakutenRewardAdConfiguration.shared.test;
-<br>
-
-| Method | Description | Example 
-| --- | --- | ---
-| addBlockCategory | Append block category string to bcat array<br>Format: IAB(Number)-(Number).| [RakutenRewardAdConfiguration.shared addBlockCategoryWithStr:@"IAB7-17"];
-| addBlockDomain | Append domain string to badv array. | [RakutenRewardAdConfiguration.shared addBlockDomainWithStr:@"www.example.com"];
-| addKeywords | Append keyword string to keywords array. | [RakutenRewardAdConfiguration.shared addKeywordsWithStr:@"productivity"];
 <br>
 
 ## Set Rakuten Cookie
