@@ -13,23 +13,11 @@ Table of Contents
 * [Ad Portal](#sdk-portal)<br><br>
 
 # Region Setting
-From Version 2.1, SDK support multiple regions.
-We support Japan, Taiwan(2021/02).
 
 For Japan
 ```objective-c
 RakutenReward.shared.region = RakutenRewardRegionJP;
 ```
-
-For Taiwan
-```objective-c
-RakutenReward.shared.region = RakutenRewardRegionTW;
-```
-
-Do not use multiple setting in same app.  
-We expect one application use one region.  
-Each Region has differrent functions, and we cannot support each country mixed.
-<br><br>
 
 # Authentication
 
