@@ -14,20 +14,11 @@
 
 
 # リージョンの設定
-SDK 2.1のバージョンより, 複数のリージョンでのサポートをしております。  
-現在(2021/02)、日本と台湾をサポートしております。
 
 日本の場合
 ```objective-c
 RakutenReward.shared.region = RakutenRewardRegionJP;
 ```
-
-台湾の場合
-```objective-c
-RakutenReward.shared.region = RakutenRewardRegionTW;
-```
-
-1つのアプリで1つのリージョンを選択してください
 
 # 認証
 ## ログインオプション
