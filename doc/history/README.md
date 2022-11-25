@@ -1,5 +1,15 @@
 # Update History
 
+### Version 3.5.2
+<hr/>
+Release Date: 2022/11/25<br>
+Xcode version: 13.x, Swift version 5.6<br>
+Support OS: 11<br><br>
+
+New feature:
+* Remove Taiwan Region support<br>
+* Bug fix<br>
+
 ### Version 3.5.1
 <hr/>
 Release Date: 2022/10/25<br>
