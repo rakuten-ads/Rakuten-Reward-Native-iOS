@@ -62,12 +62,12 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | ログをオンにする | デバッグログのオン・オフ設定 | RewardConfiguration.isDebug = true
 | Rzクッキー | Rzクッキーをセットする | RewardConfiguration.rzCookie = "example"
 | Rpクッキー | Rpクッキーをセットする | RewardConfiguration.rpCookie = "example"
-| アクション失敗時の履歴保存設定 | LogActionが失敗した場合にアクションを保存する | RewardConfiguration.actionHistoryEnabled = true
 | SDKポータルが表示されているか? | SDKポータルが表示されているかどうかを取得する | RewardConfiguration.isPortalPresent
 | 広告ポータルが表示されているか? | 広告ポータルが表示されているかどうかを取得 | RewardConfiguration.isAdPortalPresent
 | ミッションイベント機能をサポートしているかどうかを取得する | ミッションイベント機能をサポートしているかどうかを取得する | RewardConfiguration.isMissionEventFeatureEnabled = true
 | カスタムドメインを指定する | この設定はステージング用にカスタムドメインを指定するものです | RewardConfiguration.setCustomDomain("stg.test.com")
 | カスタムパスを指定する | この設定はステージング用にカスタムパスを指定するものです | RewardConfiguration.setCustomPath("/testPath/test/")
+| SDKポータルを使うの設定 | SDKポータルを使う、使わないを設定する | RewardConfiguration.isUsingSDKPortal = true
 <br>
 
 ## 楽天リワードのページを開く
@@ -79,9 +79,9 @@ SDK は各種SDKのページを開くためのAPIを提供しております
 extension RakutenReward {
     public enum SupportPage : CaseIterable {
  
-        case Help
-        case TermsCondition
-        case PrivacyPolicy
+        case help
+        case termsCondition
+        case privacyPolicy
  
     }
     public func openSupportPage(_ page: RakutenRewardNativeSDK.RakutenReward.SupportPage)
@@ -112,10 +112,10 @@ RakutenRewardStatus is Reward SDK の状態を表します
 
 | パラメータ | 説明
 | --- | ---
-| .Online | SDKの初期化が完了 SDKのメンバー情報が正しく更新された(ポイントおよび未獲得ミッション数)
-| .Offline | SDKの初期化が未完了または失敗
-| .AppcodeInvalid | アプリケーションキーが間違っている
-| .TokenExpired |トークンの期限切れ  `tokenType` が `RakutenAuth`, `.TokenExpired` の場合はユーザーは再ログインする必要があります
+| .online | SDKの初期化が完了 SDKのメンバー情報が正しく更新された(ポイントおよび未獲得ミッション数)
+| .offline | SDKの初期化が未完了または失敗
+| .appcodeInvalid | アプリケーションキーが間違っている
+| .tokenExpired |トークンの期限切れ  `tokenType` が `RakutenAuth`, `.TokenExpired` の場合はユーザーは再ログインする必要があります
 <br>
 
 ### ステータスの確認
@@ -136,7 +136,7 @@ let status = RakutenReward.shared.status
 | iconurl | ミッションアイコンのURL | https://mprewardsdk.blob.core.windows.net/sdk-portal/appCode/actionCode.png
 | instruction | ミッションの説明文 | 1日1回プレイする
 | condition | ミッションの達成条件 | 毎日10回達成可能
-| notificationtype | ミッションのノーティフィケーションタイプ | NONE, BANNER, MODAL, CUSTOM, BANNER_50, BANNER_250
+| notificationtype | ミッションのノーティフィケーションタイプ | NONE, BANNER, MODAL, CUSTOM, BANNER_50,BANNER_250
 | point | ミッションのポイント | 10
 | enddatestr | ミッションの終了日 <br> 日次の場合 : Today<br> 週次 : 週の終わり<br> 月次 : 月の終わり<br> カスタム : 指定された日時<br> | 20190403
 | till | ミッション終了日までの残り日数 | 残り3日
@@ -204,11 +204,11 @@ let status = RakutenReward.shared.status
 
 | 名前 | 説明
 | --- | ---
-| NoMissionFound | ミッションの取得できなかった
-| NoUnclaimedItemFound | 未獲得ミッションが取得できなかった
-| SessionNotInitialized | SDKが初期化されていない
-| FeatureDisabledByUser | SDK function is not active by user
-| SDKStatusNotOnline | SDK status is not online
+| noMissionFound | ミッションの取得できなかった
+| noUnclaimedItemFound | 未獲得ミッションが取得できなかった
+| sessionNotInitialized | SDKが初期化されていない
+| featureDisabledByUser | SDK function is not active by user
+| sdkStatusNotOnline | SDK status is not online
 <br>
 
 ## ミッションの一覧を取得
@@ -221,6 +221,31 @@ RakutenReward.shared.getMissionListWithProgress(completion: {r in
 		    }
 }
 ```
+<br>
+
+## RakutenRewardAdConfiguration
+---
+こちらの機能は台湾でのみご利用になれます
+```swift
+RakutenRewardAdConfiguration.shared
+```
+| パラメータ名 | 説明 | 例 
+| --- | --- | ---
+| bcat | 広告のコンテンツをIABのコンテンツに基づきブロックする  | RakutenRewardAdConfiguration.shared.bcat
+| badv | 広告のドメインレベルでのブロック | RakutenRewardAdConfiguration.shared.badv
+| appDomain |  アプリのドメイン(アプリの紹介ページのトップなど) | RakutenRewardAdConfiguration.shared.appDomain
+| storeUrl | アプリストアのURL | RakutenRewardAdConfiguration.shared.storeUrl
+| privacyPolicy | プライバシーポリシーの有無　 0　= 用意していない、 1 = 用意している | RakutenRewardAdConfiguration.shared.privacyPolicy
+| paid | アプリが無料か有料かどうか 0 = 無料、 1 = 有料 | RakutenRewardAdConfiguration.shared.paid
+| keywords | アプリのキーワード | RakutenRewardAdConfiguration.shared.keywords
+| test | テストモードの切り替え(デバッグ用) | RakutenRewardAdConfiguration.shared.test
+<br>
+
+| メソッド | 説明 | 例 
+| --- | --- | ---
+| addBlockCategory | 広告のコンテンツブロックの対象を追加する<br>フォーマット: IAB(Number)-(Number) | addBlockCategory(str: "IAB7-17")
+| addBlockDomain | 広告のドメインレベルでのブロックの対象を追加する | addBlockCategory(str: "www.example.com")
+| addKeywords | 広告キーワードを追加する | addKeywords(str: "製品")
 <br>
 
 ## クッキーをセットする
