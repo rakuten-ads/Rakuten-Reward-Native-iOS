@@ -216,6 +216,8 @@ Below are the portal UIs:
 ![Portal4](Portal4.png?)
 
 ![Portal5](Portal5.png?)
+
+![Portal6](Portal6.png?)
 <br>
 
 # Ad Portal
