@@ -145,7 +145,7 @@ No, currently we do not provide Staging environment for developers. Please use d
 Yes, with IDSDK and JID as backend, you can set the token type as RID
 ```
 // iOS example
-RakutenReward.shared.tokenType = TokenType.RID
+RakutenReward.shared.tokenType = TokenType.rid
 ```
 
 Then can pass (API-C) token value in the startSession API 
