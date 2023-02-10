@@ -207,6 +207,18 @@ RakutenReward.shared.openPortal(completionHandler: { result in
 
 Below are the portal UIs:
 
+<img src="Portal1.png?" width="300" height="600">
+
+<img src="Portal2.png?" width="300" height="600">
+
+<img src="Portal3.png?" width="300" height="600">
+
+<img src="Portal4.png?" width="300" height="600">
+
+<img src="Portal5.png?" width="300" height="600">
+
+<img src="Portal6.png?" width="300" height="600">
+
 <br>
 
 # Ad Portal
