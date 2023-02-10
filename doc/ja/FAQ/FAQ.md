@@ -146,7 +146,7 @@ if #available(iOS 14, *) {
 IDSDK と JID でログインすることができます, その場合 tokenTypeをRIDに設定します。
 ```
 // iOS の例
-RakutenReward.shared.tokenType = TokenType.RID
+RakutenReward.shared.tokenType = TokenType.rid
 ```
 
 API-Cのアクセストークンを　startSession API に渡します。
