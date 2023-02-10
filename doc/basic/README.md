@@ -16,7 +16,7 @@ Table of Contents
 
 For Japan
 ```Swift
-RakutenReward.shared.region = RakutenRewardRegion.JP
+RakutenReward.shared.region = RakutenRewardRegion.japan
 ```
 <br><br>
 
@@ -28,18 +28,18 @@ There are 3 types of login. According to your environment, please select proper 
 
 | Login Option        | Description | Support |
 | --- | --- | --- |
-| RakutenAuth | This is default option, provide login by SDK, SDK handled all login and user identifier | Japan, Taiwan |
-| RID | Rakuten ID SDK with RID, Login covers by ID SDK, and use API token for SDK| Japan |  
-| RAE | Rakuten ID SDK with RAE, Login covers by ID SDK, and use token for SDK | Japan |
+| rakutenAuth | This is default option, provide login by SDK, SDK handled all login and user identifier | Japan |
+| rid | Rakuten ID SDK with RID, Login covers by ID SDK, and use API token for SDK| Japan |  
+| rae | Rakuten ID SDK with RAE, Login covers by ID SDK, and use token for SDK | Japan |
 <br>
 
 ### Switch Login Option
-By default, login option is RakutenAuth
+By default, login option is rakutenAuth
 <br>
 
 ### RakutenAuth
 ```swift
-RakutenReward.shared.tokenType = TokenType.RakutenAuth
+RakutenReward.shared.tokenType = TokenType.rakutenAuth
 ```
 <br>
 
@@ -48,7 +48,7 @@ RakutenReward.shared.tokenType = TokenType.RakutenAuth
 To use SDK API, developers need to set token type after login
 
 ```swift
-RakutenReward.shared.tokenType = TokenType.RID
+RakutenReward.shared.tokenType = TokenType.rid
 ```
 
 and pass (API-C) token value in startSession API. Access token value will be set automatically when startSessionAPI returns success
@@ -68,7 +68,7 @@ Refer to [Log Out](#log-out)
 To use SDK API, developers need to set token type after login
 
 ```swift
-RakutenReward.shared.tokenType = TokenType.RAE
+RakutenReward.shared.tokenType = TokenType.rae
 ```
 
 and pass access API token value in startSession API. Access token value will be set automatically when startSessionAPI returns success
@@ -180,7 +180,7 @@ Reward SDK provides Modal and Banner UI
 <br>
 
 ### Notification Type
-There  are 4 types of Mission Achievement UI. Modal, Banner, and No UI, and Custom which developed by developers.
+There  are 6 types of Mission Achievement UI. Modal, Banner, and No UI, and Custom which developed by developers.
 
 You can decide type by Developer Portal 
 
