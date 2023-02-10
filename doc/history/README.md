@@ -1,5 +1,16 @@
 # Update History
 
+### Version 3.6.0
+<hr/>
+Release Date: 2023/02/09<br>
+Xcode version: 13.x, Swift version 5.6<br>
+Support OS: 11<br><br>
+
+New feature:
+* Introduce Poikatsu in SDK Portal<br>
+* Update Claim UI<br>
+* Bug fix<br>
+
 ### Version 3.5.2
 <hr/>
 Release Date: 2022/11/25<br>
