@@ -62,12 +62,12 @@ RakutenRewardConfiguration is user setting class.
 | Enable Logging | Set value to true to receive additional Debug log info | RewardConfiguration.isDebug = true;
 | Rz Cookie | Set value for the Rz cookie | RewardConfiguration.rzCookie = @"example";
 | Rp Cookie | Set value for the Rp cookie | RewardConfiguration.rpCookie = @"example";
-| Action History Enabled | Set whether want to save action code in case LogAction failed | RewardConfiguration.actionHistoryEnabled = true;
 | Is Portal Present |  Get whether Portal is currently showing or not | RewardConfiguration.isPortalPresent;
 | Is AdPortal Present | Get wether AdPortal is currently showing or not | RewardConfiguration.isAdPortalPresent;
 | Is MissionEventFeatureEnabled | Get and set MissionEvent feature status | RewardConfiguration.isMissionEventFeatureEnabled = true;
 | setCustomDomain | This setting is for setting custom domain for Staging | [RewardConfiguration setCustomDomain:@"stg.test.com"];
 | setCustomPath | This setting is for setting custom path for Staging | [RewardConfiguration setCustomPath:@"/testpath/test/"];
+| isUsingSDKPortal | Set whether app using SDK Portal or not | RewardConfiguration.isUsingSDKPortal = true;
 <br>
 
 ## Open Reward Web page
