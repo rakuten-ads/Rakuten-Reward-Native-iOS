@@ -17,7 +17,7 @@
 
 日本の場合
 ```Swift
-RakutenReward.shared.region = RakutenRewardRegion.JP
+RakutenReward.shared.region = RakutenRewardRegion.japan
 ```
 
 # 認証
@@ -28,9 +28,9 @@ RakutenReward.shared.region = RakutenRewardRegion.JP
 
 | ログインオプション | 説明 | サポート |
 | --- | --- | --- |
-| RakutenAuth | 初期設定、ログインに関する処理はSDKから提供されます | 日本、台湾 |
-| RID | 楽天のログインSDKを使って、RIDでログインする場合はこのオプションを使用します、 SDKにAPIトークンを設定する必要があります | 日本 |  
-| RAE | 楽天のログインSDKを使って、RAEでログインする場合はこのオプションを使用します、 SDKにトークンを設定する必要があります | 日本 |
+| rakutenAuth | 初期設定、ログインに関する処理はSDKから提供されます | 日本 |
+| rid | 楽天のログインSDKを使って、RIDでログインする場合はこのオプションを使用します、 SDKにAPIトークンを設定する必要があります | 日本 |  
+| rae | 楽天のログインSDKを使って、RAEでログインする場合はこのオプションを使用します、 SDKにトークンを設定する必要があります | 日本 |
 <br>
 
 ### ログインオプションの切り替え
@@ -39,7 +39,7 @@ RakutenReward.shared.region = RakutenRewardRegion.JP
 
 ### RakutenAuth
 ```swift
-RakutenReward.shared.tokenType = TokenType.RakutenAuth
+RakutenReward.shared.tokenType = TokenType.rakutenAuth
 ```
 <br>
 
@@ -48,7 +48,7 @@ RakutenReward.shared.tokenType = TokenType.RakutenAuth
 SDKのAPIを使用するのに、トークンタイプをセットする必要があります  
 
 ```swift
-RakutenReward.shared.tokenType = TokenType.RID
+RakutenReward.shared.tokenType = TokenType.rid
 ```
 
 startSession を呼び出します
@@ -69,7 +69,7 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
 SDKのAPIを使用するのに、トークンタイプをセットする必要があります
 
 ```swift
-RakutenReward.shared.tokenType = TokenType.RAE
+RakutenReward.shared.tokenType = TokenType.rae
 ```
 
 startSession を呼び出します
@@ -175,7 +175,7 @@ actionCode は開発者ポータルより取得します
 ![Modal](Modal.PNG)     ![Banner](Banner.PNG)
 
 ### ミッション達成UIの種類
-楽天リワードSDKは4つの種類のミッション達成の種類があります
+楽天リワードSDKは6つの種類のミッション達成の種類があります
 モーダル、バナー、UIなし、カスタム
 これらの設定は開発者ポータルから設定できます
 
