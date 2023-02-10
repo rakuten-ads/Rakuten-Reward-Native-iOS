@@ -13,7 +13,6 @@
   * [UnclaimedItem](#unclaimeditem)<br>
 * [API エラー](#API-エラー)<br>
 * [ミッションの一覧を取得](#ミッションの一覧を取得)<br>
-* [Rakuten Reward Ad Configuration](#rakutenrewardadconfiguration)<br>
 * [クッキーをセットする](#クッキーをセットする)<br>
 * [イベントアナリティクス](#イベントアナリティクス)<br>
 * [ミッション達成後のカスタムUIの作り方](#ミッション達成後のカスタムUIの作り方)<br><br>
@@ -62,12 +61,12 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | ログをオンにする | デバッグログのオン・オフ設定 | RewardConfiguration.isDebug = true;
 | Rzクッキー | Rzクッキーをセットする | RewardConfiguration.rzCookie = @"example";
 | Rpクッキー | Rpクッキーをセットする | RewardConfiguration.rpCookie = @"example";
-| アクション失敗時の履歴保存設定 | LogActionが失敗した場合にアクションを保存する | RewardConfiguration.actionHistoryEnabled = true;
 | SDKポータルが表示されているか? | SDKポータルが表示されているかどうかを取得する | RewardConfiguration.isPortalPresent;
 | 広告ポータルが表示されているか? | 広告ポータルが表示されているかどうかを取得 | RewardConfiguration.isAdPortalPresent;
 | ミッションイベント機能をサポートしているかどうかを取得する | ミッションイベント機能をサポートしているかどうかを取得する | RewardConfiguration.isMissionEventFeatureEnabled = true;
 | カスタムドメインを指定する | この設定はステージング用にカスタムドメインを指定するものです | [RewardConfiguration setCustomDomain:@"stg.test.com"];
 | カスタムパスを指定する | この設定はステージング用にカスタムパスを指定するものです | [RewardConfiguration setCustomPath:@"/testpath/test/"];
+| SDKポータルを使うの設定 | SDKポータルを使う、使わないを設定する | RewardConfiguration.isUsingSDKPortal = true;
 <br>
 
 ## 楽天リワードのページを開く
@@ -227,31 +226,6 @@ UnclaimedItemObject *unclaimedItem = [UnclaimedItemObject alloc]; // 例
 }];
 }
 ```
-<br>
-
-## RakutenRewardAdConfiguration
----
-こちらの機能は台湾でのみご利用になれます
-```objective-c
-RakutenRewardAdConfiguration.shared;
-```
-| パラメータ名 | 説明 | 例 
-| --- | --- | ---
-| bcat | 広告のコンテンツをIABのコンテンツに基づきブロックする  | RakutenRewardAdConfiguration.shared.bcat;
-| badv | 広告のドメインレベルでのブロック | RakutenRewardAdConfiguration.shared.badv;
-| appDomain |  アプリのドメイン(アプリの紹介ページのトップなど) | RakutenRewardAdConfiguration.shared.appDomain;
-| storeUrl | アプリストアのURL | RakutenRewardAdConfiguration.shared.storeUrl;
-| privacyPolicy | プライバシーポリシーの有無　 0　= 用意していない、 1 = 用意している | RakutenRewardAdConfiguration.shared.privacyPolicy;
-| paid | アプリが無料か有料かどうか 0 = 無料、 1 = 有料 | RakutenRewardAdConfiguration.shared.paid;
-| keywords | アプリのキーワード | RakutenRewardAdConfiguration.shared.keywords;
-| test | テストモードの切り替え(デバッグ用) | RakutenRewardAdConfiguration.shared.test;
-<br>
-
-| メソッド | 説明 | 例 
-| --- | --- | ---
-| addBlockCategory | 広告のコンテンツブロックの対象を追加する<br>フォーマット: IAB(Number)-(Number) | [RakutenRewardAdConfiguration.shared addBlockCategoryWithStr:@"IAB7-17"];
-| addBlockDomain | 広告のドメインレベルでのブロックの対象を追加する | [RakutenRewardAdConfiguration.shared addBlockDomainWithStr:@"www.example.com"];
-| addKeywords | 広告キーワードを追加する | [RakutenRewardAdConfiguration.shared addKeywordsWithStr:@"productivity"];
 <br>
 
 ## クッキーをセットする
