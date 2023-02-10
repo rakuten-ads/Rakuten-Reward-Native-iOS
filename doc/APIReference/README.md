@@ -62,12 +62,12 @@ RakutenRewardConfiguration is user setting class.
 | Enable Logging | Set value to true to receive additional Debug log info | RewardConfiguration.isDebug = true
 | Rz Cookie | Set value for the Rz cookie | RewardConfiguration.rzCookie = "example"
 | Rp Cookie | Set value for the Rp cookie | RewardConfiguration.rpCookie = "example"
-| Action History Enabled | Set whether want to save action code in case LogAction failed | RewardConfiguration.actionHistoryEnabled = true
 | Is Portal Present |  Get whether Portal is currently showing or not | RewardConfiguration.isPortalPresent
 | Is AdPortal Present | Get whether AdPortal is currently showing or not | RewardConfiguration.isAdPortalPresent
 | Is MissionEventFeatureEnabled | Get and set MissionEvent feature status | RewardConfiguration.isMissionEventFeatureEnabled = true
 | setCustomDomain | This setting is for setting custom domain for Staging | RewardConfiguration.setCustomDomain("stg.test.com")
 | setCustomPath | This setting is for setting custom path for Staging | RewardConfiguration.setCustomPath("/testPath/test/")
+| isUsingSDKPortal | Set whether app using SDK Portal or not | RewardConfiguration.isUsingSDKPortal = true
 <br>
 
 ## Open Reward Web page
@@ -78,9 +78,9 @@ SDK provide page open with API
 extension RakutenReward {
     public enum SupportPage : CaseIterable {
  
-        case Help
-        case TermsCondition
-        case PrivacyPolicy
+        case help
+        case termsCondition
+        case privacyPolicy
  
     }
     public func openSupportPage(_ page: RakutenRewardNativeSDK.RakutenReward.SupportPage)
@@ -111,10 +111,10 @@ RakutenRewardStatus is Reward SDK staus
 
 | Parameter | Description
 | --- | ---
-| .Online | Finished SDK initialization(Update User info correctly)
-| .Offline | Not finished SDK initialization or initialization failed
-| .AppcodeInvalid | Wrong Application Code
-| .TokenExpired | Expired Token. If `tokenType` is `RakutenAuth`, `.TokenExpired` means user should log in again
+| .online | Finished SDK initialization(Update User info correctly)
+| .offline | Not finished SDK initialization or initialization failed
+| .appcodeInvalid | Wrong Application Code
+| .tokenExpired | Expired Token. If `tokenType` is `RakutenAuth`, `.TokenExpired` means user should log in again
 <br>
 
 ### Checking the status
@@ -203,11 +203,11 @@ let status = RakutenReward.shared.status
 
 | Name | Description
 | --- | ---
-| NoMissionFound | Mission list is empty
-| NoUnclaimedItemFound | UnclaimedItem list is empty
-| SessionNotInitialized | SDK is not initialized
-| FeatureDisabledByUser | SDK function is not active by user
-| SDKStatusNotOnline | SDK status is not online
+| noMissionFound | Mission list is empty
+| noUnclaimedItemFound | UnclaimedItem list is empty
+| sessionNotInitialized | SDK is not initialized
+| featureDisabledByUser | SDK function is not active by user
+| sdkStatusNotOnline | SDK status is not online
 <br>
 
 ## Get current user action status
