@@ -1,5 +1,14 @@
 # Update History
 
+### Version 3.6.1
+<hr/>
+Release Date: 2023/03/30<br>
+Xcode version: 13.x, Swift version 5.6<br>
+Support OS: 11<br><br>
+
+New feature:
+* Bug fix<br>
+
 ### Version 3.6.0
 <hr/>
 Release Date: 2023/02/09<br>
