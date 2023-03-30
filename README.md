@@ -50,6 +50,7 @@
 |3.5.1|11|15|
 |3.5.2|11|16|
 |3.6.0|11|16|
+|3.6.1|11|16|
 
 <div id="import_sdk"></div>
 
@@ -115,7 +116,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target '' do
-pod 'RakutenRewardNativeSDK', '3.6.0'
+pod 'RakutenRewardNativeSDK', '3.6.1'
 end
 
 ```
@@ -126,7 +127,7 @@ Add the dependency value below
 
 ```
 dependencies: [
-    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("3.6.0")),
+    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("3.6.1")),
 ]
 ```
 
