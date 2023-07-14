@@ -1,5 +1,17 @@
 # Update History
 
+### Version 4.1.0
+<hr/>
+Release Date: 2023/07/14<br>
+Xcode version: 14.x, Swift version 5.7.x<br>
+Support OS: 11<br><br>
+
+New feature:
+* SDK Portal UI Update
+    * Introduce Unclaimed List sorting feature
+    * Tap on mission item to show mission details
+* Marked Ad Portal APIs as deprecated
+
 ### Version 4.0.0
 <hr/>
 Release Date: 2023/04/20<br>
