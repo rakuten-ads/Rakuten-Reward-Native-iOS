@@ -157,6 +157,7 @@ Carthage でのビルドバイナリをドラッグ＆ドロップし Embedded �
 ## Usage
 [基本ガイド](./basic/README.md)  
 [APIガイド](./APIReference/README.md)<br>
+[利用規約への同意について](./UserConsent/README.md)<br>
 [FAQ](./FAQ/FAQ.md)
 <br>
 
