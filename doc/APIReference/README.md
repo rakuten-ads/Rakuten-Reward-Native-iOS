@@ -6,6 +6,7 @@ Table of Contents
 * [Open Reward Web Page](#open-reward-web-page)<br>
 * [SDKUser](#sdkuser)<br>
 * [RakutenRewardStatus](#rakutenrewardstatus)<br>
+* [RakutenRewardConsentStatus](#rakutenrewardconsentstatus)<br>
 * [API Data](#api-data)<br>
   * [Mission](#mission)<br>
   * [PointHistory](#pointhistory)<br>
@@ -27,7 +28,7 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | --- | --- | ---
 | Get version |  Get Rakuten Reward SDK Version | `RakutenReward.shared.getVersion()`
 | Open SDK Portal | For detail, please check sample application implementation | `RakutenReward.shared.openPortal(completionHandler: {r in})`
-| Open Ad Portal (JP region) | Open Ad Portal | `RakutenReward.shared.openAdPortal { openAdPortalCompletion in }` |
+| Open Ad Portal (JP region) | Open Ad Portal | `RakutenReward.shared.openAdPortal { openAdPortalCompletion in }` | (Deprecated in v4.1)
 | Open Help Page | Open Reward SDK Help page with mini browser | `RakutenReward.shared.openSupportPage(.Help)`
 | Open Terms and Condition Page | Open Reward SDK Terms and Conditions Page with mini browser | `RakutenReward.shared.openSupportPage(.TermsCondition)`
 | Open Privacy Policy Page | Open Reward SDK Privacy Policy Page with mini browser | `RakutenReward.shared.openSupportPage(.PrivacyPoilicy)`
@@ -46,7 +47,10 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | User updated delegate | Callback when user is updated | `RakutenReward.shared.didUpdateUser = { user in }` |
 | Status updated delegate | Callback when Reward Status is updated | `RakutenReward.shared.didUpdateStatus = { status in }` |
 | Is Portal present status updated delegate | Callback when portal is present or hidden | `RakutenReward.shared.didUpdateIsPortalPresentedStatus = { isPortalPresent in }` |
-| Is AdPortal present status updated delegate | Callback when ad portal is present or hidden | `RakutenReward.shared.didUpdateIsAdPortalPresentedStatus = { isAdPortalPresent in }` |
+| Is AdPortal present status updated delegate | Callback when ad portal is present or hidden | `RakutenReward.shared.didUpdateIsAdPortalPresentedStatus = { isAdPortalPresent in }` | (Deprecated in v4.1)
+| Request for user consent | Request User Consent (Since v5.0) | `RakutenReward.shared.requestForConsent { status in }` |
+| Did present consent UI | Callback when user consent UI is presented | `RakutenReward.shared.didPresentConsentUI = {}` |
+| Did dismiss consent UI |Callback when user consent UI is dismissed | `RakutenReward.shared.didDismissConsentUI = {}` |
 <br>
 
 ## RakutenRewardConfiguration
@@ -63,7 +67,7 @@ RakutenRewardConfiguration is user setting class.
 | Rz Cookie | Set value for the Rz cookie | RewardConfiguration.rzCookie = "example"
 | Rp Cookie | Set value for the Rp cookie | RewardConfiguration.rpCookie = "example"
 | Is Portal Present |  Get whether Portal is currently showing or not | RewardConfiguration.isPortalPresent
-| Is AdPortal Present | Get whether AdPortal is currently showing or not | RewardConfiguration.isAdPortalPresent
+| Is AdPortal Present | Get whether AdPortal is currently showing or not | RewardConfiguration.isAdPortalPresent (Deprecated in v4.1)
 | Is MissionEventFeatureEnabled | Get and set MissionEvent feature status | RewardConfiguration.isMissionEventFeatureEnabled = true
 | setCustomDomain | This setting is for setting custom domain for Staging | RewardConfiguration.setCustomDomain("stg.test.com")
 | setCustomPath | This setting is for setting custom path for Staging | RewardConfiguration.setCustomPath("/testPath/test/")
@@ -107,7 +111,7 @@ RakutenReward.shared.user
 
 ## RakutenRewardStatus
 ---
-RakutenRewardStatus is Reward SDK staus  
+RakutenRewardStatus is Reward SDK status  
 
 | Parameter | Description
 | --- | ---
@@ -115,6 +119,19 @@ RakutenRewardStatus is Reward SDK staus
 | .offline | Not finished SDK initialization or initialization failed
 | .appcodeInvalid | Wrong Application Code
 | .tokenExpired | Expired Token. If `tokenType` is `RakutenAuth`, `.TokenExpired` means user should log in again
+| .userNotConsent | User has not agree with RakutenReward terms of service and privacy policy agreement
+
+<br>
+
+## RakutenRewardConsentStatus
+---
+
+| RakutenRewardConsentStatus | Description |
+| --- | --- |
+| consentProvided | User already provide consent |
+| consentNotProvided | User have not provide consent |
+| consentFailed | There is some error with API request |
+| consentProvidedRestartSessionFailed | User provided consent but failed to restart SDK session |
 <br>
 
 ### Checking the status
@@ -197,6 +214,8 @@ let status = RakutenReward.shared.status
 | --- | ---
 | tokenExpire | Access token is expired
 | serverError | Cannot connect
+| badRequest | Bad request
+| unavailableForLegalReasons | Error because of legal reason (for example, user has not consent to RewardSDK's terms and condition)
 <br>
 
 ### SDKError  
@@ -208,6 +227,8 @@ let status = RakutenReward.shared.status
 | sessionNotInitialized | SDK is not initialized
 | featureDisabledByUser | SDK function is not active by user
 | sdkStatusNotOnline | SDK status is not online
+| sdkStatusUserNotConsent | SDK status - user has not consent to RewardSDK's terms and condition
+
 <br>
 
 ## Get current user action status
