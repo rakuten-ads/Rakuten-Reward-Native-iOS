@@ -6,6 +6,7 @@
 * [楽天リワードのページを開く](#楽天リワードのページを開く)<br>
 * [SDKUser](#sdkuser)<br>
 * [RakutenRewardStatus](#rakutenrewardstatus)<br>
+* [RakutenRewardConsentStatus](#rakutenrewardstatus)<br>
 * [API データ](#API-データ)<br>
   * [Mission](#mission)<br>
   * [PointHistory](#pointhistory)<br>
@@ -27,7 +28,7 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | --- | --- | ---
 | バージョンを取得する | バージョンを取得する | `[RakutenReward.shared getVersion];`
 | SDKポータルを開く | SDKポータルを開く | `[RakutenReward.shared openPortalObjc:^(SDKErrorObjc * _Nullable error) { }];`
-| 広告ポータルを開く(Jp のみ) | 広告ポータルを開 | `[RakutenReward.shared openAdPortalWithCompletionHandler:^(OpenAdPortalCompletion * _Nonnull error) { }];`
+| 広告ポータルを開く(Jp のみ) | 広告ポータルを開 | `[RakutenReward.shared openAdPortalWithCompletionHandler:^(OpenAdPortalCompletion * _Nonnull error) { }];` (Deprecated in v4.1)
 | ヘルプページを開く | ヘルプページをSDKのミニブラウザーで開く | `[RakutenReward.shared openSupportPageObjcWithPage:SupportPageHelp];`
 | 利用規約を開く | 利用規約をSDKのミニブラウザーで開く | `[RakutenReward.shared openSupportPageObjcWithPage:SupportPageTermsCondition];`
 | プライバシーポリシーを開く | プライバシーポリシーをDKのミニブラウザーで開く | `[RakutenReward.shared openSupportPageObjcWithPage:SupportPagePrivacyPolicy];`
@@ -45,7 +46,10 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | ミッションユーザー情報の更新のデリゲートメソッド | ユーザー情報が更新された時のコールバック | `RakutenReward.shared.didUpdateUserObjc = ^(SDKUserObject * _Nullable user) { };` |
 | SDKの状態の更新のデリケートメソッド | SDKの状態が更新された場合のコールバック | `RakutenReward.shared.didUpdateStatus = ^(enum RakutenRewardStatus status) { };` |
 | ポータルの表示状態が更新された場合のデリゲート | ポータルを表示状態変更のコールバック | RakutenReward.shared.didUpdateIsPortalPresentedStatus = ^(BOOL isPortalPresent) { }; |
-| 広告ポータルの表示ステータスの更新情報を取得する | 広告ポータルが表示されているかどうかのコールバック | RakutenReward.shared.didUpdateIsAdPortalPresentedStatus = ^(BOOL isAdPortalPresent) { }; |
+| 広告ポータルの表示ステータスの更新情報を取得する | 広告ポータルが表示されているかどうかのコールバック | RakutenReward.shared.didUpdateIsAdPortalPresentedStatus = ^(BOOL isAdPortalPresent) { }; | (Deprecated in v4.1)
+| 利用規約への同意をリクエスト | 利用規約への同意をリクエスト (Since v5.0) | `RakutenReward.shared.requestForConsent = ^(enum RakutenRewardConsentStatus status) { };` |
+| 同意ダイアログを表示する | 同意ダイアログを表示する callback | `RakutenReward.shared.didPresentConsentUI = ^() {};` |
+| 同意ダイアログを閉めした | 同意ダイアログを閉めした callback | `RakutenReward.shared.didDismissConsentUI = ^() {};` |
 <br>
 
 ## RakutenRewardConfiguration
@@ -62,7 +66,7 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | Rzクッキー | Rzクッキーをセットする | RewardConfiguration.rzCookie = @"example";
 | Rpクッキー | Rpクッキーをセットする | RewardConfiguration.rpCookie = @"example";
 | SDKポータルが表示されているか? | SDKポータルが表示されているかどうかを取得する | RewardConfiguration.isPortalPresent;
-| 広告ポータルが表示されているか? | 広告ポータルが表示されているかどうかを取得 | RewardConfiguration.isAdPortalPresent;
+| 広告ポータルが表示されているか? | 広告ポータルが表示されているかどうかを取得 | RewardConfiguration.isAdPortalPresent; (Deprecated in v4.1)
 | ミッションイベント機能をサポートしているかどうかを取得する | ミッションイベント機能をサポートしているかどうかを取得する | RewardConfiguration.isMissionEventFeatureEnabled = true;
 | カスタムドメインを指定する | この設定はステージング用にカスタムドメインを指定するものです | [RewardConfiguration setCustomDomain:@"stg.test.com"];
 | カスタムパスを指定する | この設定はステージング用にカスタムパスを指定するものです | [RewardConfiguration setCustomPath:@"/testpath/test/"];
@@ -112,6 +116,18 @@ RakutenRewardStatus is Reward SDK の状態を表します
 | .Offline | SDKの初期化が未完了または失敗
 | .AppcodeInvalid | アプリケーションキーが間違っている
 | .TokenExpired |トークンの期限切れ  `tokenType` が `RakutenAuth`, `.TokenExpired` の場合はユーザーは再ログインする必要があります
+| .StatusUserNotConsent | User has not agree with RakutenReward terms of service and privacy policy agreement
+<br>
+
+## RakutenRewardConsentStatus
+---
+
+| RakutenRewardConsentStatus | Description |
+| --- | --- |
+| RakutenRewardConsentStatusConsentProvided | User already provide consent |
+| RakutenRewardConsentStatusConsentNotProvided | User have not provide consent |
+| RakutenRewardConsentStatusConsentFailed | There is some error with API request |
+| RakutenRewardConsentStatusConsentProvidedRestartSessionFailed | User provided consent but failed to restart SDK session |
 <br>
 
 ### ステータスの確認
@@ -202,6 +218,8 @@ UnclaimedItemObject *unclaimedItem = [UnclaimedItemObject alloc]; // 例
 | --- | ---
 | RPGRequestErrorObjcTokenExpire | トークンの期限切れ
 | RPGRequestErrorObjcServerError | 接続に失敗した
+| RPGRequestErrorObjcBadRequest | Bad request
+| RPGRequestErrorObjcLegalReason | Error because of legal reason (for example, user has not consent to RewardSDK's terms and condition)
 <br>
 
 ### SDKError  
@@ -213,6 +231,7 @@ UnclaimedItemObject *unclaimedItem = [UnclaimedItemObject alloc]; // 例
 | SDKErrorObjcSessionNotInitialized | SDKが初期化されていない
 | SDKErrorObjcFeatureDisabledByUser | SDK function is not active by user
 | SDKErrorObjcSDKStatusNotOnline | SDK status is not online
+| SDKErrorObjcSDKStatusUserNotConsent | SDK status - user has not consent to RewardSDK's terms and condition
 <br>
 
 ## ミッションの一覧を取得
