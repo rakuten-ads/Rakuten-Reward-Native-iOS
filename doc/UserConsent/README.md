@@ -1,65 +1,64 @@
-[トップ](../../README.md#top)　>　利用規約への同意について
+[TOP](../../README.md#top)　>　Request User Consent
 
-コンテンツ
-* [概要：利用規約同意を取得する](#概要利用規約同意を取得する)<br>
-* [既設APIの変更](#既設apiの変更) <br>
-    * [userNotConsent ステータス](#user_not_consent-ステータス) <br>
-    * [新たな UserConsent callbacks 関数](#新しい-userconsent-callbacks-関数) <br>
-* [利用規約への同意をリクエストする API](#利用規約への同意をリクエストする-api)
-* [サンプルの使用例](#サンプルの使用例)
-    * [いつ利用規約への同意をリクエストする](#いつ利用規約への同意をリクエストする)
-    * [アクションを送信する](#アクションを送信する)
+Table of Contents
+* [Overview](#request-user-consent-feature-overview)<br>
+* [Changes to existing API](#changes-to-existing-api) <br>
+    * [userNotConsent status](#usernotconsent-status) <br>
+    * [UserConsent callbacks](#userconsent-callbacks) <br>
+* [Request User Consent API](#request-user-consent-api)
+* [Sample Use Case](#sample-use-case)
+    * [When to request user consent](#when-to-request-user-consent)
+    * [Example for other APIs](#example-for-other-apis)
 
 ---
+# Request User Consent feature Overview
+Since version 5.0.0, Reward SDK integrated request user consent feature. <br>
+In order to use Reward SDK's features, users have to provide their consent for Reward term of use and privacy policy first. <br>
+Below will go through how to request for user consent and the changes to existing API. <br>
 
-# 概要：利用規約同意を取得する
-Reward SDKでは新たに、利用規約同意を取得するUIをご用意しました。<br>
-Reward SDKの機能を使う前に、ユーザーがRewardの利用規約および個人情報保護方針へのご同意が必須となります。<br>
-このページはこのUI及び機能を利用するための方法と、既存のAPIの変更点についてご説明します。<br>
-<br><br>
+# Changes to existing API
+## userNotConsent status
+New Reward SDK status is introduced as mentioned [here](../APIReference/README.md#rakutenrewardstatus). <br>
+`userNotConsent` status will be returned in `RakutenReward.shared.didUpdateStatus: ((RakutenRewardStatus) -> Void)?` when the user have not provide consent yet. <br>
 
-# 既設APIの変更
-## userNotConsent ステータス
-新たにuserNotConsent Reward SDK ステータスを導入しました。[RakutenRewardStatus](../APIReference/README.md#rakutenrewardstatus) <br>
-ユーザーがまだ利用規約に同意していない場合に、`userNotConsent` ステータスは `RakutenReward.shared.didUpdateStatus: ((RakutenRewardStatus) -> Void)?` に返します。<br>
+This status will be updated when startSession API is called and if user has not agree to Reward SDK's terms and condition. <br>
 
+## UserConsent callbacks
+New callback is added to RakutenReward as mentioned [here](../APIReference/README.md#rakutenreward). <br>
+`RakutenReward.shared.didPresentConsentUI` will be triggered whenever a consent dialog is presented.
+`RakutenReward.shared.didDismissConsentUI` will be triggered whenever a consent dialog is dismissed.
 
-## 新しい UserConsent callbacks 関数
-新たな関数が [Rakuten Reward](../APIReference/README.md#rakutenreward) に加わりました。<br>
-利用規約への同意ダイアログを表示すると、`RakutenReward.shared.didPresentConsentUI` の実装を呼び出します。
-利用規約同意ダイアログを閉じた場合、この `RakutenReward.shared.didDismissConsentUI` の実装を呼び出します。
-<br><br>
-
-# 利用規約への同意をリクエストする API
-利用規約への同意をリクエストする以下のAPIをご利用いただけます。
+# Request User Consent API
+New API is introduced to request for user consent. 
 
 ```Swift
 RakutenReward.shared.requestForConsent { status in
     // Check consent status
 }
 ```
-ユーザーがまだ、利用規約に同意していない場合に、同意ダイアログを表示します。
+If user have not provide consent yet, a consent dialog will be shown. 
 
-![同意ダイアログ](consent-dialog.png)
+![Consent Dialog](consent-dialog.png)
 
-ユーザーの反応によって、以下のステータスを得られます。
+Depends on user action, will the following consent status will be return in the callback.
 
-| RakutenRewardConsentStatus | 説明 |
+| RakutenRewardConsentStatus | Description |
 | --- | --- |
-| consentProvided | 同意しました |
-| consentNotProvided | 同意していません |
-| consentFailed | APIエラーが発生しました |
-| consentProvidedRestartSessionFailed | 同意しましたが、SDKセッションの再開に失敗しました |
+| consentProvided | User already provide consent |
+| consentNotProvided | User have not provide consent |
+| consentFailed | There is some error with API request |
+| consentProvidedRestartSessionFailed | User provided consent but failed to restart SDK session |
 
-ユーザーがすでに利用規約を同意していた場合、ダイアログを表示せずに`consentProvided`ステータスがコールバックに返します。
-<br><br>
+If user already provided consent, the consent dialog will not be shown and the callback will be triggered with `consentProvided` status.
 
-# サンプルの使用例
-## いつ利用規約への同意をリクエストする
-`RakutenReward.shared.requestForConsent()` を呼ばない場合、同意ダイアログを表示しません。<br>
-アプリ開発者は、いつ同意ダイアログを表示するのか？を決定します。
+# Sample Use Case
+## When to request user consent
+Reward SDK will not display consent dialog on behalf of client app unless `RakutenReward.shared.requestForConsent()` API is called. <br>
+So client app developers can decide which screen to display the consent dialog.
 
-> `RakutenReward.shared.openPortal()` API は、利用規約に同意していない場合を処理<br>
+> `RakutenReward.shared.openPortal()` API will handle the case where user haven't provide consent. <br>
+> After user provided the consent will proceed to open SDK portal page. <br>
+> If user don't provide consent, SDK portal page will not be shown.
 
 Sample code on when to request user consent
 ```Swift
@@ -75,9 +74,10 @@ Sample code on when to request user consent
     }
 ```
 
-## アクションを送信する
-利用規約への同意がない場合、このAPIは失敗となります。 <br>
-次のコード スニペットは、この状況を処理します。
+## Example for other APIs
+
+Most of the SDK APIs will fail if SDK status is not Online. This includes the situation where SDK Status is .userNotConsent.
+One of the way to handle is with the code below
 
 ```Swift
 func exampleLogAction() {
@@ -90,10 +90,8 @@ func exampleLogAction() {
 }
 ```
 
-まだ同意がない場合、ダイアログを表示します。その後、ユーザーが同意した際にアクションを送信します。
-
-ユーザーがすでに利用規約を同意していた場合でも、`RakutenReward.shared.requestForConsent()`APIを呼び出せます。ダイアログを表示せずに、`consentProvided`ステータスがコールバックに返します。
+Even if user already provided consent, it is still safe to call `RakutenReward.requestForConsent()` API as consent dialog will not be shown and `consentProvided` status will be return in the callback.
 
 ---
-言語 :
-> [![en](../../lang/en.png)](../../consent/README.md)
+LANGUAGE :
+> [![ja](../lang/ja.png)](../ja/UserConsent/README.md)
