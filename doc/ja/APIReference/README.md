@@ -6,6 +6,7 @@
 * [楽天リワードのページを開く](#楽天リワードのページを開く)<br>
 * [SDKUser](#sdkuser)<br>
 * [RakutenRewardStatus](#rakutenrewardstatus)<br>
+* [RakutenRewardConsentStatus](#rakutenrewardconsentstatus)<br>
 * [API データ](#API-データ)<br>
   * [Mission](#mission)<br>
   * [PointHistory](#pointhistory)<br>
@@ -27,7 +28,7 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | --- | --- | ---
 | バージョンを取得する | Get Rakuten Reward SDK Version | `RakutenReward.shared.getVersion()`
 | SDKポータルを開く | SDKポータルを開く | `RakutenReward.shared.openPortal(completionHandler: {r in})`
-| 広告ポータルを開く(Jp のみ) | 広告ポータルを開 | `RakutenReward.shared.openAdPortal { openAdPortalCompletion in }` |
+| 広告ポータルを開く(Jp のみ) | 広告ポータルを開 | `RakutenReward.shared.openAdPortal { openAdPortalCompletion in }` | (Deprecated in v4.1)
 | ヘルプページを開く | ヘルプページをSDKのミニブラウザーで開く | `RakutenReward.shared.openSupportPage(.Help)`
 | 利用規約を開く | 利用規約をSDKのミニブラウザーで開く | `RakutenReward.shared.openSupportPage(.TermsCondition)`
 | プライバシーポリシーを開く | プライバシーポリシーをDKのミニブラウザーで開く | `RakutenReward.shared.openSupportPage(.PrivacyPoilicy)`
@@ -46,7 +47,10 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | ミッションユーザー情報の更新のデリゲートメソッド | ユーザー情報が更新された時のコールバック | `RakutenReward.shared.didUpdateUser = { user in }` |
 | SDKの状態の更新のデリケートメソッド | SDKの状態が更新された場合のコールバック | `RakutenReward.shared.didUpdateStatus = { status in }` |
 | ポータルの表示状態が更新された場合のデリゲート | ポータルを表示状態変更のコールバック | `RakutenReward.shared.didUpdateIsPortalPresentedStatus = { isPortalPresent in }` |
-| 広告ポータルの表示ステータスの更新情報を取得する | 広告ポータルが表示されているかどうかのコールバック | `RakutenReward.shared.didUpdateIsAdPortalPresentedStatus = { isAdPortalPresent in }` |
+| 広告ポータルの表示ステータスの更新情報を取得する | 広告ポータルが表示されているかどうかのコールバック | `RakutenReward.shared.didUpdateIsAdPortalPresentedStatus = { isAdPortalPresent in }` | (Deprecated in v4.1)
+| 利用規約への同意をリクエスト | 利用規約への同意をリクエスト (Since v5.0) | `RakutenReward.shared.requestForConsent { status in }` |
+| 同意ダイアログを表示する | 同意ダイアログを表示する callback | `RakutenReward.shared.didPresentConsentUI = {}` |
+| 同意ダイアログを閉めした | 同意ダイアログを閉めした callback | `RakutenReward.shared.didDismissConsentUI = {}` |
 <br>
 
 ## RakutenRewardConfiguration
@@ -63,7 +67,7 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | Rzクッキー | Rzクッキーをセットする | RewardConfiguration.rzCookie = "example"
 | Rpクッキー | Rpクッキーをセットする | RewardConfiguration.rpCookie = "example"
 | SDKポータルが表示されているか? | SDKポータルが表示されているかどうかを取得する | RewardConfiguration.isPortalPresent
-| 広告ポータルが表示されているか? | 広告ポータルが表示されているかどうかを取得 | RewardConfiguration.isAdPortalPresent
+| 広告ポータルが表示されているか? | 広告ポータルが表示されているかどうかを取得 | RewardConfiguration.isAdPortalPresent (Deprecated in v4.1)
 | ミッションイベント機能をサポートしているかどうかを取得する | ミッションイベント機能をサポートしているかどうかを取得する | RewardConfiguration.isMissionEventFeatureEnabled = true
 | カスタムドメインを指定する | この設定はステージング用にカスタムドメインを指定するものです | RewardConfiguration.setCustomDomain("stg.test.com")
 | カスタムパスを指定する | この設定はステージング用にカスタムパスを指定するものです | RewardConfiguration.setCustomPath("/testPath/test/")
@@ -116,6 +120,18 @@ RakutenRewardStatus is Reward SDK の状態を表します
 | .offline | SDKの初期化が未完了または失敗
 | .appcodeInvalid | アプリケーションキーが間違っている
 | .tokenExpired |トークンの期限切れ  `tokenType` が `RakutenAuth`, `.TokenExpired` の場合はユーザーは再ログインする必要があります
+| .userNotConsent | User has not agree with RakutenReward terms of service and privacy policy agreement
+<br>
+
+## RakutenRewardConsentStatus
+---
+
+| RakutenRewardConsentStatus | Description |
+| --- | --- |
+| consentProvided | User already provide consent |
+| consentNotProvided | User have not provide consent |
+| consentFailed | There is some error with API request |
+| consentProvidedRestartSessionFailed | User provided consent but failed to restart SDK session |
 <br>
 
 ### ステータスの確認
@@ -198,6 +214,8 @@ let status = RakutenReward.shared.status
 | --- | ---
 | tokenExpire | トークンの期限切れ
 | serverError | 接続に失敗した
+| badRequest | Bad request
+| unavailableForLegalReasons | Error because of legal reason (for example, user has not consent to RewardSDK's terms and condition)
 <br>
 
 ### SDKError  
@@ -209,6 +227,7 @@ let status = RakutenReward.shared.status
 | sessionNotInitialized | SDKが初期化されていない
 | featureDisabledByUser | SDK function is not active by user
 | sdkStatusNotOnline | SDK status is not online
+| sdkStatusUserNotConsent | SDK status - user has not consent to RewardSDK's terms and condition
 <br>
 
 ## ミッションの一覧を取得
