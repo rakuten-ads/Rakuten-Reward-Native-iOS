@@ -1,5 +1,14 @@
 # Update History
 
+### Version 5.0.0
+<hr/>
+Release Date: 2023/07/28<br>
+Xcode version: 14.x, Swift version 5.7.x<br>
+Support OS: 11<br><br>
+
+New feature:
+* Introduce request user consent feature<br>
+
 ### Version 4.1.0
 <hr/>
 Release Date: 2023/07/14<br>
