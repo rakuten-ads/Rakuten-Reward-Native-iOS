@@ -156,6 +156,7 @@ Drag the binaries from Carthage/Build into the Frameworks, Libraries, and Embedd
 ## Usage
 [Basic Guide](./doc/basic/README.md)  
 [API Reference](./doc/APIReference/README.md)<br>
+[User Consent](./doc/UserConsent/README.md)<br>
 [FAQ](./doc/FAQ/FAQ.md)
 <br>
 
