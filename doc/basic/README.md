@@ -30,7 +30,7 @@ There are 3 types of login. According to your environment, please select proper 
 | --- | --- | --- |
 | rakutenAuth | This is default option, provide login by SDK, SDK handled all login and user identifier | Japan |
 | rid | Rakuten ID SDK with RID, Login covers by ID SDK, and use API token for SDK| Japan |  
-| rae | Rakuten ID SDK with RAE, Login covers by ID SDK, and use token for SDK | Japan |
+| rae | User SDK with RAE, Login covers by User SDK, and use token for SDK | Japan |
 <br>
 
 ### Switch Login Option
