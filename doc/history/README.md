@@ -1,5 +1,15 @@
 # Update History
 
+### Version 5.1.0
+<hr/>
+Release Date: 2023/09/13<br>
+Xcode version: 14.x, Swift version 5.7.x<br>
+Support OS: 11<br><br>
+
+New feature:
+* Support Ra cookie set function<br>
+* Bug fix<br>
+
 ### Version 5.0.0
 <hr/>
 Release Date: 2023/07/28<br>
