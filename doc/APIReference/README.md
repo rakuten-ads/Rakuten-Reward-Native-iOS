@@ -66,6 +66,7 @@ RakutenRewardConfiguration is user setting class.
 | Enable Logging | Set value to true to receive additional Debug log info | RewardConfiguration.isDebug = true
 | Rz Cookie | Set value for the Rz cookie | RewardConfiguration.rzCookie = "example"
 | Rp Cookie | Set value for the Rp cookie | RewardConfiguration.rpCookie = "example"
+| Ra Cookie | Set value for the Ra cookie | RewardConfiguration.raCookie = "example"
 | Is Portal Present |  Get whether Portal is currently showing or not | RewardConfiguration.isPortalPresent
 | Is AdPortal Present | Get whether AdPortal is currently showing or not | RewardConfiguration.isAdPortalPresent (Deprecated in v4.1)
 | Is MissionEventFeatureEnabled | Get and set MissionEvent feature status | RewardConfiguration.isMissionEventFeatureEnabled = true
@@ -257,6 +258,11 @@ RewardConfiguration.rpCookie = "example"
 Set Rz cookie
 ```swift
 RewardConfiguration.rzCookie = "example"
+```
+
+Set Ra cookie (version 5.1.0)
+```swift
+RewardConfiguration.raCookie = "example"
 ```
 
 <br>
