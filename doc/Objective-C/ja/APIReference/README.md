@@ -65,6 +65,7 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | ログをオンにする | デバッグログのオン・オフ設定 | RewardConfiguration.isDebug = true;
 | Rzクッキー | Rzクッキーをセットする | RewardConfiguration.rzCookie = @"example";
 | Rpクッキー | Rpクッキーをセットする | RewardConfiguration.rpCookie = @"example";
+| Raクッキー | Raクッキーをセットする | RewardConfiguration.raCookie = @"example";
 | SDKポータルが表示されているか? | SDKポータルが表示されているかどうかを取得する | RewardConfiguration.isPortalPresent;
 | 広告ポータルが表示されているか? | 広告ポータルが表示されているかどうかを取得 | RewardConfiguration.isAdPortalPresent; (Deprecated in v4.1)
 | ミッションイベント機能をサポートしているかどうかを取得する | ミッションイベント機能をサポートしているかどうかを取得する | RewardConfiguration.isMissionEventFeatureEnabled = true;
@@ -261,6 +262,11 @@ RewardConfiguration.rpCookie = @"example";
 Rzクッキーをセットする
 ```swift
 RewardConfiguration.rzCookie = @"example";
+```
+
+Raクッキーをセットする (version 5.1.0)
+```swift
+RewardConfiguration.raCookie = @"example";
 ```
 
 <br>
