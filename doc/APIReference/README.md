@@ -46,6 +46,7 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | IDFA | To set IDFA | `RakutenReward.shared.advertisingID` |
 | User updated delegate | Callback when user is updated | `RakutenReward.shared.didUpdateUser = { user in }` |
 | Status updated delegate | Callback when Reward Status is updated | `RakutenReward.shared.didUpdateStatus = { status in }` |
+| User achieved mission delegate | Callback when user has achieved a mission | `RakutenReward.shared.didUpdateUnclaimedAchievement = { unclaimedItem in  }` |
 | Is Portal present status updated delegate | Callback when portal is present or hidden | `RakutenReward.shared.didUpdateIsPortalPresentedStatus = { isPortalPresent in }` |
 | Is AdPortal present status updated delegate | Callback when ad portal is present or hidden | `RakutenReward.shared.didUpdateIsAdPortalPresentedStatus = { isAdPortalPresent in }` | (Deprecated in v4.1)
 | Request for user consent | Request User Consent (Since v5.0) | `RakutenReward.shared.requestForConsent { status in }` |
