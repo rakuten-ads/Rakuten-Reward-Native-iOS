@@ -2,7 +2,7 @@
 
 [![Platform](http://img.shields.io/badge/platform-iOS-blue.svg?style=flat)](https://developer.apple.com/ios/)
 [![language](https://camo.githubusercontent.com/0cd4410f8f72568f15d2b810d615624dfed74928/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d7377696674253230352d6634383034312e7376673f7374796c653d666c6174)](https://developer.apple.com/swift/)
-![iOS](http://img.shields.io/badge/support-iOS_9+-blue.svg?style=flat)
+![iOS](http://img.shields.io/badge/support-iOS_11+-blue.svg?style=flat)
 ![Xcode](http://img.shields.io/badge/IDE-Xcode_11+-blue.svg?style=flat)
 
 # Rakuten Reward SDK ネイティブ
@@ -15,7 +15,7 @@
 ## 前提
 
 * Use Xcode 11 以上
-* iOS SDK 9　以上
+* iOS SDK 11　以上
 * 楽天 IDSDK もしくは SDKが用意するログインを使用する
 
 
@@ -61,6 +61,9 @@
 <div id="import_sdk"></div>
 
 ## Reward SDKをインポートする
+
+*バージョン3.4.3からM1 (arm64 simulator arch)をサポートします。
+
 ### Framework をインポートする
 Framework (RakutenRewardNativeSDK-{version}.framework)　をプロジェクトにインポートする  
 
