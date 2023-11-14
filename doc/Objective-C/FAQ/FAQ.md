@@ -1,6 +1,7 @@
 [TOP](../../../README.md#top)　> FAQ
 
 FAQ
+* [Does the SDK support M1/arm64 simulator architecture?](#does-the-sdk-support-m1arm64-simulator-architecture)<br>
 * [How can I implement the custom notification UI?](#how-can-i-implement-the-custom-notification-ui)<br>
 * [How do I claim mission after a mission is achieved?](#how-do-i-claim-mission-after-a-mission-is-achieved)<br>
 * [How to set IDFA in RewardSDK?](#how-to-set-idfa-in-rewardsdk)<br>
@@ -10,6 +11,15 @@ FAQ
 * [Which API should I use to start/establish SDK session?](#which-api-should-i-use-to-startestablish-sdk-session)<br>
 
 # FAQ
+
+## Does the SDK support M1/arm64 simulator architecture?
+<details>
+  <summary>Answer</summary>
+Yes, M1 (arm64 simulator arch) is supported starting from version 3.4.3
+
+</details>
+
+<br>
 
 ## How can I implement the custom notification UI?
 
