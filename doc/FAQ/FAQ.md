@@ -11,6 +11,15 @@ FAQ
 
 # FAQ
 
+## Does the SDK support M1/arm64 simulator architecture?
+<details>
+  <summary>Answer</summary>
+Yes, M1 (arm64 simulator arch) is supported starting from version 3.4.3
+
+</details>
+
+<br>
+
 ## How can I implement the custom notification UI?
 
 <details>
