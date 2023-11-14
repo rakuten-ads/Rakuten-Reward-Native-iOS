@@ -11,6 +11,15 @@ FAQ
 
 # FAQ
 
+## Reward SDKはM1/arm64 simulator architectureをサポートしますか？
+<details>
+  <summary>Answer</summary>
+はい、バージョン3.4.3からM1 (arm64 simulator arch)をサポートします。
+
+</details>
+
+<br>
+
 ## カステムでミッションのノーティフィケーションを作りたい
 
 <details>
