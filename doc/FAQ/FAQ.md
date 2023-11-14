@@ -1,6 +1,7 @@
 [TOP](../../README.md#top)　>　FAQ
 
 FAQ
+* [Does the SDK support m1/arm64 simulator architecture?](#does-the-sdk-support-m1arm64-simulator-architecture)<br>
 * [How can I implement the custom notification UI?](#how-can-i-implement-the-custom-notification-ui)<br>
 * [How do I claim mission after a mission is achieved?](#how-do-i-claim-mission-after-a-mission-is-achieved)<br>
 * [How to set IDFA in RewardSDK?](#how-to-set-idfa-in-rewardsdk)<br>
