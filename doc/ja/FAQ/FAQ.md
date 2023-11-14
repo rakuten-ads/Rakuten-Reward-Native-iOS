@@ -1,7 +1,7 @@
 [TOP](../../../README.md#top)　>　FAQ
 
 FAQ
-* [Reward SDKはM1/arm64 simulator architectureをサポートしますか?](#reward-SDKは-m1arm64-simulator-architectureをサポートしますか)<br>
+* [Reward SDKはM1/arm64 simulator architectureをサポートしますか?](#reward-SDK-は-m1arm64-simulator-architectureをサポートしますか)<br>
 * [カステムでミッションのノーティフィケーションを作りたい](#カステムでミッションのノーティフィケーションを作りたい)<br>
 * [ミッション達成後はどのようにポイントをクレイムすれば良いですか？](#ミッション達成後はどのようにポイントをクレイムすれば良いですか)<br>
 * [IDFAをRewardSDKにどのように設定すれば良いですか?](#idfaをrewardsdkにどのように設定すれば良いですか)<br>
