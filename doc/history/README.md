@@ -1,5 +1,15 @@
 # Update History
 
+### Version 6.0.0
+<hr/>
+Release Date: 2023/11/16<br>
+Xcode version: 15.x, Swift version 5.9<br>
+Support OS: 11<br><br>
+
+New feature:
+* Update Unclaim info message in SDK Portal<br>
+* Bug fix<br>
+
 ### Version 5.1.0
 <hr/>
 Release Date: 2023/09/13<br>
