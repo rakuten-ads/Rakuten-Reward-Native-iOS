@@ -118,7 +118,19 @@ To use Reward SDK, need to establish SDK session first (to collect SDK user's ba
 
 Call startSession method with parameters
 
+From version 6.1.0
 
+```objective-c
+[RakutenReward.shared startSessionObjcWithAppCode:@"AppcodeExample" accessToken:@"AccessTokenExample" tokenType:(enum TokenType) completion:^(SDKUserObject * _Nullable user, RewardSDKSessionErrorObjc * _Nullable error) {
+    if (error != nil) {
+        // Has Error
+    }
+    
+    // Successful
+}];
+```
+
+Before version 6.1.0
 ```objective-c
 [RakutenReward.shared startSessionObjcWithAppCode:@"AppcodeExample" accessToken:@"AccessTokenExample" completion:^(SDKUserObject * _Nullable user, RewardSDKSessionErrorObjc * _Nullable error) {
     if (error != nil) {
@@ -131,8 +143,9 @@ Call startSession method with parameters
 
 | Parameter name        | Description           
 | --- | --- 
-| appCode | Application Key (This is from Rakuten Reward Developer Portal) 
+| appCode | Application Key (This is from Rakuten Reward Developer Portal) |
 | token | Access token to access Reward SDK API-C API |
+| tokenType | Either rid or rae (version 6.1.0 and above only) |
 <br>
 
 ## Initialization flow with Built-in Login service
