@@ -115,7 +115,16 @@ To use Reward SDK, need to establish SDK session first (to collect SDK user's ba
 
 Call startSession method with parameters
 
+From version 6.1.0
 
+```swift
+RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, tokenType: <token type>, completion: { r in
+    if case .success(let user) =r {  // use portal or use additional setup
+  }
+}
+```
+
+Before version 6.1.0
 ```swift
 RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, completion: { r in
     if case .success(let user) =r {  // use portal or use additional setup
@@ -125,8 +134,9 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
 
 | Parameter name        | Description           
 | --- | --- 
-| appCode | Application Key (This is from Rakuten Reward Developer Portal) 
+| appCode | Application Key (This is from Rakuten Reward Developer Portal) |
 | token | Access token to access Reward SDK API-C API |
+| tokenType | Either rid or rae (version 6.1.0 and above only) |
 <br>
 
 ## Initialization flow with Built-in Login service
