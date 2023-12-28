@@ -119,6 +119,18 @@ startSession を呼び出します
 # SDKを初期化する
 楽天リワードSDKを利用するにははじめに初期化が必要です(SDKユーザーの基本データを取得します) SDKの機能を利用するのにはRakutenRewardクラスのメソッドを利用します
 
+バージョン６.１.０以降
+```objective-c
+[RakutenReward.shared startSessionObjcWithAppCode:@"AppcodeExample" accessToken:@"AccessTokenExample" tokenType:(enum TokenType) completion:^(SDKUserObject * _Nullable user, RewardSDKSessionErrorObjc * _Nullable error) {
+    if (error != nil) {
+        // Has Error
+    }
+    
+    // Successful
+}];
+```
+
+バージョン６.１.０の前
 ```objective-c
 [RakutenReward.shared startSessionObjcWithAppCode:@"AppcodeExample" accessToken:@"AccessTokenExample" completion:^(SDKUserObject * _Nullable user, RewardSDKSessionErrorObjc * _Nullable error) {
     if (error != nil) {
@@ -131,8 +143,9 @@ startSession を呼び出します
 
 | パラメータ名        | 説明           
 | --- | --- 
-| appCode | アプリケーションキー (楽天リワードSDKの開発者ポータルより取得)
+| appCode | アプリケーションキー (楽天リワードSDKの開発者ポータルより取得)|
 | token | APIトークン |
+| tokenType | ridかrae（バージョン６.１.０以降）|
 
 # ログインページを表示し、SDKを初期化する
 1. ログインの状態をチェックする, 
