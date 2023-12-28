@@ -1,5 +1,15 @@
 # Update History
 
+### Version 6.1.0
+<hr/>
+Release Date: 2023/12/28<br>
+Xcode version: 15.x, Swift version 5.9<br>
+Support OS: 11<br><br>
+
+New feature:
+* Remove deprecated API<br>
+* Add new start session API<br>
+
 ### Version 6.0.0
 <hr/>
 Release Date: 2023/11/16<br>
