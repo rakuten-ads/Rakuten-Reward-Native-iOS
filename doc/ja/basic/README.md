@@ -115,6 +115,16 @@ RakutenReward.shared.logout { }
 # SDKを初期化する
 楽天リワードSDKを利用するにははじめに初期化が必要です(SDKユーザーの基本データを取得します) SDKの機能を利用するのにはRakutenRewardクラスのメソッドを利用します
 
+
+バージョン６.１.０以降
+```swift
+RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, tokenType: <token type>, completion: { r in
+    if case .success(let user) =r {  // use portal or use additional setup
+  }
+}
+```
+
+バージョン６.１.０の前
 ```swift
 RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, completion: { r in
     if case .success(let user) =r {  // use portal or use additional setup
@@ -124,8 +134,9 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
 
 | パラメータ名        | 説明           
 | --- | --- 
-| appCode | アプリケーションキー (楽天リワードSDKの開発者ポータルより取得)
+| appCode | アプリケーションキー (楽天リワードSDKの開発者ポータルより取得) |
 | token | APIトークン |
+| tokenType | ridかrae（バージョン６.１.０以降）|
 
 # ログインページを表示し、SDKを初期化する
 1. ログインの状態をチェックする, 
