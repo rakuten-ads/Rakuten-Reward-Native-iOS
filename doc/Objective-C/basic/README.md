@@ -18,6 +18,7 @@ For Japan
 ```objective-c
 RakutenReward.shared.region = RakutenRewardRegionJP;
 ```
+<br><br>
 
 # Authentication
 
@@ -131,6 +132,7 @@ From version 6.1.0
 ```
 
 Before version 6.1.0
+
 ```objective-c
 [RakutenReward.shared startSessionObjcWithAppCode:@"AppcodeExample" accessToken:@"AccessTokenExample" completion:^(SDKUserObject * _Nullable user, RewardSDKSessionErrorObjc * _Nullable error) {
     if (error != nil) {
@@ -143,7 +145,7 @@ Before version 6.1.0
 
 | Parameter name        | Description           
 | --- | --- 
-| appCode | Application Key (This is from Rakuten Reward Developer Portal) |
+| appCode | Application Key (This is from Rakuten Reward Developer Portal) 
 | token | Access token to access Reward SDK API-C API |
 | tokenType | Either rid or rae (version 6.1.0 and above only) |
 <br>
@@ -216,8 +218,8 @@ You can decide type by Developer Portal
 | Modal | Show Modal UI provided by SDK
 | Banner | Show Banner UI provided by SDK
 | Custom | Developer can create UI by themselves
-| Banner_50 | Show Banner_50 UI provided by SDK
-| Banner_250 | Show Banner_250 UI provided by SDK
+| Small Ad Banner / Banner_50 | Show Banner_50 UI provided by SDK
+| Big Ad Banner / Banner_250 | Show Banner_250 UI provided by SDK
 | No UI | Not show any UI
 <br>
 
@@ -254,6 +256,8 @@ Below are the portal UIs:
 ![Portal4](Portal4.png?)
 
 ![Portal5](Portal5.png?)
+
+![Portal6](Portal6.png?)
 <br>
 
 # Ad Portal
