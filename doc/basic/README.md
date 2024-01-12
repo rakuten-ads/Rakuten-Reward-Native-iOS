@@ -18,6 +18,7 @@ For Japan
 ```Swift
 RakutenReward.shared.region = RakutenRewardRegion.japan
 ```
+
 <br><br>
 
 # Authentication
@@ -30,7 +31,7 @@ There are 3 types of login. According to your environment, please select proper 
 | --- | --- | --- |
 | rakutenAuth | This is default option, provide login by SDK, SDK handled all login and user identifier | Japan |
 | rid | Rakuten ID SDK with RID, Login covers by ID SDK, and use API token for SDK| Japan |  
-| rae | Rakuten ID SDK with RAE, Login covers by User SDK, and use token for SDK | Japan |
+| rae | Rakuten ID SDK with RAE, Login covers by ID SDK, and use token for SDK | Japan |
 <br>
 
 ### Switch Login Option
@@ -125,6 +126,7 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
 ```
 
 Before version 6.1.0
+
 ```swift
 RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, completion: { r in
     if case .success(let user) =r {  // use portal or use additional setup
@@ -190,7 +192,7 @@ Reward SDK provides Modal and Banner UI
 <br>
 
 ### Notification Type
-There  are 6 types of Mission Achievement UI. Modal, Banner, and No UI, and Custom which developed by developers.
+There  are 4 types of Mission Achievement UI. Modal, Banner, and No UI, and Custom which developed by developers.
 
 You can decide type by Developer Portal 
 
@@ -199,8 +201,8 @@ You can decide type by Developer Portal
 | Modal | Show Modal UI provided by SDK
 | Banner | Show Banner UI provided by SDK
 | Custom | Developer can create UI by themselves
-| Banner_50 | Show Banner_50 UI provided by SDK
-| Banner_250 | Show Banner_250 UI provided by SDK
+| Small Ad Banner / Banner_50 | Show Banner_50 UI provided by SDK
+| Big Ad Banner / Banner_250 | Show Banner_250 UI provided by SDK
 | No UI | Not show any UI
 <br>
 
@@ -217,21 +219,20 @@ RakutenReward.shared.openPortal(completionHandler: { result in
 
 Below are the portal UIs:
 
-<img src="Portal1.png?" width="300" height="600">
+![Portal1](Portal1.png?)
 
-<img src="Portal2.png?" width="300" height="600">
+![Portal2](Portal2.png?)
 
-<img src="Portal3.png?" width="300" height="600">
+![Portal3](Portal3.png?)
 
-<img src="Portal4.png?" width="300" height="600">
+![Portal4](Portal4.png?)
 
-<img src="Portal5.png?" width="300" height="600">
+![Portal5](Portal5.png?)
 
-<img src="Portal6.png?" width="300" height="600">
-
+![Portal6](Portal6.png?)
 <br>
 
-# Ad Portal
+# Ad Portal (Deprecated from version 5.x)
 *Ad Portal APIs are available from version 3.1.0 (JP region only)
 <br>
 
