@@ -225,6 +225,7 @@ let status = RakutenReward.shared.status
 | 名前 | 説明
 | --- | ---
 | noMissionFound | ミッションの取得できなかった
+| missionReachedCap | ミッション達成がもう上限に達したの場合
 | noUnclaimedItemFound | 未獲得ミッションが取得できなかった
 | sessionNotInitialized | SDKが初期化されていない
 | featureDisabledByUser | SDK function is not active by user
