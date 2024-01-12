@@ -1,5 +1,17 @@
 # Update History
 
+### Version 6.2.0
+<hr/>
+Release Date: 2024/01/11<br>
+Xcode version: 15.x, Swift version 5.9<br>
+Support OS: 12<br><br>
+
+New feature:
+* Increase minimum support OS to 12
+* Remove poikatsu tab in SDK Portal
+* Introduce SDKError missionReachedCap 
+* Bug fix
+
 ### Version 6.1.0
 <hr/>
 Release Date: 2023/12/28<br>
@@ -49,7 +61,7 @@ New feature:
 * SDK Portal UI Update
     * Introduce Unclaimed List sorting feature
     * Tap on mission item to show mission details
-* Marked Ad Portal APIs as deprecated
+* Marked Ad Portal APIs as deprecated<br>
 
 ### Version 4.0.0
 <hr/>
@@ -141,7 +153,7 @@ New feature:
 
 ### Version 3.4.2
 <hr/>
-Release Date: 2022/06/12<br>
+Release Date: 2022/06/10br>
 XCode version: 13.x, Swift version: 5.5<br>
 Support OS: 11<br><br>
 
@@ -156,6 +168,7 @@ Support OS: 11<br><br>
 
 New feature: 
 * Fix Japan Calendar format issue<br>
+
 
 ### Version 3.4.0
 <hr/>
