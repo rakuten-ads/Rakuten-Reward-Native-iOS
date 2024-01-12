@@ -143,7 +143,7 @@ startSession を呼び出します
 
 | パラメータ名        | 説明           
 | --- | --- 
-| appCode | アプリケーションキー (楽天リワードSDKの開発者ポータルより取得)|
+| appCode | アプリケーションキー (楽天リワードSDKの開発者ポータルより取得) |
 | token | APIトークン |
 | tokenType | ridかrae（バージョン６.１.０以降）|
 
@@ -212,8 +212,8 @@ actionCode は開発者ポータルより取得します
 | モーダル | モーダルUIを表示する
 | バナー | バナーUIを表示する
 | カスタム | 開発者が自由にUIを作成できます
-| Banner_50 | SDK が提供する Banner_50 UI を表示する
-| Banner_250 | SDK が提供する  Banner_250 UI を表示する
+| 広告バナー（小）/ Banner_50 | SDK が提供する Banner_50 UI を表示する
+| 広告バナー（大）/ Banner_250 | SDK が提供する  Banner_250 UI を表示する
 | UIなし | UIを表示しません
 
 ## SDK ポータル
@@ -250,6 +250,8 @@ actionCode は開発者ポータルより取得します
 ![Portal4](Portal4.PNG?)
 
 ![Portal5](Portal5.PNG?)
+
+![Portal6](Portal6.PNG?)
 
 ## 広告ポータル
 Ad Portal API は SDKバージョン3.1.0 からご利用可能です(JP のみ)
