@@ -225,6 +225,7 @@ let status = RakutenReward.shared.status
 | Name | Description
 | --- | ---
 | noMissionFound | Mission list is empty
+| missionReachedCap | When a mission achievement is already reached its cap (v6.2.0 and newer)
 | noUnclaimedItemFound | UnclaimedItem list is empty
 | sessionNotInitialized | SDK is not initialized
 | featureDisabledByUser | SDK function is not active by user
