@@ -229,6 +229,7 @@ UnclaimedItemObject *unclaimedItem = [UnclaimedItemObject alloc]; // Example
 | Name | Description
 | --- | ---
 | SDKErrorObjcNoMissionFound | Mission list is empty
+| SDKErrorObjcMissionReachedCap | When a mission achievement is already reached its cap
 | SDKErrorObjcNoUnclaimedItemFound | UnclaimedItem list is empty
 | SDKErrorObjcSessionNotInitialized | SDK is not initialized
 | SDKErrorObjcFeatureDisabledByUser | SDK function is not active by user
