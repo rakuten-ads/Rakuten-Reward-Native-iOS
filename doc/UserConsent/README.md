@@ -9,6 +9,7 @@ Table of Contents
 * [Sample Use Case](#sample-use-case)
     * [When to request user consent](#when-to-request-user-consent)
     * [Example for other APIs](#example-for-other-apis)
+* [How to Test](#how-to-test)
 
 ---
 # Request User Consent feature Overview
@@ -91,6 +92,12 @@ func exampleLogAction() {
 ```
 
 Even if user already provided consent, it is still safe to call `RakutenReward.requestForConsent()` API as consent dialog will not be shown and `consentProvided` status will be return in the callback.
+
+<br>
+
+## How to Test
+
+Currently this feature is not enabled yet. To test the feature in development phase, please create a ticket [here](https://confluence.rakuten-it.com/confluence/x/8Hx3sw) and provide a list of test account's Easy ID for us to whitelist these accounts.   
 
 ---
 LANGUAGE :
