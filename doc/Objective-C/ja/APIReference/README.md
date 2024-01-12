@@ -228,6 +228,7 @@ UnclaimedItemObject *unclaimedItem = [UnclaimedItemObject alloc]; // 例
 | 名前 | 説明
 | --- | ---
 | SDKErrorObjcNoMissionFound | ミッションの取得できなかった
+| SDKErrorObjcMissionReachedCap | ミッション達成がもう上限に達したの場合
 | SDKErrorObjcNoUnclaimedItemFound | 未獲得ミッションが取得できなかった
 | SDKErrorObjcSessionNotInitialized | SDKが初期化されていない
 | SDKErrorObjcFeatureDisabledByUser | SDK function is not active by user
