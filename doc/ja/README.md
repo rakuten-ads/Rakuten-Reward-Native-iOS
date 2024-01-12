@@ -14,8 +14,8 @@
 
 ## 前提
 
-* Use Xcode 11 以上
-* iOS SDK 11　以上
+* Use Xcode 12 以上
+* iOS SDK 12　以上
 * 楽天 IDSDK もしくは SDKが用意するログインを使用する
 
 
@@ -58,6 +58,7 @@
 |5.1.0|11|16|
 |6.0.0|11|17|
 |6.1.0|11|17|
+|6.2.0|12|17|
 
 <div id="import_sdk"></div>
 
@@ -126,7 +127,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target '' do
-pod 'RakutenRewardNativeSDK', '6.1.0'
+pod 'RakutenRewardNativeSDK', '6.2.0'
 end
 
 ```
@@ -137,7 +138,7 @@ end
 
 ```
 dependencies: [
-    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("6.1.0")),
+    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("6.2.0")),
 ]
 ```
 
@@ -177,6 +178,3 @@ Carthage でのビルドバイナリをドラッグ＆ドロップし Embedded �
 ---
 LANGUAGE :
 > [![en](../lang/en.png)](../../README.md)
-
-
-
