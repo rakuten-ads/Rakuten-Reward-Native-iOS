@@ -28,7 +28,7 @@ RakutenReward.shared.region = RakutenRewardRegion.japan
 
 | ログインオプション | 説明 | サポート |
 | --- | --- | --- |
-| rakutenAuth | 初期設定、ログインに関する処理はSDKから提供されます | 日本 |
+| rakutenAuth | 初期設定、ログインに関する処理はSDKから提供されます | 日本、台湾 |
 | rid | 楽天のログインSDKを使って、RIDでログインする場合はこのオプションを使用します、 SDKにAPIトークンを設定する必要があります | 日本 |  
 | rae | 楽天のログインSDKを使って、RAEでログインする場合はこのオプションを使用します、 SDKにトークンを設定する必要があります | 日本 |
 <br>
@@ -94,7 +94,7 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
 RakutenReward.shared.openLoginPage({result in 
     switch result:
     case .dismissByUser: // resume in another time
-    case .LogInCompleted: // starting session
+    case .logInCompleted: // starting session
     case .failToShowLoginPage: // presenting problem
   }) 
 ```
@@ -114,7 +114,6 @@ RakutenReward.shared.logout { }
 ---
 # SDKを初期化する
 楽天リワードSDKを利用するにははじめに初期化が必要です(SDKユーザーの基本データを取得します) SDKの機能を利用するのにはRakutenRewardクラスのメソッドを利用します
-
 
 バージョン６.１.０以降
 ```swift
@@ -186,7 +185,7 @@ actionCode は開発者ポータルより取得します
 ![Modal](Modal.PNG)     ![Banner](Banner.PNG)
 
 ### ミッション達成UIの種類
-楽天リワードSDKは6つの種類のミッション達成の種類があります
+楽天リワードSDKは4つの種類のミッション達成の種類があります
 モーダル、バナー、UIなし、カスタム
 これらの設定は開発者ポータルから設定できます
 
@@ -195,8 +194,8 @@ actionCode は開発者ポータルより取得します
 | モーダル | モーダルUIを表示する
 | バナー | バナーUIを表示する
 | カスタム | 開発者が自由にUIを作成できます
-| Banner_50 | SDK が提供する Banner_50 UI を表示する
-| Banner_250 | SDK が提供する  Banner_250 UI を表示する
+| 広告バナー（小）/ Banner_50 | SDK が提供する Banner_50 UI を表示する
+| 広告バナー（大）/ Banner_250 | SDK が提供する  Banner_250 UI を表示する
 | UIなし | UIを表示しません
 
 ## SDK ポータル
@@ -206,19 +205,19 @@ actionCode は開発者ポータルより取得します
 
 こちらがSDKポータルのイメージになります
 
-<img src="Portal1.PNG?" width="300" height="600">
+![Portal1](Portal1.PNG?)
 
-<img src="Portal2.PNG?" width="300" height="600">
+![Portal2](Portal2.PNG?)
 
-<img src="Portal3.PNG?" width="300" height="600">
+![Portal3](Portal3.PNG?)
 
-<img src="Portal4.PNG?" width="300" height="600">
+![Portal4](Portal4.PNG?)
 
-<img src="Portal5.PNG?" width="300" height="600">
+![Portal5](Portal5.PNG?)
 
-<img src="Portal6.PNG?" width="300" height="600">
+![Portal6](Portal6.PNG?)
 
-## 広告ポータル
+## 広告ポータル (Deprecated from version 5.x)
 Ad Portal API は SDKバージョン3.1.0 からご利用可能です(JP のみ)
 <br>
 
