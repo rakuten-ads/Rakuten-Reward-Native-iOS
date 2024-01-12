@@ -14,8 +14,8 @@
 
 ## Prerequisites
 
-* Use Xcode 11 or higher
-* Target iOS SDK level 11 or higher
+* Use Xcode 12 or higher
+* Target iOS SDK level 12 or higher
 * Use Rakuten IDSDK or Use built-in Login
 
 | Version        | Minimum OS           | Compile OS
@@ -57,6 +57,7 @@
 |5.1.0|11|16|
 |6.0.0|11|17|
 |6.1.0|11|17|
+|6.2.0|12|17|
 
 <div id="import_sdk"></div>
 
@@ -125,7 +126,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target '' do
-pod 'RakutenRewardNativeSDK', '6.1.0'
+pod 'RakutenRewardNativeSDK', '6.2.0'
 end
 
 ```
@@ -136,7 +137,7 @@ Add the dependency value below
 
 ```
 dependencies: [
-    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("6.1.0")),
+    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("6.2.0")),
 ]
 ```
 
