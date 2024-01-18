@@ -102,4 +102,4 @@ func exampleLogAction() {
 
 ---
 言語 :
-> [![en](../../lang/en.png)](../../consent/README.md)
+> [![en](../../lang/en.png)](../../UserConsent/README.md)
