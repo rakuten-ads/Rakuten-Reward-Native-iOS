@@ -50,6 +50,7 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | ポータルの表示状態が更新された場合のデリゲート | ポータルを表示状態変更のコールバック | `RakutenReward.shared.didUpdateIsPortalPresentedStatus = { isPortalPresent in }` |
 | 広告ポータルの表示ステータスの更新情報を取得する | 広告ポータルが表示されているかどうかのコールバック | `RakutenReward.shared.didUpdateIsAdPortalPresentedStatus = { isAdPortalPresent in }` | (Deprecated in v4.1)
 | 利用規約への同意をリクエスト | 利用規約への同意をリクエスト (Since v5.0) | `RakutenReward.shared.requestForConsent { status in }` |
+| 通知バナーを表示する | 通知バナーを表示する (Since v6.3) | `RakutenReward.shared.showConsentBanner { status in }` | 
 | 同意ダイアログを表示する | 同意ダイアログを表示する callback | `RakutenReward.shared.didPresentConsentUI = {}` |
 | 同意ダイアログを閉めした | 同意ダイアログを閉めした callback | `RakutenReward.shared.didDismissConsentUI = {}` |
 <br>
