@@ -50,6 +50,7 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | Is Portal present status updated delegate | Callback when portal is present or hidden | `RakutenReward.shared.didUpdateIsPortalPresentedStatus = { isPortalPresent in }` |
 | Is AdPortal present status updated delegate | Callback when ad portal is present or hidden | `RakutenReward.shared.didUpdateIsAdPortalPresentedStatus = { isAdPortalPresent in }` | (Deprecated in v4.1)
 | Request for user consent | Request User Consent (Since v5.0) | `RakutenReward.shared.requestForConsent { status in }` |
+| Show user consent notification banner | Show consent banner (Since v6.3.0) | `RakutenReward.shared.showConsentBanner { status in }` | 
 | Did present consent UI | Callback when user consent UI is presented | `RakutenReward.shared.didPresentConsentUI = {}` |
 | Did dismiss consent UI |Callback when user consent UI is dismissed | `RakutenReward.shared.didDismissConsentUI = {}` |
 <br>
