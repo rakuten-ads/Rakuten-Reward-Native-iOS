@@ -5,7 +5,8 @@
 * [既設APIの変更](#既設apiの変更) <br>
     * [userNotConsent ステータス](#user_not_consent-ステータス) <br>
     * [新たな UserConsent callbacks 関数](#新しい-userconsent-callbacks-関数) <br>
-* [利用規約への同意をリクエストする API](#利用規約への同意をリクエストする-api)
+* [利用規約への同意をリクエストする API](#利用規約への同意をリクエストする-api) <br>
+* [通知バナーを表示する](#通知バナーを表示する) <br>
 * [サンプルの使用例](#サンプルの使用例)
     * [いつ利用規約への同意をリクエストする](#いつ利用規約への同意をリクエストする)
     * [アクションを送信する](#アクションを送信する)
@@ -54,6 +55,20 @@ RakutenReward.shared.requestForConsent { status in
 
 ユーザーがすでに利用規約を同意していた場合、ダイアログを表示せずに`consentProvided`ステータスがコールバックに返します。
 <br><br>
+
+# 通知バナーを表示する 
+ユーザーがまだ利用規約を同意していない場合通知バナーを表示するAPIを追加した。  
+
+```swift
+RakutenReward.shared.showConsentBanner { status in
+    // Check consent status 
+}
+```
+
+![通知バナー](consent-banner.png)  
+
+ユーザーが上のバナーをタップして、同意ダイアログを表示される。  
+ユーザーがすでに利用規約を同意していた場合、バナーを表示せずに`consentProvided`ステータスがコールバックに返します。
 
 # サンプルの使用例
 ## いつ利用規約への同意をリクエストする
