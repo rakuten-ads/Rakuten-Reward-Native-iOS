@@ -5,7 +5,8 @@ Table of Contents
 * [Changes to existing API](#changes-to-existing-api) <br>
     * [userNotConsent status](#usernotconsent-status) <br>
     * [UserConsent callbacks](#userconsent-callbacks) <br>
-* [Request User Consent API](#request-user-consent-api)
+* [Request User Consent API](#request-user-consent-api) <br>
+* [Show consent notification banner](#show-consent-notification-banner) <br>
 * [Sample Use Case](#sample-use-case)
     * [When to request user consent](#when-to-request-user-consent)
     * [Example for other APIs](#example-for-other-apis)
@@ -51,6 +52,20 @@ Depends on user action, will the following consent status will be return in the 
 | consentProvidedRestartSessionFailed | User provided consent but failed to restart SDK session |
 
 If user already provided consent, the consent dialog will not be shown and the callback will be triggered with `consentProvided` status.
+
+# Show consent notification banner
+New API is introduced to show notification banner when user haven't provide consent.  
+
+```swift
+RakutenReward.shared.showConsentBanner { status in
+    // Check consent status 
+}
+```
+
+![Consent banner](consent-banner.png)  
+
+The banner above will only be shown when user haven't provide consent. When tap on the banner, consent dialog will be shown to request user's consent.   
+If user already provided consent, the banner will not be shown and the callback will be triggered with `consentProvided` status.  
 
 # Sample Use Case
 ## When to request user consent
