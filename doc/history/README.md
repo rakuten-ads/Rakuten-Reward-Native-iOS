@@ -1,5 +1,17 @@
 # Update History
 
+### Version 6.3.0
+<hr/>
+Release Date: 2024/03/21<br>
+Xcode version: 15.x, Swift version 5.9<br>
+Support OS: 12<br><br>
+
+New feature:
+* Introduce Consent notification banner API<br>
+* Remove IDFA related APIs<br>
+* Add Privacy Manifest<br>
+* Bug fix<br>
+
 ### Version 6.2.0
 <hr/>
 Release Date: 2024/01/11<br>
