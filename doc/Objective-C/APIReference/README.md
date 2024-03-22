@@ -43,7 +43,6 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | Log Out | Log out from Rakuten Auth | `[RakutenReward.shared logoutWithCompletion:^{ }];` |
 | Blacklisted URLs | Add blacklist URL to block access specific URL, (This is for Apple Reject, if the ad URL has problem, use this API) | `RakutenReward.shared.blacklistURL;` |
 | Custom URL Session | To use custom URL session instead of default URL session | `RakutenReward.shared.customURLSession;` |
-| IDFA | To set IDFA | `RakutenReward.shared.advertisingID;` |
 | User updated delegate | Callback when user is updated | `RakutenReward.shared.didUpdateUserObjc = ^(SDKUserObject * _Nullable user) { };` |
 | Status updated delegate | Callback when Reward Status is updated | `RakutenReward.shared.didUpdateStatus = ^(enum RakutenRewardStatus status) { };` |
 | Is Portal Present status updated delegate | Callback when portal is present or hidden | RakutenReward.shared.didUpdateIsPortalPresentedStatus = ^(BOOL isPortalPresent) { }; |
