@@ -81,7 +81,7 @@ RakutenReward.shared.openSpsPortal { result in
 ```  
 Screenshots of the SPS Portal  
 
-<img src="spshomescreen.png" alt="SPS Home Page" width="250">  <img src="img/sps_portal_mission.png" alt="Mission Page" width="250">  
+<img src="spshomescreen.png" alt="SPS Home Page" width="250">  <img src="missionscreen.png" alt="Mission Page" width="250">  
 
 ## Non-SPS member
 If the logged in user is not a SPS member, a member registration screen will be shown first.  
