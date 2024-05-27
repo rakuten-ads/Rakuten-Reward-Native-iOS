@@ -10,6 +10,7 @@ Table of Contents
 * [Show SPS Portal](#show-sps-portal)  
 * [Claim Point Screen](#claim-point-screen)  
 * [Theme Setting Screen](#theme-setting-screen)
+* [Geolocation](#geolocation)
 
 ---  
 
@@ -136,6 +137,15 @@ RewardConfiguration.setTheme(.panda)
 // or set to Simple theme
 RewardConfiguration.setTheme(.simple)
 ```
+
+# Geolocation 
+
+In order to optimize the Ad delivery, you can provide end users' current location. (This is an optional API)
+
+```swift
+// provide the latitude and longitude
+RakutenMissionSps.shared.setLocation(lat: Float, lng: Float)
+```  
 
 ---
 LANGUAGE :
