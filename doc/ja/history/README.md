@@ -1,5 +1,16 @@
 # 更新履歴
 
+### バージョン 6.4.0
+<hr/>
+リリース日: 2024/06/10<br>
+XCode バージョン: 15.x, Swift version: 5.9<br>
+サポート OS: 12<br><br>
+
+新しい機能:
+* missionReachedCapのエラーコードを追加<br>
+* userNotConsentのエラーコードを追加<br>
+* バグを修正<br>
+
 ### バージョン 6.3.0
 <hr/>
 リリース日: 2024/03/21<br>
