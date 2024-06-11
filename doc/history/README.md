@@ -1,5 +1,16 @@
 # Update History
 
+### Version 6.4.0
+<hr/>
+Release Date: 2024/06/10<br>
+Xcode version: 15.x, Swift version 5.9<br>
+Support OS: 12<br><br>
+
+New feature:
+* Add missionReachedCap error<br>
+* Add userNotConsent error<br>
+* User consent callback bug fixes<br>
+
 ### Version 6.3.0
 <hr/>
 Release Date: 2024/03/21<br>
