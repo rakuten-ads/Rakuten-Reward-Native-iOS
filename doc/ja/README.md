@@ -61,6 +61,7 @@
 |6.2.0|12|17|
 |6.3.0|12|17|
 |6.4.0|12|17|
+|7.0.0|13|17|
 
 <div id="import_sdk"></div>
 
@@ -129,7 +130,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target '' do
-pod 'RakutenRewardNativeSDK', '6.4.0'
+pod 'RakutenRewardNativeSDK', '7.0.0'
 end
 
 ```
@@ -140,7 +141,7 @@ end
 
 ```
 dependencies: [
-    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("6.4.0")),
+    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("7.0.0")),
 ]
 ```
 
@@ -149,7 +150,7 @@ dependencies: [
 プロジェクトの Cartfile を開き、 Reward Native SDK の依存関係を追加する
 
 ```
-binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 6.4.0
+binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 7.0.0
 ```
 
 carthage を実行して Reward Native SDK をダウンロードする(XCFramework)
