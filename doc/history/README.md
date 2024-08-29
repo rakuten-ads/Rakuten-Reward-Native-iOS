@@ -6,7 +6,7 @@ Release Date: 2024/08/28<br>
 Xcode version: 15.x, Swift version 5.9<br>
 
 New feature:
-* Introduce SPS feature [link](../sps/README.md)<br>
+* Introduce SPS feature [link](../../sps/README.md)<br>
 
 ### Version 6.4.0
 <hr/>
