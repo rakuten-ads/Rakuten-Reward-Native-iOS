@@ -9,6 +9,7 @@ Table of Contents
 * [RakutenRewardConsentStatus](#rakutenrewardconsentstatus)<br>
 * [API Data](#api-data)<br>
   * [Mission](#mission)<br>
+  * [MissionLite](#missionlite)<br>
   * [PointHistory](#pointhistory)<br>
   * [PointRecord](#pointrecord)<br>
   * [UnclaimedItem](#unclaimeditem)<br>
@@ -33,6 +34,8 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | Open Terms and Condition Page | Open Reward SDK Terms and Conditions Page with mini browser | `[RakutenReward.shared openSupportPageObjcWithPage:SupportPageTermsCondition];`
 | Open Privacy Policy Page | Open Reward SDK Privacy Policy Page with mini browser | `[RakutenReward.shared openSupportPageObjcWithPage:SupportPagePrivacyPolicy];`
 | Get Missions | Get missions | `[RakutenReward.shared getMissionListWithProgressObjcWithCompletion:^(NSArray<MissionObject *> * _Nullable missions, NSError * _Nullable error) { }];`
+| Get Missions Lite | Get missions lite (without progress and reachedCap) | `[RakutenReward.shared getMissionLiteListObjcWithCompletion:^(NSArray<MissionLiteObject *> * _Nullable missionsLite, NSError * _Nullable error) { }];`
+| Get Mission Details | Get full details from mission lite | `[RakutenReward.shared getMissionDetailsObjcWithActionCode:@"ActionCodeExample" completion:^(NSArray<MissionObject *> * _Nullable missions, NSError * _Nullable error) { }];`
 | Get Point history | Get 3 month user's point history | `[RakutenReward.shared getPointHistoryObjcWithCompletion:^(PointHistoryObject * _Nullable pointHistoryObject, NSError * _Nullable error) {}];` 
 | Log Action | Post user action | `[RakutenReward.shared logActionObjcWithActionCode:@"ActionCodeExample" completion:^(NSError * _Nullable error) { }];`
 | Get Unclaimed Items | Get Unclaim item list | `[RakutenReward.shared getUnclaimedMissionWithCompletion:^(NSArray<UnclaimedItemObject *> * _Nullable unclaimedItems, NSError * _Nullable error) { }];`
@@ -160,6 +163,26 @@ MissionObject *mission = [MissionObject alloc]; // Example
 | reachedCap | Whether mission reached max cap or not | true
 | times | Required action times | 3
 | progress | Current action times | 1
+<br>
+
+### MissionLite
+```objective-c
+MissionLiteObject *mission = [MissionLiteObject alloc]; // Example
+```
+
+| Parameter | Description | Example
+| --- | --- | ---
+| name | Mission name | Mission A
+| actionCode | Mission Action Key | ZIJCjBeQBHac8nJa
+| iconurl | Mission icon URL | https://mprewardsdk.blob.core.windows.net/sdk-portal/appCode/actionCode.png
+| instruction | Mission instruction | One day one play
+| condition | Descritpion about mission max achievable | 10 times achievable
+| notificationtype | Mission UI Type | NONE, BANNER, MODAL, CUSTOM, BANNER_50, BANNER_250
+| point | Mission Point | 10
+| enddatestr | Mission End Date <br> Daily : Today<br> Weekly : End of week<br> Monthly : Endof Month<br> Custom : Custom End Date<br> | 20190403
+| till | Mission End date | 3 days
+| addtional | Additional messages |
+| times | Required action times | 3
 <br>
 
 ### PointHistory
