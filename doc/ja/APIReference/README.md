@@ -9,6 +9,7 @@
 * [RakutenRewardConsentStatus](#rakutenrewardconsentstatus)<br>
 * [API データ](#API-データ)<br>
   * [Mission](#mission)<br>
+  * [MissionLite](#missionlite)<br>
   * [PointHistory](#pointhistory)<br>
   * [PointRecord](#pointrecord)<br>
   * [UnclaimedItem](#unclaimeditem)<br>
@@ -33,6 +34,8 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | 利用規約を開く | 利用規約をSDKのミニブラウザーで開く | `RakutenReward.shared.openSupportPage(.TermsCondition)`
 | プライバシーポリシーを開く | プライバシーポリシーをDKのミニブラウザーで開く | `RakutenReward.shared.openSupportPage(.PrivacyPoilicy)`
 | ミッションリストを取得する | ミッションリストを取得する | `RakutenReward.shared.getMissionListWithProgress(completion: { r in })`
+| ミッションライトを取得 | ミッションライトを取得（progress とreachedCapなし）| `RakutenReward.shared.getMissionLiteList(completion: { r in })`
+| ミッションの詳細を取得 | ミッションライトから完全な詳細を取得 | `RakutenReward.shared.getMissionDetails(actionCode: "example", completion: { r in }`
 | ポイント履歴を取得する | 3ヶ月前までのポイント履歴を取得する | `RakutenReward.shared.getPointHistory(completion: { r in })`
 | アクションを送信する | ミッションを達成するためにアクションを送信する | `RakutenReward.shared.logAction(actionCode: "xxxxxx", completionHandler: { r in})`
 | 未獲得ミッションを取得する | 未獲得ミッションリストを取得する | `RakutenReward.shared.getUnclaimedMission({ completion: { r in })`
@@ -162,6 +165,22 @@ let status = RakutenReward.shared.status
 | reachedCap | ミッション達成が上限に達したかどうか？ | true
 | times | ミッション達成に必要なアクション数 | 3
 | progress | 現在のアクションの状態 | 1
+<br>
+
+### MissionLite
+| パラメータ | 説明 | 例
+| --- | --- | ---
+| name | ミッション名 | Mission A
+| actionCode | アクションコード(キー) | ZIJCjBeQBHac8nJa
+| iconurl | ミッションアイコンのURL | https://mprewardsdk.blob.core.windows.net/sdk-portal/appCode/actionCode.png
+| instruction | ミッションの説明文 | 1日1回プレイする
+| condition | ミッションの達成条件 | 毎日10回達成可能
+| notificationtype | ミッションのノーティフィケーションタイプ | NONE, BANNER, MODAL, CUSTOM, BANNER_50,BANNER_250
+| point | ミッションのポイント | 10
+| enddatestr | ミッションの終了日 <br> 日次の場合 : Today<br> 週次 : 週の終わり<br> 月次 : 月の終わり<br> カスタム : 指定された日時<br> | 20190403
+| till | ミッション終了日までの残り日数 | 残り3日
+| addtional | ミッションのための拡張データ |
+| times | ミッション達成に必要なアクション数 | 3
 <br>
 
 ### PointHistory
