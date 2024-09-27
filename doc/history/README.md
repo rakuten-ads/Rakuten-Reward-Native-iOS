@@ -1,5 +1,16 @@
 # Update History
 
+### Version 7.1.0
+<hr/>
+Release Date: 2024/09/26<br>
+Xcode version: 15.x, Swift version 5.9<br>
+
+New feature:
+* Introduce Missions Lite and Mission Details<br>
+* SDK label text improvement<br>
+* Support Korean and Simplified Chinese text<br>
+* iOS 18 incorrect locale text fix<br>
+
 ### Version 7.0.0
 <hr/>
 Release Date: 2024/08/28<br>
