@@ -1,5 +1,13 @@
 # Update History
 
+### Version 7.2.0
+<hr/>
+Release Date: 2024/10/17<br>
+Xcode version: 15.x, Swift version 5.9<br>
+
+New feature:
+* JS-extension [link](../extension/README.md)  
+
 ### Version 7.1.0
 <hr/>
 Release Date: 2024/09/26<br>
