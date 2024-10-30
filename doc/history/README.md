@@ -1,5 +1,14 @@
 # Update History
 
+### Version 8.0.0
+<hr/>
+Release Date: 2024/10/30
+
+* Xcode 16 support
+* SPS Module : 
+    * Opt Out Mission feature
+    * SPS Portal support Korean, Traditional and Simplified Chinese text
+
 ### Version 7.2.0
 <hr/>
 Release Date: 2024/10/17<br>
