@@ -148,7 +148,7 @@ If your application is not intended to use any mission features, use the followi
 // Example
 RewardConfiguration.isMissionFeaturedEnabled = true
 ```
-<img src="spsNoMission.png" alt="SPS no mission" width="250">  <img src="missionscreen.png" alt="Mission Page" width="250">  
+<img src="spsNoMission.png" alt="SPS no mission" width="250">
 
 # Geolocation 
 
