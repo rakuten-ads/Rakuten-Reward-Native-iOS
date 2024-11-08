@@ -138,6 +138,17 @@ RewardConfiguration.setTheme(.panda)
 RewardConfiguration.setTheme(.simple)
 ```
 
+# Opt Out Mission Feature
+If your application is not intended to use any mission features, use the following API to opt out of mission features.
+```swift
+// Set this to false to disable Mission feature if you want to use SPS feature only. The default value is true/enabled.
+@objc public static var isMissionFeaturedEnabled = true
+
+// Example
+RewardConfiguration.isMissionFeaturedEnabled = true
+
+```
+
 # Geolocation 
 
 In order to optimize the Ad delivery, you can provide end users' current location. (This is an optional API)
