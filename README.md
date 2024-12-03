@@ -1,9 +1,8 @@
 <div id="top"></div>
 
 [![Platform](http://img.shields.io/badge/platform-iOS-blue.svg?style=flat)](https://developer.apple.com/ios/)
-[![language](https://camo.githubusercontent.com/0cd4410f8f72568f15d2b810d615624dfed74928/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c616e67756167652d7377696674253230352d6634383034312e7376673f7374796c653d666c6174)](https://developer.apple.com/swift/)
-![iOS](http://img.shields.io/badge/support-iOS_11+-blue.svg?style=flat)
-![Xcode](http://img.shields.io/badge/IDE-Xcode_11+-blue.svg?style=flat)
+![iOS](http://img.shields.io/badge/support-iOS_13+-blue.svg?style=flat)
+![Xcode](http://img.shields.io/badge/IDE-Xcode_14+-blue.svg?style=flat)
 
 # Rakuten Reward SDK Native
 
@@ -14,8 +13,8 @@
 
 ## Prerequisites
 
-* Use Xcode 12 or higher
-* Target iOS SDK level 12 or higher
+* Use Xcode 14 or higher
+* Target iOS SDK level 13 or higher
 * Use Rakuten IDSDK or Use built-in Login
 
 | Version        | Minimum OS           | Compile OS
@@ -64,6 +63,7 @@
 |7.1.0|13|17|
 |7.2.0|13|17|
 |8.0.0|13|18|
+|8.1.0|13|18|
 
 <div id="import_sdk"></div>
 
@@ -132,7 +132,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target '' do
-pod 'RakutenRewardNativeSDK', '8.0.0'
+pod 'RakutenRewardNativeSDK', '8.1.0'
 end
 
 ```
@@ -143,7 +143,7 @@ Add the dependency value below
 
 ```
 dependencies: [
-    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("8.0.0")),
+    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("8.1.0")),
 ]
 ```
 
@@ -152,7 +152,7 @@ dependencies: [
 Open your project's Cartfile and add Reward Native SDK dependency
 
 ```
-binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 8.0.0
+binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 8.1.0
 ```
 
 Then run carthage update with XCFramework to download Reward Native SDK
@@ -190,4 +190,3 @@ LANGUAGE :
 OPEN SOURCE:
 [KeychainSwiftWrapper](https://github.com/jrendel/SwiftKeychainWrapper)<br>
 This product includes software developed by the "Marcin Krzyzanowski" (http://krzyzanowskim.com/).
-
