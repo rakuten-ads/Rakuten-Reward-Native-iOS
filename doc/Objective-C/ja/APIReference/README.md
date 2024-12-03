@@ -74,6 +74,7 @@ RakutenRewardConfiguration ユーザー設定のクラスです
 | カスタムドメインを指定する | この設定はステージング用にカスタムドメインを指定するものです | [RewardConfiguration setCustomDomain:@"stg.test.com"];
 | カスタムパスを指定する | この設定はステージング用にカスタムパスを指定するものです | [RewardConfiguration setCustomPath:@"/testpath/test/"];
 | SDKポータルを使うの設定 | SDKポータルを使う、使わないを設定する | RewardConfiguration.isUsingSDKPortal = true;
+| アプリの言語を手動で設定します。| アプリの言語を手動で設定します。 SDK でサポートされている言語値は、「ja」、「en」、「ko」、「zh-hans」、「zh-hant」です。デバイス設定の言語を使用するには、空の文字列値を設定します。サポートされていない値はデフォルトで「ja」に設定されます | [RewardConfiguration setAppLanguage:@"en"]; |
 <br>
 
 ## 楽天リワードのページを開く
