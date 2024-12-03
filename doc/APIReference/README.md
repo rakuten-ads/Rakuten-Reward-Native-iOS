@@ -76,7 +76,8 @@ RakutenRewardConfiguration is user setting class.
 | Is MissionEventFeatureEnabled | Get and set MissionEvent feature status | RewardConfiguration.isMissionEventFeatureEnabled = true
 | setCustomDomain | This setting is for setting custom domain for Staging | RewardConfiguration.setCustomDomain("stg.test.com")
 | setCustomPath | This setting is for setting custom path for Staging | RewardConfiguration.setCustomPath("/testPath/test/")
-| isUsingSDKPortal | Set whether app using SDK Portal or not | RewardConfiguration.isUsingSDKPortal = true
+| isUsingSDKPortal | Set whether app using SDK Portal or not | RewardConfiguration.isUsingSDKPortal = true |
+| setAppLanguage | Set in app language manually. SDK supported language value are 'ja', 'en', 'ko', 'zh-hans', 'zh-hant'. Set empty string value to use language from device settings. Unsupported value will be defaulted to 'ja' | RewardConfiguration.setAppLanguage("en") |
 <br>
 
 ## Open Reward Web page
