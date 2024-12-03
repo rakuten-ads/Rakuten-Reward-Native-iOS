@@ -55,6 +55,7 @@ RakutenReward クラスはリワードSDKの主要な設定を提供しており
 | 通知バナーを表示する | 通知バナーを表示する (Since v6.3) | `RakutenReward.shared.showConsentBanner { status in }` | 
 | 同意ダイアログを表示する | 同意ダイアログを表示する callback | `RakutenReward.shared.didPresentConsentUI = {}` |
 | 同意ダイアログを閉めした | 同意ダイアログを閉めした callback | `RakutenReward.shared.didDismissConsentUI = {}` |
+| アプリの言語を手動で設定します。| アプリの言語を手動で設定します。 SDK でサポートされている言語値は、「ja」、「en」、「ko」、「zh-hans」、「zh-hant」です。デバイス設定の言語を使用するには、空の文字列値を設定します。サポートされていない値はデフォルトで「ja」に設定されます | RewardConfiguration.setAppLanguage("en") |
 <br>
 
 ## RakutenRewardConfiguration
