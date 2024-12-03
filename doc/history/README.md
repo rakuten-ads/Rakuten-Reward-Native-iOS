@@ -1,5 +1,14 @@
 # Update History
 
+### Version 8.1.0
+<hr/>
+Release Date: 2024/12/04<br>
+Xcode version: 16.x, Swift version 5.10<br>
+
+New feature:
+* Add a new API to set app language. [link](../APIReference/README.md#rakutenrewardconfiguration)
+* Bug fixes
+
 ### Version 8.0.0
 <hr/>
 Release Date: 2024/10/30
