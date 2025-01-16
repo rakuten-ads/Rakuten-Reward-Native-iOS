@@ -1,5 +1,15 @@
 # Update History
 
+### Version 8.2.0
+<hr/>
+Release Date: 2025/01/16<br>
+Xcode version: 16.x, Swift version 5.10<br>
+
+New feature:
+* Support Coupon Ad
+* Minor UI Fix
+
+
 ### Version 8.1.0
 <hr/>
 Release Date: 2024/12/04<br>
