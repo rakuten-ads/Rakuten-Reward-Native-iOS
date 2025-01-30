@@ -18,6 +18,15 @@ XCode バージョン: 16.x, Swift version: 5.10<br>
 * アプリの言語を設定するAPI を追加します。[link](../APIReference/README.md#rakutenrewardconfiguration)
 * バグを修正<br>
 
+### バージョン 8.0.1
+<hr/>
+リリース日: 2025/01/31<br>
+XCode バージョン: 16.x, Swift version: 6.x<br>
+サポート OS: 13<br><br>
+
+新しい機能:
+* バグを修正<br>
+
 ### バージョン 8.0.0
 <hr/>
 リリース日: 2024/10/30
