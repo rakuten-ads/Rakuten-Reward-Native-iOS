@@ -3,16 +3,25 @@
 ### バージョン 8.2.0
 <hr/>
 リリース日: 2025/01/16
-XCode バージョン: 16.x, Swift version: 5.10<br>
+XCode バージョン: 16.x, Swift version: 6.x<br>
 
 新しい機能:
 * クーポン広告をサポート
 * 軽微なUI修正<br>
 
+### バージョン 8.1.1
+<hr/>
+リリース日: 2025/02/20<br>
+XCode バージョン: 16.x, Swift version: 6.x<br>
+サポート OS: 13<br><br>
+
+新しい機能:
+* バグを修正<br>
+
 ### バージョン 8.1.0
 <hr/>
 リリース日: 2024/12/04
-XCode バージョン: 16.x, Swift version: 5.10<br>
+XCode バージョン: 16.x, Swift version: 6.x<br>
 
 新しい機能:
 * アプリの言語を設定するAPI を追加します。[link](../APIReference/README.md#rakutenrewardconfiguration)
@@ -30,7 +39,7 @@ XCode バージョン: 16.x, Swift version: 6.x<br>
 ### バージョン 8.0.0
 <hr/>
 リリース日: 2024/10/30
-XCode バージョン: 16.x, Swift version: 5.10<br>
+XCode バージョン: 16.x, Swift version: 6.x<br>
 
 新しい機能:
 * Xcode 16 のサポート  
