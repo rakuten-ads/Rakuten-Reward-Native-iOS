@@ -3,7 +3,7 @@
 ### Version 8.2.0
 <hr/>
 Release Date: 2025/01/16<br>
-Xcode version: 16.x, Swift version 5.10<br>
+Xcode version: 16.x, Swift version 6.x<br>
 
 New feature:
 * Support Coupon Ad
