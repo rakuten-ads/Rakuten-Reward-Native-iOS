@@ -10,10 +10,18 @@ New feature:
 * Minor UI Fix
 
 
+### Version 8.1.1
+<hr/>
+Release Date: 2025/02/20<br>
+Xcode version: 16.x, Swift version 6.x<br>
+
+New feature:
+* Bug fix
+
 ### Version 8.1.0
 <hr/>
 Release Date: 2024/12/04<br>
-Xcode version: 16.x, Swift version 5.10<br>
+Xcode version: 16.x, Swift version 6.x<br>
 
 New feature:
 * Add a new API to set app language. [link](../APIReference/README.md#rakutenrewardconfiguration)
@@ -31,6 +39,7 @@ New feature:
 ### Version 8.0.0
 <hr/>
 Release Date: 2024/10/30
+Xcode version: 16.x, Swift version 6.x<br>
 
 * Xcode 16 support
 * SPS Module : 
