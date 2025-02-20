@@ -1,5 +1,13 @@
 # Update History
 
+### Version 8.2.1
+<hr/>
+Release Date: 2025/02/20<br>
+Xcode version: 16.x, Swift version 6.x<br>
+
+New feature:
+* Bug fix
+
 ### Version 8.2.0
 <hr/>
 Release Date: 2025/01/16<br>
