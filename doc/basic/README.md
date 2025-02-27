@@ -18,14 +18,15 @@ For Japan
 ```Swift
 RakutenReward.shared.region = RakutenRewardRegion.japan
 ```
-
-<br><br>
+<br>
 
 # Authentication
 
 ## Login Options
 There are 3 types of login. According to your environment, please select proper one. 
 <br>
+Note: RAE will be abolished by 2025. Please make a plan to migrate to RID token or other solution. This enum case will be removed in future release.<br>
+
 
 | Login Option        | Description | Support |
 | --- | --- | --- |
