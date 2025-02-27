@@ -1,5 +1,15 @@
 # Update History
 
+### Version 8.3.0
+<hr/>
+Release Date: 2025/02/27<br>
+Xcode version: 16.x, Swift version 6.x<br>
+
+New feature:
+* RAE token is deprecated<br>
+Note: RAE will be abolished by 2025. Please make a plan to migrate to other authentication solution. This API will be removed in future release.<br>
+* Bug fix<br>
+
 ### Version 8.2.1
 <hr/>
 Release Date: 2025/02/20<br>
