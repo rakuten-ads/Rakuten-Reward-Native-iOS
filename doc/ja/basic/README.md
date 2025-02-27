@@ -25,6 +25,8 @@ RakutenReward.shared.region = RakutenRewardRegion.japan
 
 リワードSDKでは3種類のログインを用意しております、環境に合わせてご利用ください
 <br>
+注記: RAEは2025年までに廃止されます。RIDトークンまたは他のソリューションへの移行計画を立ててください。この列挙型ケースは将来のリリースで削除される予定です。<br>
+
 
 | ログインオプション | 説明 | サポート |
 | --- | --- | --- |
@@ -65,6 +67,8 @@ RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access 
 
 
 ### RAE
+
+注記: RAEは2025年までに廃止されます。RIDトークンまたは他のソリューションへの移行計画を立ててください。この列挙型ケースは将来のリリースで削除される予定です。
 
 SDKのAPIを使用するのに、トークンタイプをセットする必要があります
 
