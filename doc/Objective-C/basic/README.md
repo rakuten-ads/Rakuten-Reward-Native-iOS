@@ -68,6 +68,9 @@ and pass (API-C) token value in startSession API. Access token value will be set
 <br>
 
 ### RAE
+
+Note: RAE will be abolished by 2025. Please make a plan to migrate to RID token or other solution. This enum case will be removed in future release.<br>
+
 To use SDK API, developers need to set token type after login
 
 ```objective-c
