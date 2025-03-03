@@ -1,5 +1,13 @@
 # Update History
 
+### Version 8.3.1
+<hr/>
+Release Date: 2025/03/03<br>
+Xcode version: 16.x, Swift version 6.x<br>
+
+New feature:
+* Add back button in SPS minibrowser
+
 ### Version 8.3.0
 <hr/>
 Release Date: 2025/02/27<br>
