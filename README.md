@@ -13,8 +13,8 @@
 
 ## Prerequisites
 
-* Use Xcode 14 or higher
-* Target iOS SDK level 13 or higher
+* Use Xcode 15 or higher
+* Target iOS SDK level 14 or higher
 * Use Rakuten IDSDK or Use built-in Login
 
 | Version        | Minimum OS           | Compile OS
