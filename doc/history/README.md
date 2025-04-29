@@ -10,6 +10,7 @@ New feature:
 * Use ScreenSDK
 * Bug fix, on Saas minibrowser screen, done button was always present regardless whether if point is granted successfully or not
 * Bug fix, on mission point history screen, top message area is tappable
+* Bug fix, on Saas Portal, SPS and Mission tab can be selected multiple times
 
 ### Version 8.3.1
 <hr/>
