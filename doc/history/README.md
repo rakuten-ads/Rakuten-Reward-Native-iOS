@@ -1,5 +1,16 @@
 # Update History
 
+### Version 8.4.0
+<hr/>
+Release Date: 2025/04/29<br>
+Xcode version: 16.2, Swift version 6.x<br>
+
+New feature:
+* Increment minimum iOS version to 14.0
+* Use ScreenSDK
+* Bug fix, on Saas minibrowser screen, done button was always present regardless whether if point is granted successfully or not
+* Bug fix, on mission point history screen, top message area is tappable
+
 ### Version 8.3.1
 <hr/>
 Release Date: 2025/03/03<br>
