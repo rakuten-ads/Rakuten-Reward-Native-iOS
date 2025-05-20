@@ -1,5 +1,13 @@
 # Update History
 
+### Version 8.4.1
+<hr/>
+Release Date: 2025/05/20<br>
+Xcode version: 16.2, Swift version 6.x<br>
+
+New feature:
+* Fix the SPS Portal so that the "out of budget" message is not displayed for ads that have already been granted points
+
 ### Version 8.4.0
 <hr/>
 Release Date: 2025/04/29<br>
