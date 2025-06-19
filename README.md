@@ -1,7 +1,7 @@
 <div id="top"></div>
 
 [![Platform](http://img.shields.io/badge/platform-iOS-blue.svg?style=flat)](https://developer.apple.com/ios/)
-![iOS](http://img.shields.io/badge/support-iOS_13+-blue.svg?style=flat)
+![iOS](http://img.shields.io/badge/support-iOS_14+-blue.svg?style=flat)
 ![Xcode](http://img.shields.io/badge/IDE-Xcode_14+-blue.svg?style=flat)
 
 # Rakuten Reward SDK Native
