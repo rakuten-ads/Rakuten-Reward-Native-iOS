@@ -1,5 +1,20 @@
 # Update History
 
+### Version 8.5.0
+<hr/>
+Release Date: 2025/06/19<br>
+Xcode version: 16.2, Swift version 6.x<br>
+
+API changes:
+* rz cookie is now mandatory for openSpsPortal API
+* Fix - openSpsPortal API does not return callback in some error flows
+* All public API completion handler is returned on the Main Thread
+
+UI fixes:
+* Fix - remove shadow in the SPS home page menu (sps, mission)
+* Fix - ensure panda animation does not block the point earned text
+* Fix - SPS lockscreen ad, clicking on external jump may close the webview and redirect to SPS home page
+
 ### Version 8.4.1
 <hr/>
 Release Date: 2025/05/20<br>
