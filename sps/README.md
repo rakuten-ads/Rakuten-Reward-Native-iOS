@@ -10,8 +10,6 @@ Table of Contents
 * [Show SPS Portal](#show-sps-portal)  
 * [Claim Point Screen](#claim-point-screen)  
 * [Theme Setting Screen](#theme-setting-screen)
-* [Opt Out Mission Feature](#opt-out-mission-feature)
-* [Geolocation](#geolocation)
 
 ---  
 
@@ -27,29 +25,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target '' do
-pod 'RakutenRewardNativeSDK', '7.0.0'
+pod 'RakutenRewardNativeSDK', '8.5.0'
 end
 
-```
-
-### Via Carthage
-
-Open your project's Cartfile and add Reward Native SDK dependency
-
-```
-binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 7.0.0
-```
-
-Then run carthage update with XCFramework to download Reward Native SDK
-
-```bash
-carthage update --platform ios --use-xcframeworks
-```
-
-Open your app's project or workspace
-
-Drag the binaries from Carthage/Build into the Frameworks, Libraries, and Embedded Content section of your target
-<br>
+``` 
 
 # Enable SPS feature
 In order to use the SPS feature in Mission SDK, please ask SPS BU to enable the feature for your application.  
@@ -95,11 +74,28 @@ class TokenProviderExample: SdkTokenProvider {
 The following API will display SPS Portal as shown below.   
 <img src="lockscreen.png" alt="SPS Osusume Ad" width="250">  
 
+Starting from version 8.5.0
+
+```swift
+RakutenReward.shared.openSpsPortal(rzCookie: String) { result in
+    // handle callback
+}
+``` 
+
+Pre version 8.5.0
+
 ```swift
 RakutenReward.shared.openSpsPortal { result in
     // handle callback
 }
 ```  
+
+For pre version 8.5.0, rz cookie can be set at
+
+```swift
+RewardConfiguration.rzCookie = value
+```
+
 Screenshots of the SPS Portal  
 
 <img src="spshomescreen.png" alt="SPS Home Page" width="250">  <img src="missionscreen.png" alt="Mission Page" width="250">  
@@ -139,25 +135,4 @@ RewardConfiguration.setTheme(.panda)
 RewardConfiguration.setTheme(.simple)
 ```
 
-# Opt Out Mission Feature
-If your application is not intended to use any mission features, use the following API to opt out of mission features.
-```swift
-// Set this to false to disable Mission feature if you want to use SPS feature only. The default value is true/enabled.
-@objc public static var isMissionFeaturedEnabled = true
-
-// Example
-RewardConfiguration.isMissionFeaturedEnabled = true
-```
-<img src="spsNoMission.png" alt="SPS no mission" width="250">
-
-# Geolocation 
-
-In order to optimize the Ad delivery, you can provide end users' current location. (This is an optional API)
-
-```swift
-// provide the latitude and longitude
-RakutenMissionSps.shared.setLocation(lat: Float, lng: Float)
-```  
-
 ---
-LANGUAGE :
