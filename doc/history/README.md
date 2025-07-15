@@ -1,5 +1,19 @@
 # Update History
 
+### Version 8.6.0
+<hr/>
+Release Date: 2025/07/15<br>
+Xcode version: 16.2, Swift version 6.x<br><br>
+
+Feature changes:
+* Add - Maintenance mode
+
+UIUX changes:
+* Update - Saas onboarding image
+* Update - Align Saas onboarding popup behaviour to be same as Android
+* Fix - Sps mode settings UI (English Text truncated)
+* Fix - Remove share button in PointHistory
+
 ### Version 8.5.0
 <hr/>
 Release Date: 2025/06/19<br>
