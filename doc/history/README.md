@@ -1,5 +1,15 @@
 # Update History
 
+### Version 8.7.0
+<hr/>
+Release Date: 2025/09/11<br>
+Xcode version: 16.2, Swift version 6.x<br><br>
+
+Changes:
+* Improvement - Minor UIs changes
+* Bug fix - SDK portal text translations not working in iOS 18.1.x
+* Bug fix - Add debounce to SPS Portal, more page (collapsible menus)
+
 ### Version 8.6.0
 <hr/>
 Release Date: 2025/07/15<br>
