@@ -1,5 +1,13 @@
 # Update History
 
+### Version 8.7.1
+<hr/>
+Release Date: 2025/11/06<br>
+Xcode version: 16.2, Swift version 6.x<br><br>
+
+Changes:
+* Improvement - Support 3-digit action count UI in SDK Portal (text was truncated)
+
 ### Version 8.7.0
 <hr/>
 Release Date: 2025/09/11<br>
