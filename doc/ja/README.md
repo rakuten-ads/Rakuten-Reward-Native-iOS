@@ -1,7 +1,7 @@
 <div id="top"></div>
 
 [![Platform](http://img.shields.io/badge/platform-iOS-blue.svg?style=flat)](https://developer.apple.com/ios/)
-![iOS](https://img.shields.io/badge/support-iOS_14+-blue.svg?style=flat)
+![iOS](http://img.shields.io/badge/support-iOS_13+-blue.svg?style=flat)
 ![Xcode](http://img.shields.io/badge/IDE-Xcode_14+-blue.svg?style=flat)
 
 # Rakuten Reward SDK ネイティブ
@@ -13,8 +13,8 @@
 
 ## 前提
 
-* Use Xcode 15 以上
-* iOS SDK 14　以上
+* Use Xcode 16 以上
+* iOS SDK 18　以上
 * 楽天 IDSDK もしくは SDKが用意するログインを使用する
 
 
@@ -78,67 +78,12 @@
 |8.7.0|14|18|
 |8.7.1|14|18|
 |8.8.0|14|18|
+|8.8.1|14|18|
+|9.0.0|14|26|
 
 <div id="import_sdk"></div>
 
 ## Reward SDKをインポートする
-
-*バージョン3.4.3からM1 (arm64 simulator arch)をサポートします。
-
-### Framework をインポートする
-Framework (RakutenRewardNativeSDK-{version}.framework)　をプロジェクトにインポートする  
-
-"Embed and sign" を選択し、bitcodeを無効にする
-
-ユニバーサルフレームワークを仕様する場合 .framework , は以下のコードを"Build phase" に加えます(実機用のipaを作成する際にユニバーサルフレームワークからはシミュレーター用のアーキテクトビルドを取り除くため) 
-
-```
-# This script loops through the SDK embedded in the application and removes simulator's architectures.
-
-# Output environment variables
-env > env.txt
-
-# SDK search path for project source directory
-APP_PATH_SRC="${PROJECT_DIR}"
-
-# SDK search path for build destination directory
-APP_PATH_DST="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
-
-echo "APP_PATH_SRC: $APP_PATH_SRC"
-echo "APP_PATH_DST: $APP_PATH_DST"
-
-# Search SDK from destination path first. If not found, search from source path.
-find "$APP_PATH_DST" "$APP_PATH_SRC" -name 'RakutenRewardNativeSDK.framework' -type d | while read -r FRAMEWORK
-do
-echo "FRAMEWORK: $FRAMEWORK"
-FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
-FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"
-echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"
-
-EXTRACTED_ARCHS=()
-
-for ARCH in $ARCHS
-do
-echo "Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME"
-lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"
-EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")
-done
-
-echo "Merging extracted architectures: ${ARCHS}"
-lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "${EXTRACTED_ARCHS[@]}"
-rm "${EXTRACTED_ARCHS[@]}"
-
-echo "Replacing original executable with thinned version"
-rm "$FRAMEWORK_EXECUTABLE_PATH"
-mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
-
-# If SDK was found in the first loop (destination path), no need to proceed to next loop.
-break
-done
-```
-
-### XCFrameworkをインポートする場合
-Framework (RakutenRewardNativeSDK-{version}.xcframework) をプロジェクトにインポートします
 
 ### Use Cocoapods
 ```
@@ -146,7 +91,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target '' do
-pod 'RakutenRewardNativeSDK', '8.7.1'
+pod 'RakutenRewardNativeSDK', '9.0.0'
 end
 
 ```
@@ -157,7 +102,7 @@ end
 
 ```
 dependencies: [
-    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("8.7.1")),
+    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("9.0.0")),
 ]
 ```
 
@@ -166,7 +111,7 @@ dependencies: [
 プロジェクトの Cartfile を開き、 Reward Native SDK の依存関係を追加する
 
 ```
-binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 8.7.1
+binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 9.0.0
 ```
 
 carthage を実行して Reward Native SDK をダウンロードする(XCFramework)
