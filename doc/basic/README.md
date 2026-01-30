@@ -18,15 +18,17 @@ For Japan
 ```Swift
 RakutenReward.shared.region = RakutenRewardRegion.japan
 ```
-<br>
+
+<br><br>
 
 # Authentication
 
 ## Login Options
 There are 3 types of login. According to your environment, please select proper one. 
-<br>
-Note: RAE will be abolished by 2025. Please make a plan to migrate to RID token or other solution. This enum case will be removed in future release.<br>
 
+Note: RAE will be abolished by 2025. Please make a plan to migrate to RID token or other solution. This enum case will be removed in future release.
+
+<br>
 
 | Login Option        | Description | Support |
 | --- | --- | --- |
@@ -47,20 +49,46 @@ RakutenReward.shared.tokenType = TokenType.rakutenAuth
 
 ### RID
 
-To use SDK API, developers need to set token type after login
+**New v9 Approach (Recommended):**
+
+To use SDK with RID token, implement a `MissionTokenProvider`:
+
+```swift
+class RIDTokenProvider: MissionTokenProvider {
+    static let shared = RIDTokenProvider()
+
+    func getAccessToken() async throws -> String {
+        // Return your RID access token here
+        // Return "" if user is not logged in
+        return "your_rid_access_token"
+    }
+}
+
+// Initialize SDK with token provider
+RakutenReward.shared.initSdk(
+    appCode: "Your App Key",
+    tokenType: .rid,
+    tokenProvider: RIDTokenProvider.shared
+)
+```
+
+**Benefits of v9 approach:**
+- Automatic token expiry handling
+- No need to manually call `startSession` or check for ONLINE status
+- SDK manages session automatically
+
+**Old Approach (Deprecated but still supported):**
+
+Set token type and pass access token directly:
 
 ```swift
 RakutenReward.shared.tokenType = TokenType.rid
-```
-
-and pass (API-C) token value in startSession API. Access token value will be set automatically when startSessionAPI returns success
-
-```swift
 RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, completion: { r in
-    if case .success(let user) =r {  // use portal or use additional setup
+    if case .success(let user) = r {  // use portal or use additional setup
   }
-}
+})
 ```
+
 **From version 3.3.1, developers require to call logout API whenever user log out to properly clear token and data**
 
 Refer to [Log Out](#log-out)
@@ -70,20 +98,46 @@ Refer to [Log Out](#log-out)
 
 Note: RAE will be abolished by 2025. Please make a plan to migrate to RID token or other solution. This enum case will be removed in future release.
 
-To use SDK API, developers need to set token type after login
+**New v9 Approach (Recommended):**
+
+To use SDK with RAE token, implement a `MissionTokenProvider`:
+
+```swift
+class RAETokenProvider: MissionTokenProvider {
+    static let shared = RAETokenProvider()
+
+    func getAccessToken() async throws -> String {
+        // Return your RAE access token here
+        // Return "" if user is not logged in
+        return "your_rae_access_token"
+    }
+}
+
+// Initialize SDK with token provider
+RakutenReward.shared.initSdk(
+    appCode: "Your App Key",
+    tokenType: .rae,
+    tokenProvider: RAETokenProvider.shared
+)
+```
+
+**Benefits of v9 approach:**
+- Automatic token expiry handling
+- No need to manually call `startSession` or check for ONLINE status
+- SDK manages session automatically
+
+**Old Approach (Deprecated but still supported):**
+
+Set token type and pass access token directly:
 
 ```swift
 RakutenReward.shared.tokenType = TokenType.rae
-```
-
-and pass access API token value in startSession API. Access token value will be set automatically when startSessionAPI returns success
-
-```swift
 RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, completion: { r in
-    if case .success(let user) =r {  // use portal or use additional setup
+    if case .success(let user) = r {  // use portal or use additional setup
   }
-}
+})
 ```
+
 **From version 3.3.1, developers require to call logout API whenever user log out to properly clear token and data**
 
 Refer to [Log Out](#log-out)
@@ -116,47 +170,104 @@ RakutenReward.shared.logout { }
 <br>
 
 # Initialize SDK
-To use Reward SDK, need to establish SDK session first (to collect SDK user's basic information)
 
-Call startSession method with parameters
+## New v9 Approach (Recommended)
 
-From version 6.1.0
+**For RID/RAE Token (External Authentication):**
+
+1. Implement `MissionTokenProvider`:
+
+```swift
+class MyTokenProvider: MissionTokenProvider {
+    static let shared = MyTokenProvider()
+
+    func getAccessToken() async throws -> String {
+        // Return your access token here
+        // Return "" if user is not logged in
+        return "your_access_token"
+    }
+}
+```
+
+2. Initialize SDK with token provider:
+
+```swift
+RakutenReward.shared.initSdk(
+    appCode: "Your App Key",
+    tokenType: .rid, // or .rae
+    tokenProvider: MyTokenProvider.shared
+)
+```
+
+**For Built-in Login (RakutenAuth):**
+
+```swift
+RakutenReward.shared.initSdkThirdParty(appCode: "Your App Key")
+```
+
+**Benefits of v9 approach:**
+- Automatic token expiry handling by SDK
+- No need to manually call `startSession`
+- No need to wait for ONLINE status before using SDK features
+- SDK manages session automatically
+
+| Parameter name | Description
+| --- | ---
+| appCode | Application Key (This is from Rakuten Reward Developer Portal) |
+| tokenType | Either .rid, .rae, or .rakutenAuth |
+| tokenProvider | Your MissionTokenProvider implementation |
+
+## Old Approach (Deprecated but still supported)
+
+To use Reward SDK with the old approach, need to establish SDK session first.
+
+From version 6.1.0:
 
 ```swift
 RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, tokenType: <token type>, completion: { r in
-    if case .success(let user) =r {  // use portal or use additional setup
+    if case .success(let user) = r {  // use portal or use additional setup
   }
-}
+})
 ```
 
-Before version 6.1.0
+Before version 6.1.0:
 
 ```swift
 RakutenReward.shared.startSession(appCode: "Your App Key", accessToken: <Access token>, completion: { r in
-    if case .success(let user) =r {  // use portal or use additional setup
+    if case .success(let user) = r {  // use portal or use additional setup
   }
-}
+})
 ```
 
-| Parameter name        | Description           
-| --- | --- 
-| appCode | Application Key (This is from Rakuten Reward Developer Portal) |
-| token | Access token to access Reward SDK API-C API |
-| tokenType | Either rid or rae (version 6.1.0 and above only) |
+Note: The old approach requires manual handling of token expiry (TOKENEXPIRE errors).
+
 <br>
 
 ## Initialization flow with Built-in Login service
-1. Check if user has logged in to Reward SDK, 
-2. if not open log in page
-3. Start session after log in 
+
+**New v9 Approach:**
+
+```swift
+// Initialize SDK once at app startup
+RakutenReward.shared.initSdkThirdParty(appCode: "Your App Key")
+
+// Check login status and open login page if needed
+if !RakutenReward.shared.isLogin() {
+    RakutenReward.shared.openLoginPage { result in
+        // SDK automatically manages session after login
+    }
+}
+```
+
+**Old Approach:**
 
 ```swift
 if RakutenReward.shared.isLogin() {
-  RakutenReward.shared.startSession(appCode: <#appcode#>, completion:<#callback#>) 
+  RakutenReward.shared.startSession(appCode: <#appcode#>, completion:<#callback#>)
 } else {
-  RakutenReward.shared.openLoginPage({_ in 
+  RakutenReward.shared.openLoginPage({_ in
     // starting session ...
-  }) 
+  })
 }
 ```
 <br>
