@@ -1,5 +1,18 @@
 # Update History
 
+### Version 9.0.0
+<hr/>
+Release Date: 2026/01/30<br>
+Xcode version: 26.2, Swift version 6.x<br><br>
+
+Changes:
+* **Introduce `MissionTokenProvider` for improved token management**
+    * Automatic token expiry handling - no more manual `.tokenExpired` status checks
+    * No need to wait for `.online` status before calling SDK APIs
+    * Deprecated `startSession(appcode:accesstoken)` APIs (still supported but recommended to migrate)
+    * Refer to [migration guide](../migration/migrate-to-v9.md) for full details
+* Build with Xcode 26.2
+
 ### Version 8.7.1
 <hr/>
 Release Date: 2025/11/06<br>
