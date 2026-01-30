@@ -3,16 +3,26 @@
 Table of Contents
 * [Rakuten Reward](#rakutenreward)<br>
 * [Rakuten Reward Configuration](#rakutenrewardconfiguration)<br>
+* [Mission Token Provider](#mission-token-provider)<br>
 * [Open Reward Web Page](#open-reward-web-page)<br>
 * [SDKUser](#sdkuser)<br>
 * [RakutenRewardStatus](#rakutenrewardstatus)<br>
 * [RakutenRewardConsentStatus](#rakutenrewardconsentstatus)<br>
+* [TokenType](#tokentype)<br>
+* [RakutenRewardRegion](#rakutenrewardregion)<br>
+* [SDKEnvironment](#sdkenvironment)<br>
+* [LoginPageCompletion](#loginpagecompletion)<br>
+* [PointClaimScreenEvent](#pointclaimscreenevent)<br>
 * [API Data](#api-data)<br>
   * [Mission](#mission)<br>
   * [MissionLite](#missionlite)<br>
   * [PointHistory](#pointhistory)<br>
   * [PointRecord](#pointrecord)<br>
   * [UnclaimedItem](#unclaimeditem)<br>
+  * [MemberPointRank](#memberpointrank)<br>
+  * [RewardRedeemRequest](#rewardredeemrequest)<br>
+  * [LinkShareItemPointHistory](#linkshareitempointhis tory)<br>
+  * [LinkShareProcessingPoint](#linkshareprocessingpoint)<br>
 * [API Errors](#api-errors)<br>
 * [Get current user action status](#get-current-user-action-status)<br>
 * [Set Rakuten Cookie](#set-rakuten-cookie)<br>
@@ -28,54 +38,95 @@ RakutenReward class is to provide main settings and main functions of Reward SDK
 | API Name | Description | Example
 | --- | --- | ---
 | Get version |  Get Rakuten Reward SDK Version | `[RakutenReward.shared getVersion];`
-| Open SDK Portal | For detail, please check sample application implementation | `[RakutenReward.shared openPortalObjc:^(SDKErrorObjc * _Nullable error) { }];`
-| Open Ad Portal (JP region) | Open Ad Portal | `[RakutenReward.shared openAdPortalWithCompletionHandler:^(OpenAdPortalCompletion * _Nonnull error) { }];` (Deprecated in v4.1)
+| Open SDK Portal | Open SDK Portal | `[RakutenReward.shared openPortalObjc:^(SDKErrorObjc * _Nullable error) { }];`
+| Open SPS Portal | Open SPS Portal with Rz cookie | `[RakutenReward.shared openSpsPortalWithRzCookie:@"cookie" completionHandler:^(SDKErrorObjc * _Nullable error) { }];`
 | Open Help Page | Open Reward SDK Help page with mini browser | `[RakutenReward.shared openSupportPageObjcWithPage:SupportPageHelp];`
 | Open Terms and Condition Page | Open Reward SDK Terms and Conditions Page with mini browser | `[RakutenReward.shared openSupportPageObjcWithPage:SupportPageTermsCondition];`
 | Open Privacy Policy Page | Open Reward SDK Privacy Policy Page with mini browser | `[RakutenReward.shared openSupportPageObjcWithPage:SupportPagePrivacyPolicy];`
+| Open SPS Terms and Condition Page | Open SPS Terms and Conditions Page with mini browser | `[RakutenReward.shared openSupportPageObjcWithPage:SupportPageSpsTermsCondition];`
+| Open SPS Privacy Policy Page | Open SPS Privacy Policy Page with mini browser | `[RakutenReward.shared openSupportPageObjcWithPage:SupportPageSpsPrivacyPolicy];`
 | Get Missions | Get missions | `[RakutenReward.shared getMissionListWithProgressObjcWithCompletion:^(NSArray<MissionObject *> * _Nullable missions, NSError * _Nullable error) { }];`
 | Get Missions Lite | Get missions lite (without progress and reachedCap) | `[RakutenReward.shared getMissionLiteListObjcWithCompletion:^(NSArray<MissionLiteObject *> * _Nullable missionsLite, NSError * _Nullable error) { }];`
-| Get Mission Details | Get full details from mission lite | `[RakutenReward.shared getMissionDetailsObjcWithActionCode:@"ActionCodeExample" completion:^(NSArray<MissionObject *> * _Nullable missions, NSError * _Nullable error) { }];`
-| Get Point history | Get 3 month user's point history | `[RakutenReward.shared getPointHistoryObjcWithCompletion:^(PointHistoryObject * _Nullable pointHistoryObject, NSError * _Nullable error) {}];` 
+| Get Mission Details | Get details for a specific mission by action code | `[RakutenReward.shared getMissionDetails:@"actionCode" completion:^(MissionObject * _Nullable mission, NSError * _Nullable error) { }];`
+| Get Point history | Get 3 month user's point history | `[RakutenReward.shared getPointHistoryObjcWithCompletion:^(PointHistoryObject * _Nullable pointHistoryObject, NSError * _Nullable error) { }];`
 | Log Action | Post user action | `[RakutenReward.shared logActionObjcWithActionCode:@"ActionCodeExample" completion:^(NSError * _Nullable error) { }];`
 | Get Unclaimed Items | Get Unclaim item list | `[RakutenReward.shared getUnclaimedMissionWithCompletion:^(NSArray<UnclaimedItemObject *> * _Nullable unclaimedItems, NSError * _Nullable error) { }];`
-| Get Dynamic API last failed info | Get last failed API info(paremeter) | `[RakutenReward.shared retryLastFailedFunctionByNewTokenWithNewAccessToken:@"NewTokenExample"];`
-| Get Point & Rank | Load latest point & rank from server | `[RakutenReward.shared loadMemberInfoRankObjc:^(MemberPointRankObject * _Nullable memberPointRank, NSError * _Nullable error) { }];` |
-| Log In | Open Log In page | `[RakutenReward.shared openLoginPage:^(enum LoginPageCompletion completion) { }];` |
-| Check Log In | Check if user is logged in with internal system (token not expired) | `[RakutenReward.shared isLogin];` |
-| Log Out | Log out from Rakuten Auth | `[RakutenReward.shared logoutWithCompletion:^{ }];` |
-| Blacklisted URLs | Add blacklist URL to block access specific URL, (This is for Apple Reject, if the ad URL has problem, use this API) | `RakutenReward.shared.blacklistURL;` |
-| Custom URL Session | To use custom URL session instead of default URL session | `RakutenReward.shared.customURLSession;` |
-| User updated delegate | Callback when user is updated | `RakutenReward.shared.didUpdateUserObjc = ^(SDKUserObject * _Nullable user) { };` |
-| Status updated delegate | Callback when Reward Status is updated | `RakutenReward.shared.didUpdateStatus = ^(enum RakutenRewardStatus status) { };` |
-| Is Portal Present status updated delegate | Callback when portal is present or hidden | RakutenReward.shared.didUpdateIsPortalPresentedStatus = ^(BOOL isPortalPresent) { }; |
-| Is AdPortal Present status updated delegate | Callback when adPortal is present or hidden | RakutenReward.shared.didUpdateIsAdPortalPresentedStatus = ^(BOOL isAdPortalPresent) { }; | (Deprecated in v4.1)
-| Request for user consent | Request User Consent (Since v5.0) | `RakutenReward.shared.requestForConsent = ^(enum RakutenRewardConsentStatus status) { };` |
-| Did present consent UI | Callback when user consent UI is presented | `RakutenReward.shared.didPresentConsentUI = ^() {};` |
-| Did dismiss consent UI | Callback when user consent UI is dismissed | `RakutenReward.shared.didDismissConsentUI = ^() {};` |
+| Claim Mission | Claim unclaimed mission points | `[RakutenReward.shared claimObjcWithUnclaimedItemObject:unclaimedItem completion:^(PointClaimScreenEventObjc * _Nonnull event) { }];`
+| Claim Mission with Ichiba callback | Claim unclaimed mission points with Ichiba deeplink support | `[RakutenReward.shared claimObjcWithUnclaimedItemObject:unclaimedItem enableIchibaCallback:YES completion:^(PointClaimScreenEventObjc * _Nonnull event) { }];`
+| Get Point & Rank | Load latest point & rank from server | `[RakutenReward.shared loadMemberInfoRankObjc:^(MemberPointRankObject * _Nullable memberPointRank, NSError * _Nullable error) { }];`
+| Get Link Share Point History | Get Link Share item point history | `[RakutenReward.shared getLSPointHistoryWithRequestData:request offset:0 limit:20 completion:^(LinkShareItemPointHistoryObjc * _Nullable history, NSError * _Nullable error) { }];`
+| Get Link Share Processing Point | Get Link Share processing point | `[RakutenReward.shared getLSProcessingPointWithRequestData:request completion:^(LinkShareProcessingPointObjc * _Nullable point, NSError * _Nullable error) { }];`
+| Log In | Open Log In page | `[RakutenReward.shared openLoginPage:^(enum LoginPageCompletion completion) { }];`
+| Check Log In | Check if user is logged in with internal system (token not expired) | `[RakutenReward.shared isLogin];`
+| Log Out | Log out from Rakuten Auth | `[RakutenReward.shared logoutWithCompletion:^{ }];`
+| App Code | Get current application code (read-only) | `RakutenReward.shared.appCode;`
+| Access Token | Get current access token (read-only) | `RakutenReward.shared.accessToken;`
+| Mission List | Get current cached mission list (read-only) | `RakutenReward.shared.missionList;`
+| Environment | Get or set SDK environment (.staging or .production) | `RakutenReward.shared.environment;`
+| Token Type | Get or set token type (.rae, .rid, .rakutenAuth) | `RakutenReward.shared.tokenType;`
+| Region | Get or set SDK region (.japan) | `RakutenReward.shared.region;`
+| Blacklisted URLs | Add blacklist URL to block access specific URL | `RakutenReward.shared.blacklistURL;`
+| Custom URL Session | To use custom URL session instead of default URL session | `RakutenReward.shared.customURLSession;`
+| User updated delegate | Callback when user is updated | `RakutenReward.shared.didUpdateUserObjc = ^(SDKUserObject * _Nullable user) { };`
+| User updated notification | Notification posted when user is updated | `RakutenReward.userUpdatedNotification;`
+| Status updated delegate | Callback when Reward Status is updated | `RakutenReward.shared.didUpdateStatus = ^(enum RakutenRewardStatus status) { };`
+| User achieved mission delegate | Callback when user has achieved a mission | `RakutenReward.shared.didUpdateUnclaimedAchievementObjc = ^(UnclaimedItemObject * _Nonnull unclaimedItem) { };`
+| Is Portal Present status updated delegate | Callback when portal is present or hidden | `RakutenReward.shared.didUpdateIsPortalPresentedStatus = ^(BOOL isPortalPresent) { };`
+| Request for user consent | Request User Consent (Since v5.0) | `[RakutenReward.shared requestForConsent:^(enum RakutenRewardConsentStatus status) { }];`
+| Show user consent notification banner | Show consent banner (Since v6.3.0) | `[RakutenReward.shared showConsentBanner:^(enum RakutenRewardConsentStatus status) { }];`
+| Did present consent UI | Callback when user consent UI is presented | `RakutenReward.shared.didPresentConsentUI = ^() { };`
+| Did dismiss consent UI | Callback when user consent UI is dismissed | `RakutenReward.shared.didDismissConsentUI = ^() { };`
 <br>
 
 ## RakutenRewardConfiguration
 ---
 RakutenRewardConfiguration is user setting class.
 
-| API Name | Description | Example 
+| API Name | Description | Example
 | --- | --- | ---
-| Get Optout | Get Optout status <br>true : Optout (Reward SDK function does not work) | RewardConfiguration.isUserOptingOut;
-| Set Optout | Set Optout status | RewardConfiguration.isUserOptingOut = false;
-| UI Enabled |  Get whether Notification UI is enabled or not | RewardConfiguration.isUserSettingUIEnabled;
-| Set UI Enabled | Set whether Notification UI is enabled or not | RewardConfiguration.isUserSettingUIEnabled = true;
-| Enable Logging | Set value to true to receive additional Debug log info | RewardConfiguration.isDebug = true;
-| Rz Cookie | Set value for the Rz cookie | RewardConfiguration.rzCookie = @"example";
-| Rp Cookie | Set value for the Rp cookie | RewardConfiguration.rpCookie = @"example";
-| Ra Cookie | Set value for the Ra cookie | RewardConfiguration.raCookie = @"example";
-| Is Portal Present |  Get whether Portal is currently showing or not | RewardConfiguration.isPortalPresent;
-| Is AdPortal Present | Get wether AdPortal is currently showing or not | RewardConfiguration.isAdPortalPresent; (Deprecated in v4.1)
-| Is MissionEventFeatureEnabled | Get and set MissionEvent feature status | RewardConfiguration.isMissionEventFeatureEnabled = true;
-| setCustomDomain | This setting is for setting custom domain for Staging | [RewardConfiguration setCustomDomain:@"stg.test.com"];
-| setCustomPath | This setting is for setting custom path for Staging | [RewardConfiguration setCustomPath:@"/testpath/test/"];
-| isUsingSDKPortal | Set whether app using SDK Portal or not | RewardConfiguration.isUsingSDKPortal = true;
-| setAppLanguage | Set in app language manually. SDK supported language value are 'ja', 'en', 'ko', 'zh-hans', 'zh-hant'. Set empty string value to use language from device settings. Unsupported value will be defaulted to 'ja' | [RewardConfiguration setAppLanguage:@"en"]; |
+| Get Optout | Get Optout status <br>true : Optout (Reward SDK function does not work) | `RewardConfiguration.isUserOptingOut;`
+| Set Optout | Set Optout status | `RewardConfiguration.isUserOptingOut = false;`
+| UI Enabled |  Get whether Notification UI is enabled or not | `RewardConfiguration.isUserSettingUIEnabled;`
+| Set UI Enabled | Set whether Notification UI is enabled or not | `RewardConfiguration.isUserSettingUIEnabled = true;`
+| Enable Logging | Set value to true to receive additional Debug log info | `RewardConfiguration.isDebug = true;`
+| Rz Cookie | Set value for the Rz cookie | `RewardConfiguration.rzCookie = @"example";`
+| Rp Cookie | Set value for the Rp cookie | `RewardConfiguration.rpCookie = @"example";`
+| Ra Cookie | Set value for the Ra cookie | `RewardConfiguration.raCookie = @"example";`
+| Is Portal Present |  Get whether Portal is currently showing or not | `RewardConfiguration.isPortalPresent;`
+| Is MissionEventFeatureEnabled | Get and set MissionEvent feature status | `RewardConfiguration.isMissionEventFeatureEnabled = true;`
+| Is MissionFeaturedEnabled | Get and set Mission Featured feature status | `RewardConfiguration.isMissionFeaturedEnabled = true;`
+| Is Ichiba App | Get and set whether app is Ichiba app | `RewardConfiguration.isIchibaApp = true;`
+| Is Using SDK Portal | Set whether app using SDK Portal or not | `RewardConfiguration.isUsingSDKPortal = true;`
+| Get Theme | Get current app theme | `[RewardConfiguration getTheme];`
+| Set Theme | Set app theme (simple or panda) | `[RewardConfiguration setTheme:AppThemePanda];`
+| Set Custom Domain | This setting is for setting custom domain for Staging | `[RewardConfiguration setCustomDomain:@"stg.test.com"];`
+| Set Custom Path | This setting is for setting custom path for Staging | `[RewardConfiguration setCustomPath:@"/testpath/test/"];`
+| Set App Language | Set in app language manually. SDK supported language value are 'ja', 'en', 'ko', 'zh-hans', 'zh-hant'. Set empty string value to use language from device settings. Unsupported value will be defaulted to 'ja' | `[RewardConfiguration setAppLanguage:@"en"];`
+<br>
+
+## Mission Token Provider
+---
+**Note:** MissionTokenProvider is a Swift-only protocol using async/await. It is not directly available in Objective-C. For Objective-C projects, continue using the existing `startSession` methods with access tokens.
+
+For more information about the new token provider pattern, please refer to the [Swift API Reference](../../APIReference/README.md#mission-token-provider).
+
+### Objective-C Usage
+Continue using the current startSession methods:
+
+```objective-c
+// For RID or RAE token types
+[RakutenReward.shared startSessionWithAppCode:@"your_app_code"
+                                   accessToken:@"your_access_token"
+                                     tokenType:TokenTypeRid
+                                    completion:^(Result<SDKUser *, RewardSDKSessionError *> * result) {
+    if (result.success) {
+        // Session started successfully
+    } else {
+        // Handle error
+    }
+}];
+```
+
 <br>
 
 ## Open Reward Web page
@@ -87,6 +138,8 @@ SDK provide page open with API
 SupportPagePrivacyPolicy;
 SupportPageTermsCondition;
 SupportPageHelp;
+SupportPageSpsPrivacyPolicy;
+SupportPageSpsTermsCondition;
 
 // Example of showing help page
 [RakutenReward.shared openSupportPageObjcWithPage:SupportPageHelp];
@@ -103,8 +156,8 @@ SDKUserObject *user = RakutenReward.shared.getUserObjc;
 
 | Parameter | Description
 | --- | ---
-| signIn | Whether the user is singin or not
-| unclaimedMissionCount | Number of unclaim mission
+| signIn | Whether the user is signed in or not
+| unclaimedMissionCount | Number of unclaimed missions
 | point | Reward SDK Point
 | currentPointRank | `MemberPointRank`; member points and rank, persistent & loaded separately
 | getName | Get user's username
@@ -128,10 +181,63 @@ RakutenRewardStatus is Reward SDK status
 
 | RakutenRewardConsentStatus | Description |
 | --- | --- |
-| RakutenRewardConsentStatusConsentProvided | User already provide consent |
-| RakutenRewardConsentStatusConsentNotProvided | User have not provide consent |
+| RakutenRewardConsentStatusConsentProvided | User already provided consent |
+| RakutenRewardConsentStatusConsentNotProvided | User has not provided consent |
+| RakutenRewardConsentStatusConsentUIAlreadyPresented | Consent UI is already being presented |
 | RakutenRewardConsentStatusConsentFailed | There is some error with API request |
 | RakutenRewardConsentStatusConsentProvidedRestartSessionFailed | User provided consent but failed to restart SDK session |
+<br>
+
+## TokenType
+---
+
+| TokenType | Description |
+| --- | --- |
+| TokenTypeRae | RAE token type (deprecated) |
+| TokenTypeRid | RID token type |
+| TokenTypeRakutenAuth | Rakuten Auth token type (SDK provided login) |
+<br>
+
+## RakutenRewardRegion
+---
+
+| RakutenRewardRegion | Description |
+| --- | --- |
+| RakutenRewardRegionJapan | Japan region |
+<br>
+
+## SDKEnvironment
+---
+
+| SDKEnvironment | Description |
+| --- | --- |
+| SDKEnvironmentStaging | Staging environment (for internal use only) |
+| SDKEnvironmentProduction | Production environment |
+<br>
+
+## LoginPageCompletion
+---
+
+| LoginPageCompletion | Description |
+| --- | --- |
+| LoginPageCompletionFailToShowLoginPage | Failed to show login page |
+| LoginPageCompletionDismissByUser | User dismissed the login page |
+| LoginPageCompletionLogInCompleted | User completed login successfully |
+<br>
+
+## PointClaimScreenEvent
+---
+
+| PointClaimScreenEventObjc | Description |
+| --- | --- |
+| PointClaimScreenEventObjcWillPresent | Claim screen will be presented |
+| PointClaimScreenEventObjcDidFailToShow | Failed to show claim screen |
+| PointClaimScreenEventObjcDidDismiss | Claim screen was dismissed |
+| PointClaimScreenEventObjcDidSelfDismiss | Claim screen dismissed itself |
+| PointClaimScreenEventObjcDidDismissByUser | User dismissed the claim screen |
+| PointClaimScreenEventObjcDidFailToClaim | Failed to claim points |
+| PointClaimScreenEventObjcDidClaimSuccessfully | Successfully claimed points |
+| PointClaimScreenEventObjcDidTriggerIchibaDeeplink | Triggered Ichiba deeplink |
 <br>
 
 ### Checking the status
@@ -155,15 +261,18 @@ MissionObject *mission = [MissionObject alloc]; // Example
 | actionCode | Mission Action Key | ZIJCjBeQBHac8nJa
 | iconurl | Mission icon URL | https://mprewardsdk.blob.core.windows.net/sdk-portal/appCode/actionCode.png
 | instruction | Mission instruction | One day one play
-| condition | Descritpion about mission max achievable | 10 times achievable
+| condition | Description about mission max achievable | 10 times achievable
 | notificationtype | Mission UI Type | NONE, BANNER, MODAL, CUSTOM, BANNER_50, BANNER_250
 | point | Mission Point | 10
-| enddatestr | Mission End Date <br> Daily : Today<br> Weekly : End of week<br> Monthly : Endof Month<br> Custom : Custom End Date<br> | 20190403
+| enddatestr | Mission End Date <br> Daily : Today<br> Weekly : End of week<br> Monthly : End of Month<br> Custom : Custom End Date<br> | 20190403
 | till | Mission End date | 3 days
-| addtional | Additional messages |
+| additional | Additional messages |
 | reachedCap | Whether mission reached max cap or not | true
 | times | Required action times | 3
 | progress | Current action times | 1
+| unclaimed | Number of unclaimed achievements | 2
+| achieveddatestr | Mission achievement date | 2024-01-01
+| getAchievedDate | Get achievement date in Date format |
 <br>
 
 ### MissionLite
@@ -177,12 +286,12 @@ MissionLiteObject *mission = [MissionLiteObject alloc]; // Example
 | actionCode | Mission Action Key | ZIJCjBeQBHac8nJa
 | iconurl | Mission icon URL | https://mprewardsdk.blob.core.windows.net/sdk-portal/appCode/actionCode.png
 | instruction | Mission instruction | One day one play
-| condition | Descritpion about mission max achievable | 10 times achievable
+| condition | Description about mission max achievable | 10 times achievable
 | notificationtype | Mission UI Type | NONE, BANNER, MODAL, CUSTOM, BANNER_50, BANNER_250
 | point | Mission Point | 10
-| enddatestr | Mission End Date <br> Daily : Today<br> Weekly : End of week<br> Monthly : Endof Month<br> Custom : Custom End Date<br> | 20190403
+| enddatestr | Mission End Date <br> Daily : Today<br> Weekly : End of week<br> Monthly : End of Month<br> Custom : Custom End Date<br> | 20190403
 | till | Mission End date | 3 days
-| addtional | Additional messages |
+| additional | Additional messages |
 | times | Required action times | 3
 <br>
 
@@ -190,7 +299,7 @@ MissionLiteObject *mission = [MissionLiteObject alloc]; // Example
 
 | Method | Description | Example
 | --- | --- | ---
-| getPointHistory | Get a list of point history | [RakutenReward.shared getPointHistoryObjcWithActionCode:@"ActionCodeExample" completion:^(PointHistoryObject * _Nullable pointHistory, NSError * _Nullable error) { }];
+| getPointHistory | Get a list of point history | `[RakutenReward.shared getPointHistoryObjcWithCompletion:^(PointHistoryObject * _Nullable pointHistory, NSError * _Nullable error) { }];`
 <br>
 
 #### PointRecord
@@ -208,16 +317,73 @@ PointRecordObject *pointRecord = [PointRecordObject alloc]; // Example
 UnclaimedItemObject *unclaimedItem = [UnclaimedItemObject alloc]; // Example
 ```
 | Parameter | Description
-| --- | --- 
-| name | Mission name |
-| iconurl | Mission icon URL |
-| instruction | Mission Instruction |
-| actionCode | Mission Action Code |
-| notificationtype | Mission UI Type |
-| point | Point |
-| unclaimedTimes | Number of Unclaim Item |
-| achieveddatestr | Mission Achievement Date |
-| getAchievedDate() | Get achievement date in "yyyy/MM/dd" format |
+| --- | ---
+| name | Mission name
+| iconurl | Mission icon URL
+| instruction | Mission Instruction
+| actionCode | Mission Action Code
+| notificationtype | Mission UI Type
+| point | Total points to claim
+| pointsPerClaim | Points per each claim (for multiple claims)
+| unclaimedTimes | Number of unclaimed achievements
+| achieveddatestr | Mission Achievement Date
+| getAchievedDate | Get achievement date in "yyyy/MM/dd" format
+<br>
+
+### MemberPointRank
+```objective-c
+MemberPointRankObject *memberPointRank = [MemberPointRankObject alloc]; // Example
+```
+| Parameter | Description
+| --- | ---
+| memberPoints | User's total Rakuten member points
+| memberRank | User's Rakuten member rank
+<br>
+
+### RewardRedeemRequest
+```objective-c
+RewardRedeemRequest *request = [[RewardRedeemRequest alloc] initWithTenantId:@"tenantId" appName:@"appName"]; // Example
+```
+| Parameter | Description
+| --- | ---
+| tenantId | Tenant ID for Link Share rewards
+| appName | Application name for Link Share rewards
+<br>
+
+### LinkShareItemPointHistory
+```objective-c
+LinkShareItemPointHistoryObjc *history; // Returned from API
+```
+| Parameter | Description
+| --- | ---
+| total | Total number of point history records
+| offset | Offset for pagination
+| limit | Limit for pagination
+| history | Array of LinkShareItemPointObjc objects
+<br>
+
+#### LinkShareItemPoint
+```objective-c
+LinkShareItemPointObjc *itemPoint; // Part of LinkShareItemPointHistory
+```
+| Parameter | Description
+| --- | ---
+| point | Point value
+| isPointGranted | Whether the point has been granted
+| advertiser | Advertiser name
+| grantDate | Date when points will be/were granted (yyyy-MM-dd)
+| transactionDate | Transaction date (yyyy-MM-dd)
+| orderId | Order ID
+| advertiserId | Advertiser ID
+<br>
+
+### LinkShareProcessingPoint
+```objective-c
+LinkShareProcessingPointObjc *processingPoint; // Returned from API
+```
+| Parameter | Description
+| --- | ---
+| count | Total processing points
 <br>
 
 ## API Errors
@@ -247,7 +413,7 @@ UnclaimedItemObject *unclaimedItem = [UnclaimedItemObject alloc]; // Example
 | RPGRequestErrorObjcLegalReason | Error because of legal reason (for example, user has not consent to RewardSDK's terms and condition)
 <br>
 
-### SDKError  
+### SDKError
 
 | Name | Description
 | --- | ---
@@ -258,6 +424,12 @@ UnclaimedItemObject *unclaimedItem = [UnclaimedItemObject alloc]; // Example
 | SDKErrorObjcFeatureDisabledByUser | SDK function is not active by user
 | SDKErrorObjcSDKStatusNotOnline | SDK status is not online
 | SDKErrorObjcSDKStatusUserNotConsent | SDK status - user has not consent to RewardSDK's terms and condition
+| SDKErrorObjcCheckIsSpsUserError | Error checking if user is SPS user
+| SDKErrorObjcUnexpectedError | Unexpected error occurred
+| SDKErrorObjcSpsFeatureIsDisabled | SPS feature is disabled
+| SDKErrorObjcSpsRegisterUserDidNotFinish | SPS user registration did not finish
+| SDKErrorObjcSpsRegisterUserError | Error during SPS user registration
+| SDKErrorObjcOnMaintenanceMode | SDK is in maintenance mode
 <br>
 
 ## Get current user action status
@@ -280,17 +452,17 @@ If you use default login option(TokenTypeRakutenAuth), cookie is set by SDK.
 If you use other options, can override cookie using this API
 
 Set Rp cookie
-```swift
+```objective-c
 RewardConfiguration.rpCookie = @"example";
 ```
 
 Set Rz cookie
-```swift
+```objective-c
 RewardConfiguration.rzCookie = @"example";
 ```
 
 Set Ra cookie (version 5.1.0)
-```swift
+```objective-c
 RewardConfiguration.raCookie = @"example";
 ```
 
@@ -348,17 +520,42 @@ RakutenReward.shared.didUpdateUnclaimedAchievementObjc = ^(UnclaimedItemObject *
     }
 };
 ```
-Claim 
+Example for claim points
 ```objective-c
-UnclaimedItemObject *unclaimedItemObject = [UnclaimedItemObject alloc]; // Test object
+RakutenReward.shared.didUpdateUnclaimedAchievementObjc = ^(UnclaimedItemObject * _Nonnull unclaimedItem) {
+    [RakutenReward.shared claimObjcWithUnclaimedItemObject:unclaimedItem completion:^(PointClaimScreenEventObjc * _Nonnull pointClaimScreenEvent) {
+        if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcWillPresent class]]) {
+            // Claim screen will be presented
+        }
+        else if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcDidFailToShow class]]) {
+            // Failed to show claim screen
+        }
+        else if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcDidDismiss class]]) {
+            // Claim screen was dismissed
+        }
+        else if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcDidSelfDismiss class]]) {
+            // Claim screen dismissed itself
+        }
+        else if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcDidDismissByUser class]]) {
+            // User dismissed the claim screen
+        }
+        else if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcDidFailToClaim class]]) {
+            // Failed to claim points
+        }
+        else if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcDidClaimSuccessfully class]]) {
+            // Successfully claimed points
+        }
+        else if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcDidTriggerIchibaDeeplink class]]) {
+            // Triggered Ichiba deeplink
+        }
+    }];
+};
+```
 
-[RakutenReward.shared claimObjcWithUnclaimedItemObject:unclaimedItemObject completion:^(PointClaimScreenEventObjc * _Nonnull pointClaimScreenEvent) {
-    if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcWillPresent class]]) {}
-    else if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcDidFailToShow class]]) {}
-    else if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcDidSelfDismiss class]]) {}
-    else if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcDidDismissByUser class]]) {}
-    else if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcDidFailToClaim class]]) {}
-    else if ([pointClaimScreenEvent isKindOfClass:[PointClaimScreenEventObjcDidClaimSuccessfully class]]) {}
+You can also use the extended claim API to enable Ichiba deeplink callback:
+```objective-c
+[RakutenReward.shared claimObjcWithUnclaimedItemObject:unclaimedItem enableIchibaCallback:YES completion:^(PointClaimScreenEventObjc * _Nonnull pointClaimScreenEvent) {
+    // Handle point claim screen events
 }];
 ```
 <br>
