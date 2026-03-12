@@ -1,5 +1,14 @@
 # Update History
 
+### Version 9.1.0
+<hr/>
+Release Date: 2026/03/12<br>
+Xcode version: 26.2, Swift version 6.x<br><br>
+
+Changes:
+* Fix mission notification banner doesn't show properly in page sheet
+* Add error UI in SPS home page
+
 ### Version 9.0.0
 <hr/>
 Release Date: 2026/01/30<br>
