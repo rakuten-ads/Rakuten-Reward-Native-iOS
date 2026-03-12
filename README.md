@@ -79,6 +79,7 @@
 |8.8.0|14|18|
 |8.8.1|14|18|
 |9.0.0|14|26|
+|9.1.0|14|26|
 
 <div id="import_sdk"></div>
 
@@ -90,7 +91,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target '' do
-pod 'RakutenRewardNativeSDK', '9.0.0'
+pod 'RakutenRewardNativeSDK', '9.1.0'
 end
 
 ```
@@ -101,7 +102,7 @@ Add the dependency value below
 
 ```
 dependencies: [
-    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("9.0.0")),
+    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("9.1.0")),
 ]
 ```
 
@@ -110,7 +111,7 @@ dependencies: [
 Open your project's Cartfile and add Reward Native SDK dependency
 
 ```
-binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 9.0.0
+binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 9.1.0
 ```
 
 Then run carthage update with XCFramework to download Reward Native SDK
