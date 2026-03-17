@@ -14,17 +14,7 @@ This guide covers every way to authenticate users and initialize the SDK. Read t
 
 ---
 
-## Step 1 — Set the Region
-
-Always set the region before calling any other SDK method.
-
-```swift
-RakutenReward.shared.region = .japan
-```
-
----
-
-## Step 2 — Initialize the SDK
+## Step 1 — Initialize the SDK
 
 ### Option A: RakutenAuth (SDK-provided login)
 

@@ -6,11 +6,9 @@ This guide covers integrating the Rakuten Reward Native SDK from Objective-C. Th
 
 ---
 
-## Region & Token Type
+## Token Type
 
 ```objc
-RakutenReward.shared.region = RakutenRewardRegionJapan;
-
 // Choose your token type
 RakutenReward.shared.tokenType = TokenTypeRid;       // RID (recommended)
 RakutenReward.shared.tokenType = TokenTypeRae;       // RAE (deprecated)

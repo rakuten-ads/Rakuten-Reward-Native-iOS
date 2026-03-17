@@ -14,17 +14,7 @@
 
 ---
 
-## ステップ1 — リージョンの設定
-
-他のSDKメソッドを呼び出す前に、必ずリージョンを設定してください。
-
-```swift
-RakutenReward.shared.region = .japan
-```
-
----
-
-## ステップ2 — SDKの初期化
+## ステップ1 — SDKの初期化
 
 ### オプション A: RakutenAuth（SDK 提供のログイン）
 

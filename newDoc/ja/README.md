@@ -81,17 +81,14 @@ Carthage でビルドされた `XCFramework` をターゲットの **Frameworks,
 ## クイックスタート
 
 ```swift
-// 1. リージョンを設定（現在は日本のみ）
-RakutenReward.shared.region = .japan
-
-// 2. トークンプロバイダーで初期化（v9 推奨方法）
+// 1. トークンプロバイダーで初期化（v9 推奨方法）
 RakutenReward.shared.initSdk(
     appCode: "YOUR_APP_CODE",
     tokenType: .rid,
     tokenProvider: MyTokenProvider.shared
 )
 
-// 3. ユーザーがアクションを行ったときにログを記録する
+// 2. ユーザーがアクションを行ったときにログを記録する
 RakutenReward.shared.logAction(actionCode: "YOUR_ACTION_CODE") { _ in }
 ```
 

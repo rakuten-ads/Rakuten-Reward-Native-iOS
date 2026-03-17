@@ -80,17 +80,14 @@ Drag the built `XCFramework` from `Carthage/Build/` into the **Frameworks, Libra
 ## Quick Start
 
 ```swift
-// 1. Set region (Japan only for now)
-RakutenReward.shared.region = .japan
-
-// 2. Initialize with your token provider (v9 recommended approach)
+// 1. Initialize with your token provider (v9 recommended approach)
 RakutenReward.shared.initSdk(
     appCode: "YOUR_APP_CODE",
     tokenType: .rid,
     tokenProvider: MyTokenProvider.shared
 )
 
-// 3. Log an action when the user completes something
+// 2. Log an action when the user completes something
 RakutenReward.shared.logAction(actionCode: "YOUR_ACTION_CODE") { _ in }
 ```
 

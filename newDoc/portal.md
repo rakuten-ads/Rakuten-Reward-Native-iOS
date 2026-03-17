@@ -12,8 +12,8 @@ The SDK Portal is a full-screen UI where users can:
 - Review their point history and current point balance
 - Manage SDK notification preferences
 
-![Portal screen 1](images/Portal1.png) ![Portal screen 2](images/Portal2.png) ![Portal screen 3](images/Portal3.png)
-![Portal screen 4](images/Portal4.png) ![Portal screen 5](images/Portal5.png) ![Portal screen 6](images/Portal6.png)
+<img src="images/Portal1.png" alt="Portal screen 1" width="200"> <img src="images/Portal2.png" alt="Portal screen 2" width="200"> <img src="images/Portal3.png" alt="Portal screen 3" width="200">
+<img src="images/Portal4.png" alt="Portal screen 4" width="200"> <img src="images/Portal5.png" alt="Portal screen 5" width="200"> <img src="images/Portal6.png" alt="Portal screen 6" width="200">
 
 ### Opening the SDK Portal
 
