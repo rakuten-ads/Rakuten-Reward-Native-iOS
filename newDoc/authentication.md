@@ -179,33 +179,6 @@ The SDK calls this method on demand. Your implementation should:
 
 ---
 
-## ID SDK Scope Requirements
+## SDK Scope Requirements
 
-If you use the Rakuten ID SDK (RID), your client ID must have the `mission-sdk` scope:
-
-1. File a ticket in [ID Client Support](https://confluence.rakuten-it.com/confluence/display/id/ID+Client+Support+Ticket+Creation) to add CAT audience `https://prod.api-catalogue.gateway-api.global.rakuten.com` and the `mission-sdk` scope.
-2. Enable the scope on the API Catalogue dashboard.
-3. Request the scope when fetching the exchange token:
-
-```swift
-let request = try ArtifactRequestBuilder()
-    .set(specifications: ExchangeTokenConfigurationBuilder()
-        .set(audience: audience)
-        .set(scope: ["mission-sdk"])
-        .build())
-    .build()
-```
-
-4. Exchange at: `https://gateway-api.global.rakuten.com/RWDSDK/rpg-api/access_token`
-
-If you use the Rakuten User SDK (RAE), register the `mission-sdk` scope following the [RAE scope registration guide](https://confluence.rakuten-it.com/confluence/x/z5nNkQ) and include it in your login workflow:
-
-```swift
-RBuiltinLoginWorkflow(
-    authenticationSettings: settings,
-    loginDialog: loginDialog,
-    accountSelectionDialog: accountSelectionDialog,
-    authenticatorFactory: RBuiltinJapanIchibaUserAuthenticatorFactory(["mission-sdk"]),
-    presentationConfiguration: presentationConfiguration
-)
-```
+If you need assistance with client ID scope configuration, or are experiencing issues with your access token, please contact us for guidance.
