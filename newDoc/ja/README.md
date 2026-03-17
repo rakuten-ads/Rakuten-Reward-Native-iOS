@@ -6,7 +6,7 @@
 [![Xcode](https://img.shields.io/badge/Xcode-26.2-blue.svg)](https://developer.apple.com/xcode/)
 [![Version](https://img.shields.io/badge/version-9.1.0-green.svg)](changelog.md)
 
-Rakuten Reward SDK を使って楽天リワードのミッション機能をiOSアプリに組み込めます。
+Rakuten Reward Native SDK を使って、iOSアプリで楽天リワードのミッション機能を利用できます。
 ユーザーはアプリ内のアクションを完了してポイントを獲得できます。ミッションの管理・ポイントのクレイム・組み込みUIはSDKが提供します。
 
 ---

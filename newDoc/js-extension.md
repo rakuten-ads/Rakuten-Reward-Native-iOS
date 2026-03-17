@@ -8,7 +8,7 @@ This is useful when part of your app experience is web-based but you still want 
 
 ## How It Works
 
-1. You configure the `WKWebViewConfiguration` with `RewardJS` before creating the web view.
+1. Create your `WKWebView` and pass it to `RewardJS.shared.setupWebView`.
 2. The JavaScript library in the web page calls `missionsdk` extension methods.
 3. The native SDK intercepts these calls and executes the corresponding iOS SDK API.
 
@@ -18,22 +18,24 @@ For the JavaScript side of the integration, see the [Rakuten Reward JS library](
 
 ## iOS Setup
 
-Call `setupWebView` before loading any content in the web view:
+Create your `WKWebView` first, then call `setupWebView` before loading any content:
 
 ```swift
+let webView = WKWebView(frame: .zero)
+
 RewardJS.shared.setupWebView(
     appcode: "YOUR_APP_CODE",
     domain: "yourdomain.com",
-    config: webViewConfiguration,
-    completion: { result in
-        switch result {
-        case .success:
-            // Configuration succeeded — create your WKWebView with this config
-        case .failure(let error):
-            // RewardJSError
-        }
+    webview: webView
+) { result in
+    switch result {
+    case .success:
+        // Setup succeeded — load your content
+        webView.load(URLRequest(url: yourURL))
+    case .failure(let error):
+        // RewardJSError
     }
-)
+}
 ```
 
 ### Parameters
@@ -42,8 +44,18 @@ RewardJS.shared.setupWebView(
 |---|---|
 | `appcode` | Your application key from the Rakuten Reward Developer Portal |
 | `domain` | The domain of the web page that implements the JS extension |
-| `config` | The `WKWebViewConfiguration` you will use to create your `WKWebView` |
-| `completion` | Callback returning `Result<Void, RewardJSError>` |
+| `webview` | The `WKWebView` instance to configure |
+| `completion` | Callback returning `Result<Void, RewardJSError>` on the main thread |
+
+### RewardJSError
+
+| Case | Description |
+|---|---|
+| `invalidAppcode` | The app code is empty or invalid |
+| `failToGetTimeInterval` | Could not generate a cookie expiry time |
+| `failToCreateCookie` | Cookie creation failed |
+| `failToEncodeAppcode` | App code percent-encoding failed |
+| `unknown` | An unexpected error occurred |
 
 ---
 
@@ -56,3 +68,7 @@ The following Reward SDK APIs can be triggered from JavaScript:
 | `missionsdk.logAction(...)` | `RakutenReward.shared.logAction` |
 | `missionsdk.openSDKPortal()` | `RakutenReward.shared.openPortal` |
 | `missionsdk.openSpsPortal()` | `RakutenReward.shared.openSpsPortal` |
+| `missionsdk.getUserRewardPoint()` | `RakutenReward.shared.getCurrentMonthPoints` |
+| `missionsdk.getPointHistory()` | `RakutenReward.shared.getPointHistory` |
+| `missionsdk.getLSProcessingPoint(...)` | `RakutenReward.shared.getLSProcessingPoint` |
+| `missionsdk.getLSPointHistory(...)` | `RakutenReward.shared.getLSPointHistory` |

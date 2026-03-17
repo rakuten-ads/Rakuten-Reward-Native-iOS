@@ -34,9 +34,7 @@ SPS uses a separate authentication system from the main Reward SDK. You must obt
 
 ### Required CAT Scopes
 
-| Audience | Scopes |
-|---|---|
-| `rakuten_sp_scr_web` | `sps-basic`, `sps-point`, `sps-register`, `sps-fast-reg` |
+If you need information about the required audience and scope configuration for SPS, please contact us for guidance.
 
 ### Implementing `SdkTokenProvider`
 

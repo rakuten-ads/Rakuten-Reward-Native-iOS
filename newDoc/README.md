@@ -6,7 +6,7 @@
 [![Xcode](https://img.shields.io/badge/Xcode-26.2-blue.svg)](https://developer.apple.com/xcode/)
 [![Version](https://img.shields.io/badge/version-9.1.0-green.svg)](changelog.md)
 
-The Rakuten Reward Native SDK lets your iOS app participate in the Rakuten Reward mission programme. Users earn points by completing in-app actions; the SDK handles mission tracking, point claiming, and the built-in UI for you.
+The Rakuten Reward Native SDK lets your iOS app use Rakuten Reward mission feature. Users earn points by completing in-app actions; the SDK handles mission tracking, point claiming, and the built-in UI for you.
 
 ---
 
