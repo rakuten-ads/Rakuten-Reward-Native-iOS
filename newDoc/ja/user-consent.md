@@ -121,4 +121,4 @@ func performActionIfReady() {
 
 ---
 
-> [![en](../../../docs/doc/lang/en.png)](../user-consent.md) English version
+> [![en](../images/en.png)](../user-consent.md) English version

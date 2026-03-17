@@ -114,4 +114,4 @@ RakutenReward.shared.logAction(actionCode: "code") { _ in }
 
 ---
 
-> [![en](../../../docs/doc/lang/en.png)](../migration-to-v9.md) English version
+> [![en](../images/en.png)](../migration-to-v9.md) English version

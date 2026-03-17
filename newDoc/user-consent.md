@@ -16,6 +16,8 @@ Since v5.0.0, users must accept the Rakuten Reward terms of service and privacy 
 
 Show the consent dialog when appropriate (e.g., after login, or when you detect `.userNotConsent` status):
 
+![Consent dialog](images/consent-dialog.png)
+
 ```swift
 RakutenReward.shared.requestForConsent { status in
     switch status {
@@ -40,6 +42,8 @@ If the user has already provided consent, the dialog is skipped and `.consentPro
 ## Consent Notification Banner
 
 For a less intrusive prompt, show a banner that the user can tap to open the full consent dialog:
+
+![Consent banner](images/consent-banner.png)
 
 ```swift
 RakutenReward.shared.showConsentBanner { status in

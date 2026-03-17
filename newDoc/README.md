@@ -115,7 +115,7 @@ See [Authentication & Initialization](authentication.md) for a full setup guide.
 
 ---
 
-> [![ja](../../docs/doc/lang/ja.png)](ja/README.md) 日本語版
+> [![ja](images/ja.png)](ja/README.md) 日本語版
 
 ---
 

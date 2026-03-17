@@ -115,7 +115,7 @@ RakutenReward.shared.logAction(actionCode: "YOUR_ACTION_CODE") { _ in }
 
 ---
 
-> [![en](../../docs/doc/lang/en.png)](../README.md) English version
+> [![en](../images/en.png)](../README.md) English version
 
 ---
 

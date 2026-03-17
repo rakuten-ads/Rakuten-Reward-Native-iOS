@@ -202,4 +202,4 @@ RakutenReward.shared.getPointHistory { result in
 
 ---
 
-> [![en](../../../docs/doc/lang/en.png)](../missions.md) English version
+> [![en](../images/en.png)](../missions.md) English version

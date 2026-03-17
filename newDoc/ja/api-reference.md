@@ -361,4 +361,4 @@ Link Share API で使用します：
 
 ---
 
-> [![en](../../../docs/doc/lang/en.png)](../api-reference.md) English version
+> [![en](../images/en.png)](../api-reference.md) English version

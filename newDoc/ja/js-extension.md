@@ -75,4 +75,4 @@ RewardJS.shared.setupWebView(
 
 ---
 
-> [![en](../../../docs/doc/lang/en.png)](../js-extension.md) English version
+> [![en](../images/en.png)](../js-extension.md) English version

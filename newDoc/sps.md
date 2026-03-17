@@ -2,6 +2,8 @@
 
 Super Point Screen (SPS) is an ad-based feature that lets users earn SPS points by viewing and interacting with ads. It is an optional add-on to the main Reward SDK.
 
+![SPS lock screen ad](images/lockscreen.png)
+
 ---
 
 ## Prerequisites
@@ -89,9 +91,13 @@ The `rzCookie` parameter is mandatory from v8.5.0. You can set it centrally:
 RewardConfiguration.rzCookie = "your_rz_cookie"
 ```
 
+![SPS home screen](images/spshomescreen.png) ![Mission screen](images/missionscreen.png)
+
 ### Non-SPS Members
 
 If the logged-in user is not yet an SPS member, a registration screen is displayed before the main portal. The user can register from that screen.
+
+![SPS registration screen](images/registrationscreen.png)
 
 ---
 
@@ -99,11 +105,15 @@ If the logged-in user is not yet an SPS member, a registration screen is display
 
 When the SPS library is present, the standard Reward SDK claim point screen is replaced with an SPS-enhanced version.
 
+![SPS claim point screen](images/claimscreen.png)
+
 ---
 
 ## Theme Synchronization
 
 Users can choose between two themes in the SPS Portal settings screen:
+
+![Theme settings screen](images/modesettingsscreen.png)
 
 | Theme | Description |
 |---|---|

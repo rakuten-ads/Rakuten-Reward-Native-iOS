@@ -28,7 +28,6 @@ See [Migration to v9](migration-to-v9.md) for upgrade steps.
 **Released:** 2025-11-06 · Xcode 16.2 · Swift 6.x
 
 - Improvement: Support 3-digit action count in SDK Portal (previously truncated)
-- Bug fix: Sample app key settings auto-dismissed on iOS 26
 
 ---
 
@@ -45,11 +44,10 @@ See [Migration to v9](migration-to-v9.md) for upgrade steps.
 **Released:** 2025-07-15 · Xcode 16.2 · Swift 6.x
 
 - **New:** Maintenance mode — SDK reports `SDKError.onMaintenanceMode` when server is under maintenance
-- Update: SaaS onboarding image refresh
-- Update: SaaS onboarding popup behaviour aligned with Android
+- Update: Onboarding screen image refresh
+- Update: Onboarding popup behaviour aligned with Android
 - Fix: SPS mode settings UI — English text truncated
 - Fix: Removed share button from Point History screen
-- Internal: WebSDK updated to v0.7.0
 
 ---
 
@@ -62,7 +60,6 @@ See [Migration to v9](migration-to-v9.md) for upgrade steps.
 - Fix: Removed shadow from SPS home page menu
 - Fix: Panda animation no longer obscures the point earned text
 - Fix: SPS lockscreen ad — tapping an external link no longer incorrectly closes the webview
-- Internal: WebSDK updated to v0.6.2; 401 token auto-retry in SPS home page
 
 ---
 
@@ -77,10 +74,9 @@ See [Migration to v9](migration-to-v9.md) for upgrade steps.
 **Released:** 2025-04-29 · Xcode 16.2 · Swift 6.x
 
 - **Breaking:** Minimum iOS raised to 14.0
-- Now uses ScreenSDK for SPS
-- Fix: SaaS mini-browser "Done" button incorrectly shown when points not yet granted
+- Fix: Portal mini-browser "Done" button incorrectly shown when points not yet granted
 - Fix: Mission point history screen — top area was accidentally tappable
-- Fix: SPS/Mission tabs in SaaS Portal could be selected multiple times
+- Fix: SPS/Mission tabs in portal could be selected multiple times
 
 ---
 
@@ -344,7 +340,6 @@ See [Migration to v9](migration-to-v9.md) for upgrade steps.
 
 - Fix: Xcode 13.3 compiler error
 - **Important:** Apps using ID SDK or User SDK must now call `logout()` when the user signs out
-- Added DocC documentation
 - Bug fixes
 
 ---

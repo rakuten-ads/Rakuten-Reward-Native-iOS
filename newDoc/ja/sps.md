@@ -134,4 +134,4 @@ RewardConfiguration.setTheme(.simple)
 
 ---
 
-> [![en](../../../docs/doc/lang/en.png)](../sps.md) English version
+> [![en](../images/en.png)](../sps.md) English version

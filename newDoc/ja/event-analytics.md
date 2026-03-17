@@ -76,4 +76,4 @@ RakutenMissionEvent.shared.logAction(
 
 ---
 
-> [![en](../../../docs/doc/lang/en.png)](../event-analytics.md) English version
+> [![en](../images/en.png)](../event-analytics.md) English version

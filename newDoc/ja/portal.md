@@ -97,4 +97,4 @@ RakutenReward.shared.openSupportPage(.spsPrivacyPolicy)
 
 ---
 
-> [![en](../../../docs/doc/lang/en.png)](../portal.md) English version
+> [![en](../images/en.png)](../portal.md) English version
