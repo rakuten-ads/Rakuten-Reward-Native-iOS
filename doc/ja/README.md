@@ -1,145 +1,122 @@
-<div id="top"></div>
+# Rakuten Reward SDK ネイティブ — iOS
 
-[![Platform](http://img.shields.io/badge/platform-iOS-blue.svg?style=flat)](https://developer.apple.com/ios/)
-![iOS](http://img.shields.io/badge/support-iOS_13+-blue.svg?style=flat)
-![Xcode](http://img.shields.io/badge/IDE-Xcode_14+-blue.svg?style=flat)
+[![Platform](https://img.shields.io/badge/platform-iOS-blue.svg)](https://developer.apple.com/ios/)
+[![iOS](https://img.shields.io/badge/iOS-14%2B-blue.svg)](https://developer.apple.com/ios/)
+[![Swift](https://img.shields.io/badge/Swift-6.x-orange.svg)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-26.2-blue.svg)](https://developer.apple.com/xcode/)
+[![Version](https://img.shields.io/badge/version-9.1.0-green.svg)](changelog.md)
 
-# Rakuten Reward SDK ネイティブ
+Rakuten Reward Native SDK を使って、iOSアプリで楽天リワードのミッション機能を利用できます。
+ユーザーはアプリ内のアクションを完了してポイントを獲得できます。ミッションの管理・ポイントのクレイム・組み込みUIはSDKが提供します。
 
 ---
-# はじめに
 
-<div id="prerequisites"></div>
+## 動作要件
 
-## 前提
+| 要件 | 値 |
+|---|---|
+| Xcode | 26.2 以上 |
+| Swift | 6.x |
+| iOS デプロイターゲット | 14.0 以上 |
+| SDK バージョン | 9.1.0 |
 
-* Use Xcode 16 以上
-* iOS SDK 18　以上
-* 楽天 IDSDK もしくは SDKが用意するログインを使用する
+### バージョン互換表
 
+| SDK バージョン | 最低 iOS | Xcode |
+|---|---|---|
+| 1.x | 9 | 11 |
+| 2.x | 9 | 12 |
+| 3.x | 9 | 13 |
+| 4.x | 11 | 14 |
+| 5.x | 11 | 14 |
+| 6.x | 11 | 15 |
+| 7.x | 13 | 15 |
+| 8.x | 13 | 16 |
+| 9.x | 14 | 26 |
 
-| Version        | Minimum OS           | Compile OS
---- | --- | ---
-|1.0.0|9|13|
-|1.1.0|9|13|
-|1.0.2|9|13|
-|1.0.3|9|13|
-|1.0.4|9|14|
-|2.0.0|9|14|
-|2.1.0|9|14|
-|2.1.1|9|14|
-|2.2.0|9|14|
-|2.2.1|9|14|
-|2.3.0|9|14|
-|2.3.1|9|14|
-|3.0.0|9|15|
-|3.0.1|9|15|
-|3.0.2|9|15|
-|3.1.0|9|15|
-|3.2.0|9|15|
-|3.3.0|11|15|
-|3.3.1|11|15|
-|3.3.2|11|15|
-|3.4.0|11|15|
-|3.4.1|11|15|
-|3.4.2|11|15|
-|3.4.3|11|15|
-|3.4.4|11|15|
-|3.4.5|11|15|
-|3.5.0|11|15|
-|3.5.1|11|15|
-|3.5.2|11|15|
-|3.6.0|11|15|
-|3.6.1|11|15|
-|4.0.0|11|16|
-|4.1.0|11|16|
-|5.0.0|11|16|
-|5.1.0|11|16|
-|6.0.0|11|17|
-|6.1.0|11|17|
-|6.2.0|12|17|
-|6.3.0|12|17|
-|6.4.0|12|17|
-|7.0.0|13|17|
-|7.1.0|13|17|
-|7.2.0|13|17|
-|8.0.0|13|18|
-|8.0.1|13|18|
-|8.1.0|13|18|
-|8.1.1|13|18|
-|8.2.0|13|18|
-|8.2.1|13|18|
-|8.3.0|13|18|
-|8.3.1|13|18|
-|8.4.0|14|18|
-|8.4.1|14|18|
-|8.5.0|14|18|
-|8.6.0|14|18|
-|8.7.0|14|18|
-|8.7.1|14|18|
-|8.8.0|14|18|
-|8.8.1|14|18|
-|9.0.0|14|26|
-|9.1.0|14|26|
+---
 
-<div id="import_sdk"></div>
+## SDKのインストール
 
-## Reward SDKをインポートする
+### CocoaPods
 
-### Use Cocoapods
-```
+```ruby
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
-target '' do
-pod 'RakutenRewardNativeSDK', '9.1.0'
+target 'YourApp' do
+  pod 'RakutenRewardNativeSDK', '9.1.0'
 end
-
 ```
 
-### Swift Package Manager (SPM) を利用する場合
+### Swift Package Manager
 
-以下の依存関係を追加する
-
-```
+```swift
 dependencies: [
-    .package(url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM", .exact("9.1.0")),
+    .package(
+        url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM",
+        .exact("9.1.0")
+    ),
 ]
 ```
 
-### Carthage の場合
+### Carthage
 
-プロジェクトの Cartfile を開き、 Reward Native SDK の依存関係を追加する
+`Cartfile` に以下を追加してください：
 
 ```
 binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 9.1.0
 ```
 
-carthage を実行して Reward Native SDK をダウンロードする(XCFramework)
+XCFramework を使って Carthage を実行します：
 
 ```bash
 carthage update --platform ios --use-xcframeworks
 ```
 
-アプリケーションのプロジェクトワークスペースを開く
-
-Carthage でのビルドバイナリをドラッグ＆ドロップし Embedded に加える
-<br>
-
-## Usage
-[基本ガイド](./basic/README.md)  
-[APIガイド](./APIReference/README.md)<br>
-[利用規約への同意について](./UserConsent/README.md)<br>
-[FAQ](./FAQ/FAQ.md)
-<br>
-
-[基本ガイド (Objective-c)](../Objective-C/ja/basic/README.md)  
-[APIガイド (Objective-c)](../Objective-C/ja/APIReference/README.md)<br>
-[FAQ (Objective-c)](../Objective-C/ja/FAQ/FAQ.md)
-
-## 更新履歴
-[更新履歴](./history/README.md)
+Carthage でビルドされた `XCFramework` をターゲットの **Frameworks, Libraries, and Embedded Content** にドラッグ＆ドロップしてください。
 
 ---
-LANGUAGE :
-> [![en](../lang/en.png)](../../README.md)
+
+## クイックスタート
+
+```swift
+// 1. トークンプロバイダーで初期化（v9 推奨方法）
+RakutenReward.shared.initSdk(
+    appCode: "YOUR_APP_CODE",
+    tokenType: .rid,
+    tokenProvider: MyTokenProvider.shared
+)
+
+// 2. ユーザーがアクションを行ったときにログを記録する
+RakutenReward.shared.logAction(actionCode: "YOUR_ACTION_CODE") { _ in }
+```
+
+詳細については [認証と初期化](authentication.md) をご覧ください。
+
+---
+
+## ドキュメント
+
+| 目的 | ドキュメント |
+|---|---|
+| SDKの初期化 | [認証と初期化](authentication.md) |
+| ユーザーのポイント獲得 | [ミッションとポイントのクレイム](missions.md) |
+| ユーザーのプライバシー同意 | [利用規約への同意](user-consent.md) |
+| SDKポータル・SPSポータルの表示 | [ポータル](portal.md) |
+| Super Point Screen 広告の組み込み | [Super Point Screen (SPS)](sps.md) |
+| WebView から SDK API を呼び出す | [JavaScript 拡張機能](js-extension.md) |
+| APIの詳細を調べる | [API リファレンス](api-reference.md) |
+| バージョンアップ | [v9 移行ガイド](migration-to-v9.md) |
+| リリース内容の確認 | [更新履歴](changelog.md) |
+
+---
+
+> [![en](../images/en.png)](../../README.md) English version
+
+---
+
+## オープンソース
+
+本 SDK は [KeychainSwiftWrapper](https://github.com/jrendel/SwiftKeychainWrapper) を使用しています。
+Marcin Krzyzanowski (http://krzyzanowskim.com/) によって開発されたソフトウェアが含まれています。
