@@ -2,6 +2,15 @@
 
 ---
 
+## 9.2.0
+**Released:** 2026-05-22 · Xcode 26.2 · Swift 6.x · iOS 14+
+
+- **Deprecation:** Objective-C APIs are now deprecated and will be removed in v10.0. See [Objective-C Guide](objective-c.md) for migration guidance.
+- New: TDA ad supported in SPS lockscreen and fullscreen ads
+- Bug fixes
+
+---
+
 ## 9.1.0
 **Released:** 2026-03-12 · Xcode 26.2 · Swift 6.x · iOS 14+
 
