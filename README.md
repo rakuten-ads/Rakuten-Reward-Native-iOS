@@ -4,7 +4,7 @@
 [![iOS](https://img.shields.io/badge/iOS-14%2B-blue.svg)](https://developer.apple.com/ios/)
 [![Swift](https://img.shields.io/badge/Swift-6.x-orange.svg)](https://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-26.2-blue.svg)](https://developer.apple.com/xcode/)
-[![Version](https://img.shields.io/badge/version-9.1.0-green.svg)](doc/changelog.md)
+[![Version](https://img.shields.io/badge/version-9.2.0-green.svg)](doc/changelog.md)
 
 The Rakuten Reward Native SDK lets your iOS app use Rakuten Reward mission feature. Users earn points by completing in-app actions; the SDK handles mission tracking, point claiming, and the built-in UI for you.
 
@@ -17,7 +17,7 @@ The Rakuten Reward Native SDK lets your iOS app use Rakuten Reward mission featu
 | Xcode | 26.2 or later |
 | Swift | 6.x |
 | iOS Deployment Target | 14.0 or later |
-| SDK Version | 9.1.0 |
+| SDK Version | 9.2.0 |
 
 ### Version Compatibility
 
@@ -44,7 +44,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target 'YourApp' do
-  pod 'RakutenRewardNativeSDK', '9.1.0'
+  pod 'RakutenRewardNativeSDK', '9.2.0'
 end
 ```
 
@@ -54,7 +54,7 @@ end
 dependencies: [
     .package(
         url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM",
-        .exact("9.1.0")
+        .exact("9.2.0")
     ),
 ]
 ```
@@ -64,7 +64,7 @@ dependencies: [
 Add to your `Cartfile`:
 
 ```
-binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 9.1.0
+binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 9.2.0
 ```
 
 Then update and embed the framework:
