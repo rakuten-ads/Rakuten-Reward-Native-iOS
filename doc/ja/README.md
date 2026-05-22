@@ -4,7 +4,7 @@
 [![iOS](https://img.shields.io/badge/iOS-14%2B-blue.svg)](https://developer.apple.com/ios/)
 [![Swift](https://img.shields.io/badge/Swift-6.x-orange.svg)](https://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-26.2-blue.svg)](https://developer.apple.com/xcode/)
-[![Version](https://img.shields.io/badge/version-9.1.0-green.svg)](changelog.md)
+[![Version](https://img.shields.io/badge/version-9.2.0-green.svg)](changelog.md)
 
 Rakuten Reward Native SDK を使って、iOSアプリで楽天リワードのミッション機能を利用できます。
 ユーザーはアプリ内のアクションを完了してポイントを獲得できます。ミッションの管理・ポイントのクレイム・組み込みUIはSDKが提供します。
@@ -18,7 +18,7 @@ Rakuten Reward Native SDK を使って、iOSアプリで楽天リワードのミ
 | Xcode | 26.2 以上 |
 | Swift | 6.x |
 | iOS デプロイターゲット | 14.0 以上 |
-| SDK バージョン | 9.1.0 |
+| SDK バージョン | 9.2.0 |
 
 ### バージョン互換表
 
@@ -45,7 +45,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target 'YourApp' do
-  pod 'RakutenRewardNativeSDK', '9.1.0'
+  pod 'RakutenRewardNativeSDK', '9.2.0'
 end
 ```
 
@@ -55,7 +55,7 @@ end
 dependencies: [
     .package(
         url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM",
-        .exact("9.1.0")
+        .exact("9.2.0")
     ),
 ]
 ```
@@ -65,7 +65,7 @@ dependencies: [
 `Cartfile` に以下を追加してください：
 
 ```
-binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 9.1.0
+binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 9.2.0
 ```
 
 XCFramework を使って Carthage を実行します：
