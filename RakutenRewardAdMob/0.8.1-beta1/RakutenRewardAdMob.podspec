@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
     s.homepage          = 'https://developer.reward.rakuten.co.jp/'
     s.author            = 'SDK team, Core Platform Section, Rakuten Asia Pte. Ltd.'
     s.license           = { :type => 'Commercial', :text => 'Copyright © Rakuten Asia Pte. Ltd. All Rights Reserved.' }
-    s.user_target_xcconfig = { 'ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES' => 'YES' }
+    s.user_target_xcconfig = { 'ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES' => 'YES', 'ENABLE_USER_SCRIPT_SANDBOXING' => 'NO' }
     s.platform          = :ios
     s.source            = { :http => 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS/releases/download/0.8.1-beta1/RakutenRewardAdMob.xcframework.zip' }
     s.swift_versions        = ['5.0']
