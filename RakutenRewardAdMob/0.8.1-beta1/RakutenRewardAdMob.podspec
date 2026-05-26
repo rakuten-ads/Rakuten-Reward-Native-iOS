@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
     s.ios.vendored_frameworks = ['RakutenRewardAdMob.xcframework']
 
     s.dependency 'RakutenRewardNativeSDK', '0.8.1-beta1'
-    s.dependency 'Google-Mobile-Ads-SDK', '~> 12.14'
+    s.dependency 'Google-Mobile-Ads-SDK', '>= 12.14'
 end
