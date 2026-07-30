@@ -2,6 +2,17 @@
 
 ---
 
+## 9.2.1
+**Released:** 2026-07-30 · Xcode 26.2 · Swift 6.x · iOS 14+
+
+- Show progress count in mission list screen
+- JavaScript Extension module:
+  - Added new JS interface APIs with unified callback result shape
+  - Added getMissionLite, getMissionDetails, getUnclaimList, and claimMissionPoint APIs
+  - User not consent status will automatically show TOS popup to request user consent
+
+---
+
 ## 9.2.0
 **Released:** 2026-05-22 · Xcode 26.2 · Swift 6.x · iOS 14+
 
