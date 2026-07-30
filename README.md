@@ -17,7 +17,7 @@ The Rakuten Reward Native SDK lets your iOS app use Rakuten Reward mission featu
 | Xcode | 26.2 or later |
 | Swift | 6.x |
 | iOS Deployment Target | 14.0 or later |
-| SDK Version | 9.2.0 |
+| SDK Version | 9.2.1 |
 
 ### Version Compatibility
 
@@ -44,7 +44,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target 'YourApp' do
-  pod 'RakutenRewardNativeSDK', '9.2.0'
+  pod 'RakutenRewardNativeSDK', '9.2.1'
 end
 ```
 
@@ -54,7 +54,7 @@ end
 dependencies: [
     .package(
         url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM",
-        .exact("9.2.0")
+        .exact("9.2.1")
     ),
 ]
 ```
