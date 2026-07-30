@@ -2,6 +2,17 @@
 
 ---
 
+## 9.2.1
+**リリース日：** 2026-07-30 · Xcode 26.2 · Swift 6.x · iOS 14 以上
+
+- ミッション一覧画面に進捗数を表示
+- JavaScript拡張モジュール：
+  - 統一されたコールバック結果形式を持つ新しいJSインターフェースAPIを追加
+  - `getMissionLite`、`getMissionDetails`、`getUnclaimList`、`claimMissionPoint` APIを追加
+  - User not consent ステータスの場合、ユーザーの同意を求めるTOSポップアップを自動的に表示
+
+---
+
 ## 9.2.0
 **リリース日：** 2026-05-22 · Xcode 26.2 · Swift 6.x · iOS 14 以上
 
