@@ -59,24 +59,6 @@ dependencies: [
 ]
 ```
 
-### Carthage
-
-Add to your `Cartfile`:
-
-```
-binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 9.2.0
-```
-
-Then update and embed the framework:
-
-```bash
-carthage update --platform ios --use-xcframeworks
-```
-
-Drag the built `XCFramework` from `Carthage/Build/` into the **Frameworks, Libraries, and Embedded Content** section of your target.
-
----
-
 ## Quick Start
 
 ```swift
