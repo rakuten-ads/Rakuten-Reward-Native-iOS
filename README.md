@@ -17,7 +17,7 @@ The Rakuten Reward Native SDK lets your iOS app use Rakuten Reward mission featu
 | Xcode | 26.2 or later |
 | Swift | 6.x |
 | iOS Deployment Target | 14.0 or later |
-| SDK Version | 9.2.1 |
+| SDK Version | 9.2.2 |
 
 ### Version Compatibility
 
