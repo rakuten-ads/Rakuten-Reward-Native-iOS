@@ -1,108 +1,123 @@
-# RAKUTEN REWARD NATIVE SDK - iOS
+# Rakuten Reward Native SDK — iOS
 
-Required Xcode: Xcode 11 and later (due to Swift 5, XCFramework, SwiftUI)
+[![Platform](https://img.shields.io/badge/platform-iOS-blue.svg)](https://developer.apple.com/ios/)
+[![iOS](https://img.shields.io/badge/iOS-14%2B-blue.svg)](https://developer.apple.com/ios/)
+[![Swift](https://img.shields.io/badge/Swift-6.x-orange.svg)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-26.2-blue.svg)](https://developer.apple.com/xcode/)
+[![Version](https://img.shields.io/badge/version-9.3.0-green.svg)](doc/changelog.md)
 
-## Code generation tool (Optional)
+The Rakuten Reward Native SDK lets your iOS app use Rakuten Reward mission feature. Users earn points by completing in-app actions; the SDK handles mission tracking, point claiming, and the built-in UI for you.
 
-- Natalie (for Storyboard)
-- BartyCrouch (for NSLocalizedString)
+---
 
-Shark:
+## Requirements
 
-```zsh
-shark RakutenRewardNativeSDK.xcodeproj RakutenRewardNativeSDK/Shark.swift --target RakutenRewardNativeSDK
+| Requirement | Value |
+|---|---|
+| Xcode | 26.2 or later |
+| Swift | 6.x |
+| iOS Deployment Target | 14.0 or later |
+| SDK Version | 9.3.0 |
+
+### Version Compatibility
+
+| SDK Version | Minimum iOS | Xcode |
+|---|---|---|
+| 1.x | 9 | 11 |
+| 2.x | 9 | 12 |
+| 3.x | 9 | 13 |
+| 4.x | 11 | 14 |
+| 5.x | 11 | 14 |
+| 6.x | 11 | 15 |
+| 7.x | 13 | 15 |
+| 8.x | 13 | 16 |
+| 9.x | 14 | 26 |
+
+---
+
+## Installation
+
+### CocoaPods
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
+
+target 'YourApp' do
+  pod 'RakutenRewardNativeSDK', '9.3.0'
+end
 ```
 
-Discard `UIColor` change (iOS 11 reason)
-Optional: change privacy settings to `internal`
+### Swift Package Manager
 
-## Previews for screens (for quickly reproduce a UI bug). 
+```swift
+dependencies: [
+    .package(
+        url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM",
+        .exact("9.3.0")
+    ),
+]
+```
 
-- `PreviewProvider` of SwiftUI
-- `Creator` in **AppDelegate** of target **RakutenRewardNativeSDKLunchUITests**
+### Carthage
 
-Automation: 
-- Fastlane: build framework, sample and upload to TestFlight by `fastlane DailyReleaseLane` (also requires Xcode 11 as command line tools)
+Add to your `Cartfile`:
 
-## Quick config
+```
+binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 9.3.0
+```
 
-New build and version number for release: **fastlane.swift**
+Then update and embed the framework:
 
-Adding a new app code: **EnvironmentViewController.swift**
+```bash
+carthage update --platform ios --use-xcframeworks
+```
 
-Token service for logging in, refresh token: **AuthService.swift**
+Drag the built `XCFramework` from `Carthage/Build/` into the **Frameworks, Libraries, and Embedded Content** section of your target.
 
-## Sample tips
+---
 
-Please make sure visiting the Environment screen first -> Log In -> Start Session
+## Quick Start
 
-Changing the environment -> Please log in again 
+```swift
+// 1. Initialize with your token provider (v9 recommended approach)
+RakutenReward.shared.initSdk(
+    appCode: "YOUR_APP_CODE",
+    tokenType: .rid,
+    tokenProvider: MyTokenProvider.shared
+)
 
-## Project Structure
+// 2. Log an action when the user completes something
+RakutenReward.shared.logAction(actionCode: "YOUR_ACTION_CODE") { _ in }
+```
 
-* RakutenRewardNativeSDK 
-    * Shared
-        * Assets
-        * Classes
-        * Constants
-        * Localizables
-        * Network
-        * Previews
-        * Utilities
-        * Views
-        * WKWebviews
-    * RewardSDKAPIs
-        * Shared
-            * Ads
-            * Actions
-            * Authentication
-            * Members
-            * Notifications
-            * ObjectiveCWrappers
-            * Poikatsu
-            * PointExchange
-            * PointHistory
-            * Portal
-            * RakutenReward
-            * RewardPortalButton
-            * SupportPages
-    * Resources
+See [Authentication & Initialization](doc/authentication.md) for a full setup guide.
 
-<br>
-<h1>Overview</h1>
+---
 
-<h2>RakutenRewardNativeSDK</h2>
+## Documentation
 
-RakutenRewardNativeSDK is the top-level folder in the project.
+| I want to… | Read |
+|---|---|
+| Initialize SDK | [Authentication & Initialization](doc/authentication.md) |
+| Let users earn points | [Missions & Point Claiming](doc/missions.md) |
+| Handle user privacy consent | [User Consent](doc/user-consent.md) |
+| Show the SDK or SPS portal | [Portals](doc/portal.md) |
+| Integrate Super Point Screen ads | [Super Point Screen (SPS)](doc/sps.md) |
+| Add AdMob interstitial ads to SPS | [AdMob Integration](doc/admob.md) |
+| Trigger SDK APIs from a WebView | [JavaScript Extension](doc/js-extension.md) |
+| Look up a specific API | [API Reference (Swift)](doc/api-reference.md) |
+| Use the SDK from Objective-C | [Objective-C Guide](doc/objective-c.md) |
+| Upgrade from an earlier version | [Migration to v9](doc/migration-to-v9.md) |
+| See what changed in each release | [Changelog](doc/changelog.md) |
 
-<br>
-<h2>Shared</h2>
-In RakutenRewardNativeSDK, we have a shared folder. This folder consists of files that are used across the projects.
+---
 
-<br>
-<h2>RewardSDKAPIs</h2>
+> [![ja](doc/images/ja.png)](doc/ja/README.md) 日本語版
 
-In RakutenRewardNativeSDK, we have a RewardSDKAPIs folder. All files related to RewardSDKAPIs should be here.
+---
 
-RewardSDKAPIs folder has a shared folder. Files that are used across the RewardSDK should be here and the folders like Ads, Actions, Members are organized by feature/module.
+## Open Source
 
-
-
-Below these folders, we should separate files by their type. For example, for Members, we have a few subfolders, APIs, Models, and Requests. We could have other folder types as well. For instance, views folder, shared folder, Models folder and etc.
-
-* RewardSDKAPIs
-    * Members
-        * APIs
-        * Models
-        * Requests
-
-<br>
-<h2>Resources></h2>
-
-In RakutenRewardNativeSDK, we have resources folder. All assets should be here.
-
-## Files structure
-
-Different Classes/Structs/Enums/Protocols should not be added in the same file. It's hard to find a specific class/struct/enum/protocol from the project structure if they are hidden in other files.<br>
-
-For example, we have ContactUsView and HyperlinkedTextview in the same file. We should separate one file for ContactUsView and one file for HyperlinkedTextview.
+This SDK uses [KeychainSwiftWrapper](https://github.com/jrendel/SwiftKeychainWrapper).
+This product includes software developed by Marcin Krzyzanowski (http://krzyzanowskim.com/).
