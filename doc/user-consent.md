@@ -87,26 +87,6 @@ RakutenReward.shared.didDismissConsentUI = {
 
 ---
 
-## Most SDK APIs Require Online Status
-
-Most SDK APIs fail if the status is not `.online`. If you call an API while status is `.userNotConsent`, guard it with a consent check first:
-
-```swift
-func performActionIfReady() {
-    guard RakutenReward.shared.status == .online else {
-        RakutenReward.shared.requestForConsent { status in
-            if status == .consentProvided {
-                RakutenReward.shared.logAction(actionCode: "code") { _ in }
-            }
-        }
-        return
-    }
-    RakutenReward.shared.logAction(actionCode: "code") { _ in }
-}
-```
-
----
-
 ## Consent Status Reference
 
 | Status | Meaning |

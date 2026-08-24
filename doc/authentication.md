@@ -10,7 +10,7 @@ This guide covers every way to authenticate users and initialize the SDK. Read t
 |---|---|---|
 | **RakutenAuth** | Your app has no Rakuten login. The SDK provides its own login UI. | Supported |
 | **RID** (Rakuten ID SDK) | Your app uses the Rakuten ID SDK with RID/API-C tokens. | Supported (recommended) |
-| **RAE** (Rakuten User SDK) | Your app uses the Rakuten User SDK with RAE tokens. | **Deprecated** — migrate to RID before 2025 |
+| **RAE** (Rakuten User SDK) | Your app uses the Rakuten User SDK with RAE tokens. | **Deprecated** — migrate to RID before end of 2025 |
 
 ---
 

@@ -2,6 +2,15 @@
 
 ---
 
+## 9.3.0
+**Released:** 2026-08-24 · Xcode 26.2 · Swift 6.x · iOS 14+
+
+- **New:** Optional AdMob interstitial ad support via the `RakutenRewardAdMob` pod. An interstitial ad is shown automatically after a user earns SPS points. See the [AdMob Integration Guide](admob.md).
+- Remove RAE APIs
+- Bug fixes
+
+---
+
 ## 9.2.1
 **Released:** 2026-07-30 · Xcode 26.2 · Swift 6.x · iOS 14+
 

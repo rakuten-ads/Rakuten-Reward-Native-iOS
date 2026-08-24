@@ -53,6 +53,7 @@ The main entry point for all SDK operations. Access via `RakutenReward.shared`.
 |---|---|
 | `openPortal(completionHandler:)` | Open the SDK Portal |
 | `openSpsPortal(rzCookie:completionHandler:)` | Open the SPS Portal (v8.5.0+) |
+| `openSpsPortal(rzCookie:deeplink:completionHandler:)` | Open the SPS Portal at a specific destination via deeplink |
 | `openSupportPage(_:)` | Open a help/legal page in the mini browser |
 
 ### User Consent
@@ -81,7 +82,7 @@ The main entry point for all SDK operations. Access via `RakutenReward.shared`.
 | `status` | Current `RakutenRewardStatus` |
 | `appCode` | Application code (read-only after init) |
 | `accessToken` | Current access token (read-only) |
-| `tokenType` | Token type (`.rid`, `.rae`, `.rakutenAuth`) |
+| `tokenType` | Token type (`.rid`, `.rakutenAuth`) |
 | `region` | SDK region (`.japan`) |
 | `environment` | `.staging` or `.production` |
 | `blacklistURLs` | URLs the SDK will not access |
@@ -122,7 +123,7 @@ public protocol MissionTokenProvider {
 }
 ```
 
-Implement this protocol to provide tokens for RID or RAE authentication. See [Authentication](authentication.md) for implementation guidance.
+Implement this protocol to provide tokens for RID authentication. See [Authentication](authentication.md) for implementation guidance.
 
 ---
 
@@ -167,7 +168,6 @@ Accessed via `RakutenReward.shared.user`.
 | Case | Description |
 |---|---|
 | `.rid` | Rakuten ID SDK token |
-| `.rae` | Rakuten User SDK token *(deprecated)* |
 | `.rakutenAuth` | SDK-provided login token |
 
 ### RakutenRewardRegion
