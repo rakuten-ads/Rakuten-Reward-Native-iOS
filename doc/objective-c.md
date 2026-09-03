@@ -1,5 +1,7 @@
 # Objective-C Guide
 
+> **Deprecation Notice:** Objective-C support is deprecated as of v9.2.0 and will be **removed in v10.0.0**. All `Objc`-suffixed APIs and wrapper classes now emit deprecation warnings at compile time. Please migrate your integration to Swift before upgrading to v10.
+
 This guide covers integrating the Rakuten Reward Native SDK from Objective-C. The SDK exposes a set of `Objc`-suffixed methods specifically for Objective-C compatibility.
 
 > `MissionTokenProvider` is a Swift `async/await` protocol and is **not available in Objective-C**. Use the `startSession` APIs described below.

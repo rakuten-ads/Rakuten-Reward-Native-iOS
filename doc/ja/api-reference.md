@@ -53,6 +53,7 @@ Objective-C の API については [Objective-C ガイド](../objective-c.md) �
 |---|---|
 | `openPortal(completionHandler:)` | SDK ポータルを開く |
 | `openSpsPortal(rzCookie:completionHandler:)` | SPS ポータルを開く（v8.5.0 以降） |
+| `openSpsPortal(rzCookie:deeplink:completionHandler:)` | ディープリンクで特定の画面を指定して SPS ポータルを開く |
 | `openSupportPage(_:)` | ヘルプ・法的ページをミニブラウザで開く |
 
 ### ユーザー同意
@@ -81,7 +82,7 @@ Objective-C の API については [Objective-C ガイド](../objective-c.md) �
 | `status` | 現在の `RakutenRewardStatus` |
 | `appCode` | アプリコード（初期化後は読み取り専用） |
 | `accessToken` | 現在のアクセストークン（読み取り専用） |
-| `tokenType` | トークンタイプ（`.rid`、`.rae`、`.rakutenAuth`） |
+| `tokenType` | トークンタイプ（`.rid`、`.rakutenAuth`） |
 | `region` | SDKリージョン（`.japan`） |
 | `environment` | `.staging` または `.production` |
 | `blacklistURLs` | SDK がアクセスしない URL |
@@ -122,7 +123,7 @@ public protocol MissionTokenProvider {
 }
 ```
 
-RID または RAE 認証のトークン提供のためにこのプロトコルを実装してください。実装のガイドは [認証と初期化](authentication.md) を参照してください。
+RID 認証のトークン提供のためにこのプロトコルを実装してください。実装のガイドは [認証と初期化](authentication.md) を参照してください。
 
 ---
 
@@ -167,7 +168,6 @@ RID または RAE 認証のトークン提供のためにこのプロトコル�
 | ケース | 説明 |
 |---|---|
 | `.rid` | 楽天 ID SDK トークン |
-| `.rae` | 楽天 User SDK トークン *（非推奨）* |
 | `.rakutenAuth` | SDK 提供ログイントークン |
 
 ### RakutenRewardRegion

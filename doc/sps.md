@@ -141,3 +141,11 @@ RewardConfiguration.setTheme(.panda)
 // Simple theme
 RewardConfiguration.setTheme(.simple)
 ```
+
+---
+
+## Optional: AdMob Interstitial Ads
+
+You can optionally show a Google AdMob interstitial ad after a user earns SPS points. This is handled by a separate pod (`RakutenRewardAdMob`) and requires no changes to your SPS integration.
+
+See the [AdMob Integration Guide](admob.md) for setup instructions.

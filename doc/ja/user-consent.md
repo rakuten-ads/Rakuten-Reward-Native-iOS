@@ -83,26 +83,6 @@ RakutenReward.shared.didDismissConsentUI = {
 
 ---
 
-## ほとんどの SDK API はオンラインステータスが必要
-
-ほとんどの SDK API はステータスが `.online` でない場合に失敗します。`.userNotConsent` の状態でAPIを呼び出す場合は、先に同意確認を行ってください：
-
-```swift
-func performActionIfReady() {
-    guard RakutenReward.shared.status == .online else {
-        RakutenReward.shared.requestForConsent { status in
-            if status == .consentProvided {
-                RakutenReward.shared.logAction(actionCode: "code") { _ in }
-            }
-        }
-        return
-    }
-    RakutenReward.shared.logAction(actionCode: "code") { _ in }
-}
-```
-
----
-
 ## 同意ステータス一覧
 
 | ステータス | 説明 |

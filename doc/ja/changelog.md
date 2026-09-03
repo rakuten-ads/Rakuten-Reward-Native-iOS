@@ -2,6 +2,35 @@
 
 ---
 
+## 9.3.0
+**リリース日：** 2026-08-24 · Xcode 26.2 · Swift 6.x · iOS 14 以上
+
+- **新機能：** `RakutenRewardAdMob` Pod を介したオプションの AdMob インタースティシャル広告サポート。SPS ポイント獲得後にインタースティシャル広告が自動的に表示されます。詳細は [AdMob 連携ガイド](admob.md) をご確認ください。
+- RAE API の削除
+- バグ修正
+
+---
+
+## 9.2.1
+**リリース日：** 2026-07-30 · Xcode 26.2 · Swift 6.x · iOS 14 以上
+
+- ミッション一覧画面に進捗数を表示
+- JavaScript拡張モジュール：
+  - 統一されたコールバック結果形式を持つ新しいJSインターフェースAPIを追加
+  - `getMissionLite`、`getMissionDetails`、`getUnclaimList`、`claimMissionPoint` APIを追加
+  - User not consent ステータスの場合、ユーザーの同意を求めるTOSポップアップを自動的に表示
+
+---
+
+## 9.2.0
+**リリース日：** 2026-05-22 · Xcode 26.2 · Swift 6.x · iOS 14 以上
+
+- **非推奨：** Objective-C API は非推奨となり、v10.0 で削除される予定です。移行方法については [Objective-C ガイド](../objective-c.md) をご確認ください。
+- 新機能：SPS ロック画面・フルスクリーン広告で TDA 広告に対応
+- バグ修正
+
+---
+
 ## 9.1.0
 **リリース日：** 2026-03-12 · Xcode 26.2 · Swift 6.x · iOS 14 以上
 
