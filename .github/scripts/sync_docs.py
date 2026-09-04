@@ -112,6 +112,9 @@ CONFLUENCE_MAPPING = {
     "doc/objective-c.md": [
         {"id": "6863539177", "title": "13 - API Reference | 🍏 iOS"},
     ],
+    "doc/FAQ/FAQ.md": [
+        {"id": "6897971838", "title": "14 - FAQ | 🍏 iOS"},
+    ],
 }
 
 SYSTEM_PROMPT = """You are a technical documentation editor for the Rakuten Reward iOS SDK.
