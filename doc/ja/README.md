@@ -15,10 +15,10 @@ Rakuten Reward Native SDK を使って、iOSアプリで楽天リワードのミ
 
 | 要件 | 値 |
 |---|---|
-| Xcode | 26.2 以上 |
+| Xcode | 26.3 以上 |
 | Swift | 6.x |
 | iOS デプロイターゲット | 14.0 以上 |
-| SDK バージョン | 9.3.0 |
+| SDK バージョン | 9.3.1 |
 
 ### バージョン互換表
 
@@ -45,7 +45,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target 'YourApp' do
-  pod 'RakutenRewardNativeSDK', '9.3.0'
+  pod 'RakutenRewardNativeSDK', '9.3.1'
 end
 ```
 
@@ -55,26 +55,10 @@ end
 dependencies: [
     .package(
         url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM",
-        .exact("9.3.0")
+        .exact("9.3.1")
     ),
 ]
 ```
-
-### Carthage
-
-`Cartfile` に以下を追加してください：
-
-```
-binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 9.3.0
-```
-
-XCFramework を使って Carthage を実行します：
-
-```bash
-carthage update --platform ios --use-xcframeworks
-```
-
-Carthage でビルドされた `XCFramework` をターゲットの **Frameworks, Libraries, and Embedded Content** にドラッグ＆ドロップしてください。
 
 ---
 
