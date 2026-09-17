@@ -1,6 +1,12 @@
 # Changelog
 
 ---
+## 9.3.1
+**Released:** 2026-09-17 · Xcode 26.3 · Swift 6.x · iOS 14+
+
+- Minor UI Fix ( add timer to show close button in fullscreen ad popup )
+
+---
 
 ## 9.3.0
 **Released:** 2026-08-24 · Xcode 26.2 · Swift 6.x · iOS 14+
