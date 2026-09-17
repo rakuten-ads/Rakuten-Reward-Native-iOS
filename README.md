@@ -14,10 +14,10 @@ The Rakuten Reward Native SDK lets your iOS app use Rakuten Reward mission featu
 
 | Requirement | Value |
 |---|---|
-| Xcode | 26.2 or later |
+| Xcode | 26.3 or later |
 | Swift | 6.x |
 | iOS Deployment Target | 14.0 or later |
-| SDK Version | 9.3.0 |
+| SDK Version | 9.3.1 |
 
 ### Version Compatibility
 
@@ -44,7 +44,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS.git'
 
 target 'YourApp' do
-  pod 'RakutenRewardNativeSDK', '9.3.0'
+  pod 'RakutenRewardNativeSDK', '9.3.1'
 end
 ```
 
@@ -54,26 +54,10 @@ end
 dependencies: [
     .package(
         url: "https://github.com/rakuten-ads/Rakuten-Reward-Native-iOS-SPM",
-        .exact("9.3.0")
+        .exact("9.3.1")
     ),
 ]
 ```
-
-### Carthage
-
-Add to your `Cartfile`:
-
-```
-binary "https://raw.githubusercontent.com/rakuten-ads/Rakuten-Reward-Native-iOS/master/CarthageSpec.json" == 9.3.0
-```
-
-Then update and embed the framework:
-
-```bash
-carthage update --platform ios --use-xcframeworks
-```
-
-Drag the built `XCFramework` from `Carthage/Build/` into the **Frameworks, Libraries, and Embedded Content** section of your target.
 
 ---
 
